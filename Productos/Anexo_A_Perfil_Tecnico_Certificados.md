@@ -35,8 +35,8 @@ El presente anexo define los perfiles técnicos de los certificados digitales em
 - **Subject:** 
   - `CN` = Nombre de la persona física
   - `E` = Correo electrónico
-  - `OID.2.5.4.45` = RFC o CURP
-  - `SERIALNUMBER` = CURP o RFC
+  - `OID.2.5.4.45` = RFC
+  - `SERIALNUMBER` = CURP
 - **Subject Public Key Info:** RSA 2048 bits.
 
 ### Extensiones del Certificado de Usuario Final
