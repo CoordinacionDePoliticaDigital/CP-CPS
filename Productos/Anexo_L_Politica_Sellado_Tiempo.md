@@ -1,8 +1,9 @@
 # Anexo L. Política de Sellado de Tiempo
 
 **Documento relacionado:** Política de Certificación CP-ACCHIH-001  
-**Versión:** 1.1  
+**Versión:** 1.2  
 **Estado:** Proyecto revisado  
+**IANA PEN:** `1.3.6.1.4.1.63888`  
 
 ## 1. Objeto y alcance
 
@@ -21,7 +22,7 @@ b) Utilicen fuentes redundantes;
 c) Permitan monitorear desviaciones;  
 d) Generen alertas ante pérdida de sincronización;  
 e) Registren eventos y ajustes relevantes;  
-f) Se sujeten a tolerancias documentadas en la CPS.
+f) Se sujeten a la tolerancia y al método de medición aprobados en la CPS.
 
 No deberán realizarse afirmaciones de equivalencia o superioridad metrológica respecto del CENAM sin evidencia formal que las sustente.
 
@@ -35,7 +36,7 @@ a) Hash del dato o documento sellado;
 b) Algoritmo de hash;  
 c) Fecha y hora;  
 d) Número de serie único;  
-e) Identificador de política;  
+e) Identificador de política asignado bajo `1.3.6.1.4.1.63888`;  
 f) Certificado de la TSA;  
 g) Firma electrónica de la TSA.
 
@@ -47,20 +48,20 @@ a) Ser independiente de la clave de la AC raíz;
 b) Ser independiente de las claves de OCSP y otros servicios;  
 c) Permanecer bajo control de un servicio criptográfico autorizado;  
 d) Estar protegida mediante controles de acceso, separación de funciones, monitoreo y registro de operaciones;  
-e) No ser exportable cuando la tecnología utilizada permita imponer dicha restricción.
+e) Ser no exportable. Cuando una limitación técnica impida aplicar esta restricción, la excepción requerirá aprobación formal de la Coordinación de Política Digital, análisis de riesgo documentado y controles compensatorios equivalentes que protejan la confidencialidad, integridad y uso exclusivo de la clave.
 
-El certificado de la TSA deberá estar limitado exclusivamente al uso de sellado de tiempo mediante la extensión `timeStamping`.
+El certificado de la TSA deberá cumplir íntegramente el perfil autoritativo establecido en el apartado 4.2 del Anexo A. Este documento no redefine ni duplica dicho perfil.
 
 ## 5. Algoritmos
 
 | Elemento | Requisito |
 |---|---|
 | Función hash aceptada | SHA-256 o superior |
-| Algoritmo de firma | RSA con clave de al menos 2048 bits, o algoritmo autorizado equivalente |
+| Algoritmo de firma | Conforme al perfil técnico vigente del Anexo A |
 | Formato | RFC 3161 |
-| Identificador de política | OID aprobado para la política de sellado de tiempo |
+| Identificador de política | OID aprobado y registrado bajo el PEN `1.3.6.1.4.1.63888` |
 
-La longitud exacta de las claves y los algoritmos autorizados deberán definirse en el perfil técnico vigente y revisarse periódicamente.
+Los algoritmos autorizados deberán revisarse periódicamente.
 
 ## 6. Operación y disponibilidad
 
@@ -74,7 +75,7 @@ e) Respaldo de configuraciones y bitácoras;
 f) Procedimientos de continuidad;  
 g) Procedimientos de suspensión controlada cuando no pueda garantizarse la precisión temporal.
 
-La TSA no deberá emitir sellos de tiempo cuando la desviación se encuentre fuera de la tolerancia autorizada.
+La TSA no deberá emitir sellos de tiempo cuando la desviación se encuentre fuera de la tolerancia establecida en la CPS, determinada mediante el método de medición definido en ese mismo documento.
 
 ## 7. Bitácoras y evidencias
 
@@ -91,7 +92,7 @@ h) Cambios de configuración;
 i) Accesos administrativos;  
 j) Incidentes y periodos de indisponibilidad.
 
-La conservación se realizará durante los plazos legales, archivísticos, probatorios y operativos aplicables.
+La Autoridad de Certificación será responsable de la custodia operativa de las bitácoras y evidencias de la TSA, las cuales se conservarán hasta por diez años. Su eliminación solo procederá cuando haya concluido dicho plazo y no exista obligación legal, archivística, probatoria, administrativa, judicial o de seguridad que exija conservarlas por más tiempo.
 
 ## 8. Incidentes
 
