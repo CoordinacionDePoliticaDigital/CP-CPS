@@ -92,7 +92,7 @@ Deberá incluir exclusivamente los usos necesarios para firmar respuestas OCSP y
 
 ### 4.2. Certificado TSA
 
-Deberá utilizarse exclusivamente para sellado de tiempo e incluir `Extended Key Usage: timeStamping`, marcada como crítica cuando así lo requiera el perfil aplicable.
+Deberá utilizarse exclusivamente para sellado de tiempo e incluir una extensión `Extended Key Usage` marcada como crítica, cuyo único valor permitido será `timeStamping` (`1.3.6.1.5.5.7.3.8`). No deberá contener usos extendidos adicionales.
 
 La clave de la TSA deberá ser independiente de la clave de la AC raíz y de las claves utilizadas para otros servicios.
 
