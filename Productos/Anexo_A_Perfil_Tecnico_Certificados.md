@@ -1,11 +1,11 @@
 # Anexo A. Perfil Técnico de Certificados
 
 **Documento relacionado:** Política de Certificación CP-ACCHIH-001  
-**Versión:** 1.2  
+**Versión:** 1.3  
 **Estado:** Proyecto revisado  
 **IANA PEN:** `1.3.6.1.4.1.63888`  
 
-> Este documento define los perfiles técnicos mínimos de los certificados emitidos por la Autoridad de Certificación de Gobierno del Estado de Chihuahua. Los valores definitivos deberán corresponder con los certificados publicados en el repositorio oficial y con la configuración vigente documentada en la Declaración de Prácticas de Certificación.
+> Este documento distingue entre los perfiles actualmente desplegados y los perfiles objetivo aprobados para nuevas emisiones o para la siguiente generación de la infraestructura. Los certificados productivos existentes conservarán las extensiones con las que fueron emitidos hasta su expiración o revocación. La CPS deberá documentar expresamente esta coexistencia y el plan de transición.
 
 ## 1. Disposiciones generales
 
@@ -17,7 +17,17 @@ Los algoritmos y longitudes de clave deberán revisarse periódicamente conforme
 
 Los identificadores de política, perfiles y servicios deberán asignarse bajo el arco institucional `1.3.6.1.4.1.63888` y registrarse en el catálogo de OID de la Autoridad de Certificación antes de su uso productivo.
 
-## 2. Perfil del certificado de la AC raíz
+Los perfiles objetivo definidos en este anexo no modificarán retroactivamente los certificados ya emitidos. Cuando un certificado vigente no cumpla el perfil objetivo, deberá identificarse como certificado de transición y no podrá utilizarse como referencia para nuevas emisiones una vez habilitado el perfil corregido.
+
+## 2. Certificado de la AC raíz
+
+### 2.1. Perfil vigente de transición
+
+El certificado raíz actualmente desplegado conserva las extensiones con las que fue emitido. De acuerdo con el certificado productivo incorporado al repositorio, incluye usos de clave más amplios y una extensión de sellado de tiempo. Estas características se documentan como condición vigente de transición y no como perfil autorizado para una nueva raíz.
+
+El certificado raíz vigente no deberá volver a emitirse con dicho conjunto de extensiones. Su operación deberá sujetarse a controles compensatorios, monitoreo reforzado, restricción de permisos y al plan de migración hacia la arquitectura objetivo.
+
+### 2.2. Perfil objetivo de la AC raíz
 
 | Campo | Valor o regla |
 |---|---|
@@ -29,12 +39,13 @@ Los identificadores de política, perfiles y servicios deberán asignarse bajo e
 | Longitud de clave | 4096 bits |
 | Algoritmo de firma | SHA-512 con RSA, conforme a la configuración productiva autorizada |
 | Basic Constraints | Crítica: `CA=TRUE` |
-| Path Length Constraint | Arquitectura vigente: ausente o `None`, por tratarse de la raíz emisora directa desplegada. Arquitectura objetivo: `pathLenConstraint=1` para permitir únicamente la cadena AC raíz → AC intermedia emisora → certificado de entidad final. Cada AC intermedia emisora deberá utilizar `pathLenConstraint=0`. |
+| Path Length Constraint | `pathLenConstraint=1`, para permitir únicamente la cadena AC raíz → AC intermedia emisora → certificado de entidad final |
 | Key Usage | Crítica: `keyCertSign`, `cRLSign` |
+| Extended Key Usage | No deberá incluirse |
 | Subject Key Identifier | No crítica |
 | Authority Key Identifier | Conforme al perfil aplicable |
 
-### 2.1. Restricciones de uso
+### 2.3. Restricciones de uso del perfil objetivo
 
 El certificado de la AC raíz no deberá utilizarse para:
 
@@ -43,17 +54,25 @@ b) Firmar sellos de tiempo;
 c) Cifrar datos;  
 d) Autenticación de cliente o servidor;  
 e) Firma de código;  
-f) Cualquier finalidad distinta de la emisión de certificados y firma de listas de revocación conforme al perfil autorizado.
+f) Cualquier finalidad distinta de la emisión de certificados de autoridades subordinadas y firma de listas de revocación conforme al perfil autorizado.
 
-El certificado raíz no deberá incluir `Extended Key Usage`.
-
-### 2.2. Jerarquía autorizada
+### 2.4. Jerarquía autorizada
 
 La arquitectura objetivo permitirá una sola capa de autoridades intermedias subordinadas. Las autoridades intermedias podrán ser múltiples y operar como emisoras hermanas, pero no podrán emitir otras autoridades subordinadas.
 
+Cada AC intermedia emisora deberá utilizar `pathLenConstraint=0`.
+
 La transición desde la raíz emisora directa requerirá aprobación de la Coordinación de Política Digital y del Consejo Técnico, ceremonia de generación de claves, perfiles aprobados, publicación de la nueva cadena, pruebas de interoperabilidad, continuidad de OCSP y CRL, plan de coexistencia y actualización de la CPS.
 
-## 3. Perfil de certificados de usuario final
+## 3. Certificados de usuario final
+
+### 3.1. Perfil vigente de transición
+
+Los certificados de usuario final actualmente emitidos conservan las extensiones con las que fueron generados. De acuerdo con los certificados productivos incorporados al repositorio, pueden incluir `clientAuth` y `emailProtection`, además de usos de clave no requeridos por el perfil objetivo de firma electrónica avanzada.
+
+Estos certificados permanecerán reconocidos hasta su expiración o revocación, conforme a la CP y CPS vigentes. No deberán utilizarse como plantilla para nuevas emisiones una vez habilitado el perfil objetivo.
+
+### 3.2. Perfil objetivo de usuario final
 
 | Campo | Valor o regla |
 |---|---|
@@ -72,7 +91,7 @@ La transición desde la raíz emisora directa requerirá aprobación de la Coord
 | Authority Information Access | Deberá incluir acceso al servicio OCSP cuando corresponda |
 | Certificate Policies | Deberá identificar la política aplicable mediante OID autorizado bajo el PEN institucional |
 
-### 3.1. Atributos del Subject
+### 3.3. Atributos del Subject
 
 Podrán utilizarse, conforme al tipo de titular:
 
@@ -104,6 +123,8 @@ Deberá incluir exclusivamente los usos necesarios para firmar respuestas OCSP y
 Deberá utilizarse exclusivamente para sellado de tiempo e incluir una extensión `Extended Key Usage` marcada como crítica, cuyo único valor permitido será `timeStamping` (`1.3.6.1.5.5.7.3.8`). No deberá contener usos extendidos adicionales.
 
 La clave de la TSA deberá ser independiente de la clave de la AC raíz y de las claves utilizadas para otros servicios.
+
+Los certificados TSA productivos existentes deberán verificarse contra este perfil. Cualquier diferencia deberá documentarse en la CPS como condición de transición, junto con su fecha de expiración, controles compensatorios y plan de sustitución.
 
 ## 5. Revisión criptográfica
 
