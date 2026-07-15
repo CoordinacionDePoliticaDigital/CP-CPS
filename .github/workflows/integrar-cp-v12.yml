@@ -1,0 +1,44 @@
+name: Integrar ajustes CP v1.2
+
+on:
+  push:
+    branches:
+      - docs/integrar-revision-cp-v1.2
+    paths:
+      - .github/scripts/integrar_cp_v12.py
+      - .github/workflows/integrar-cp-v12.yml
+
+permissions:
+  contents: write
+
+jobs:
+  integrar:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: docs/integrar-revision-cp-v1.2
+
+      - name: Aplicar integración
+        run: python .github/scripts/integrar_cp_v12.py
+
+      - name: Validar cambios esperados
+        run: |
+          grep -q 'hasta por diez años' CP-ACCHIH-001-v1.2-proyecto.md
+          grep -q 'Centro Nacional de Metrología' CP-ACCHIH-001-v1.2-proyecto.md
+          grep -q 'pathLenConstraint=1' CP-ACCHIH-001-v1.2-proyecto.md
+          grep -q 'pathLenConstraint=0' CP-ACCHIH-001-v1.2-proyecto.md
+          grep -q 'servicio criptográfico autorizado' CP-ACCHIH-001-v1.2-proyecto.md
+          test ! -e Productos/Revision_CP-ACCHIH-001-v1.2.md
+          test ! -e Productos/Integracion_CP-ACCHIH-001-v1.2.md
+          test ! -e Productos/.pr-bootstrap
+
+      - name: Commit
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add CP-ACCHIH-001-v1.2-proyecto.md Productos .github/scripts/integrar_cp_v12.py
+          git commit -m 'docs: integrar ajustes aprobados en la CP v1.2'
+          git push
