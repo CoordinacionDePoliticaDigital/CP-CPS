@@ -1,5 +1,6 @@
 from pathlib import Path
 
+# Integración automatizada de los ajustes aprobados para la CP v1.2.
 CP = Path("CP-ACCHIH-001-v1.2-proyecto.md")
 REVISION = Path("Productos/Revision_CP-ACCHIH-001-v1.2.md")
 INTEGRACION = Path("Productos/Integracion_CP-ACCHIH-001-v1.2.md")
