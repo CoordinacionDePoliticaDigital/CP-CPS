@@ -44,8 +44,8 @@
 | Versión | Fecha | Descripción del cambio | Responsable |
 |---|---:|---|---|
 | 1.0 | Octubre 2024 | Emisión inicial del documento | Coordinación de Política Digital |
-| 1.1 | [●] | Integración de información técnica y operativa derivada del despliegue inicial | Coordinación de Política Digital |
-| 1.2 | [●] | Revisión de consistencia normativa, neutralidad tecnológica, conservación, sellado de tiempo y arquitectura PKI | Coordinación de Política Digital |
+| 1.1 | Pendiente de formalización | Integración de información técnica y operativa derivada del despliegue inicial | Coordinación de Política Digital |
+| 1.2 | Pendiente de formalización | Revisión de consistencia normativa, neutralidad tecnológica, conservación, sellado de tiempo y arquitectura PKI | Coordinación de Política Digital |
 
 ---
 
@@ -632,7 +632,7 @@ Los controles deberán abarcar infraestructura PKI, claves criptográficas, OCSP
 
 ## 19.1. Clave de la AC
 
-La clave privada de la AC será administrada mediante un servicio criptográfico autorizado, bajo controles de acceso, mínimo privilegio, autenticación multifactor, registro de operaciones, segregación de funciones y restricciones de exportación cuando resulten aplicables. La clave de la AC raíz no deberá utilizarse para sellado de tiempo, cifrado de datos, firma de documentos de usuario final, autenticación de cliente o servidor ni firma de código. Los servicios OCSP y TSA deberán utilizar claves y certificados independientes.
+La clave privada de la AC será administrada mediante un servicio criptográfico autorizado, bajo controles de acceso, mínimo privilegio, autenticación multifactor, registro de operaciones y segregación de funciones. La clave privada de la AC raíz deberá ser no exportable por defecto. Cualquier excepción requerirá análisis de riesgo documentado, aprobación formal de la Coordinación de Política Digital y controles compensatorios equivalentes que garanticen su confidencialidad, integridad, trazabilidad y uso exclusivo. La clave de la AC raíz no deberá utilizarse para sellado de tiempo, cifrado de datos, firma de documentos de usuario final, autenticación de cliente o servidor ni firma de código. Los servicios OCSP y TSA deberán utilizar claves y certificados independientes.
 
 ## 19.2. Arquitectura técnica
 
