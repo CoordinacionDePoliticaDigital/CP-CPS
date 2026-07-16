@@ -1,0 +1,61 @@
+name: Validar anexos consolidados
+
+on:
+  push:
+    branches:
+      - docs/regenerar-anexos-consolidados
+    paths:
+      - Productos/Anexo_A_Perfil_Tecnico_Certificados.md
+      - Productos/Anexo_K_Perfil_PAdES.md
+      - Productos/Anexo_L_Politica_Sellado_Tiempo.md
+      - Productos/Anexos_Consolidados_A_K_L.md
+      - scripts/generar_anexos_consolidados.py
+      - .github/workflows/validar-anexos-consolidados.yml
+  pull_request:
+    paths:
+      - Productos/Anexo_A_Perfil_Tecnico_Certificados.md
+      - Productos/Anexo_K_Perfil_PAdES.md
+      - Productos/Anexo_L_Politica_Sellado_Tiempo.md
+      - Productos/Anexos_Consolidados_A_K_L.md
+      - scripts/generar_anexos_consolidados.py
+      - .github/workflows/validar-anexos-consolidados.yml
+
+permissions:
+  contents: write
+
+jobs:
+  sincronizar:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.head_ref || github.ref_name }}
+
+      - name: Generar consolidado
+        if: github.event_name == 'push'
+        run: python scripts/generar_anexos_consolidados.py
+
+      - name: Verificar sincronización
+        if: github.event_name == 'pull_request'
+        run: python scripts/generar_anexos_consolidados.py --check
+
+      - name: Confirmar estructura
+        run: |
+          grep -q '^# Anexos consolidados A, K y L' Productos/Anexos_Consolidados_A_K_L.md
+          grep -q '^## Anexo A\. Perfil Técnico de Certificados' Productos/Anexos_Consolidados_A_K_L.md
+          grep -q '^## Anexo K\. Perfil PAdES Institucional' Productos/Anexos_Consolidados_A_K_L.md
+          grep -q '^## Anexo L\. Política de Sellado de Tiempo' Productos/Anexos_Consolidados_A_K_L.md
+
+      - name: Commit del archivo generado
+        if: github.event_name == 'push'
+        run: |
+          if git diff --quiet -- Productos/Anexos_Consolidados_A_K_L.md; then
+            echo 'El consolidado ya estaba actualizado.'
+            exit 0
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add Productos/Anexos_Consolidados_A_K_L.md
+          git commit -m 'docs: regenerar anexos consolidados A, K y L'
+          git push
