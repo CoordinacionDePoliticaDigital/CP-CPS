@@ -93,7 +93,7 @@ La identificación podrá realizarse de forma presencial, remota o mixta. Se val
 
 Para personas servidoras públicas se validará además la dependencia, unidad administrativa, cargo, situación activa y autorización del superior jerárquico o unidad competente.
 
-Para representantes legales se verificará la identidad de la persona física, la existencia de la persona moral y la vigencia y alcance de sus facultades.
+Para representantes legales se verificará la identidad de la persona física, la existencia de la persona moral, su domicilio establecido en el Estado de Chihuahua y la vigencia y alcance de las facultades de representación.
 
 Los servicios automatizados de verificación de identidad tendrán carácter auxiliar y no decidirán por sí mismos la emisión, rechazo o revocación.
 
@@ -201,7 +201,16 @@ La raíz utilizará `pathLenConstraint=1` y únicamente `keyCertSign` y `cRLSign
 
 Los certificados de firma electrónica avanzada de usuario final estarán destinados a firma de documentos y no incluirán `clientAuth`, `serverAuth`, `emailProtection`, `codeSigning`, `timeStamping` u `OCSPSigning`, salvo que exista un perfil separado, aprobado y asociado a un OID específico.
 
-Los detalles normativos de extensiones, OID, algoritmos, longitudes, nombres y periodos de vigencia se regirán por el Anexo A vigente.
+El `Subject` de los certificados de usuario final mantendrá el mapeo actualmente desplegado para preservar compatibilidad con los certificados ya emitidos y con los sistemas validadores:
+
+- `commonName` (`2.5.4.3`) contendrá el nombre completo de la persona titular.
+- `emailAddress` (`1.2.840.113549.1.9.1`) contendrá el correo electrónico validado.
+- `serialNumber` (`2.5.4.5`) contendrá la CURP.
+- `x500UniqueIdentifier` o `uniqueIdentifier` (`2.5.4.45`) contendrá el RFC.
+
+La CURP y el RFC no deberán intercambiarse, duplicarse en ambos atributos ni asignarse a campos distintos dentro de este perfil. Los certificados previamente emitidos con este mapeo conservarán plena validez hasta su expiración o revocación.
+
+Los detalles normativos adicionales de extensiones, OID, algoritmos, longitudes, nombres y periodos de vigencia se regirán por el Anexo A vigente.
 
 ## 7.3. OCSP
 
