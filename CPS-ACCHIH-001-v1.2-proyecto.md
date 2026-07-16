@@ -12,10 +12,14 @@
 **Versión:** 1.2  
 **Estado:** Proyecto  
 **Fecha de emisión:** Pendiente de formalización  
+**Fecha de entrada en vigor:** Octubre 2024  
 **Autoridad responsable:** Coordinación de Política Digital  
+**Autoridad emisora:** Autoridad de Certificación de Gobierno del Estado de Chihuahua  
+**Denominación institucional de difusión:** Autoridad Certificadora  
 **Órgano de aprobación:** Coordinación de Política Digital y Consejo Técnico  
 **Sitio de publicación:** autoridadcertificadora.chihuahua.gob.mx  
-**Apartado de publicación:** Normatividad Operativa
+**Apartado de publicación:** Normatividad Operativa  
+**Periodicidad de revisión:** Cuando existan cambios normativos, técnicos, operativos o de seguridad que lo ameriten, o por determinación de la Coordinación de Política Digital o del Consejo Técnico
 
 ---
 
@@ -29,10 +33,14 @@
 | Versión | 1.2 |
 | Estado | Proyecto |
 | Fecha de emisión | Pendiente de formalización |
+| Fecha de entrada en vigor | Octubre 2024 |
 | Autoridad responsable | Coordinación de Política Digital |
+| Autoridad emisora | Autoridad de Certificación de Gobierno del Estado de Chihuahua |
+| Denominación institucional de difusión | Autoridad Certificadora |
 | Aprobación | Coordinación de Política Digital y Consejo Técnico |
 | Política asociada | CP-ACCHIH-001, OID 1.3.6.1.4.1.63888.1.1 |
 | Ubicación oficial de publicación | autoridadcertificadora.chihuahua.gob.mx, apartado Normatividad Operativa |
+| Periodicidad de revisión | Cuando existan cambios normativos, técnicos, operativos o de seguridad que lo ameriten, o por determinación de la Coordinación de Política Digital o del Consejo Técnico |
 
 ## Historial de versiones
 
@@ -206,11 +214,21 @@ El `Subject` de los certificados de usuario final mantendrá el mapeo actualment
 - `commonName` (`2.5.4.3`) contendrá el nombre completo de la persona titular.
 - `emailAddress` (`1.2.840.113549.1.9.1`) contendrá el correo electrónico validado.
 - `serialNumber` (`2.5.4.5`) contendrá la CURP.
-- `x500UniqueIdentifier` o `uniqueIdentifier` (`2.5.4.45`) contendrá el RFC.
+- `x500UniqueIdentifier` (`2.5.4.45`) contendrá el RFC.
+
+Los certificados históricos que presenten una etiqueta distinta en alguna herramienta de visualización conservarán su validez siempre que el atributo codificado sea el OID `2.5.4.45`. La CPS utilizará exclusivamente la denominación normativa `x500UniqueIdentifier` para dicho OID.
 
 La CURP y el RFC no deberán intercambiarse, duplicarse en ambos atributos ni asignarse a campos distintos dentro de este perfil. Los certificados previamente emitidos con este mapeo conservarán plena validez hasta su expiración o revocación.
 
-Los detalles normativos adicionales de extensiones, OID, algoritmos, longitudes, nombres y periodos de vigencia se regirán por el Anexo A vigente.
+Los detalles normativos adicionales se regirán por los siguientes documentos controlados:
+
+| Documento | Versión controlada | Fecha de entrada en vigor | Referencia de control de cambios |
+|---|---:|---|---|
+| Anexo A. Perfil Técnico de Certificados | 1.2 | Octubre 2024 | Historial y control documental del propio Anexo A |
+| Anexo K. Perfil PAdES Institucional | 1.2 | Octubre 2024 | Historial y control documental del propio Anexo K |
+| Anexo L. Política de Sellado de Tiempo | 1.2 | Octubre 2024 | Historial y control documental del propio Anexo L |
+
+Toda modificación de versión, fecha de entrada en vigor o regla normativa de cualquiera de estos anexos requerirá revisar y actualizar esta CPS, registrar el cambio en su historial y mantener sincronizadas las referencias anteriores antes de su publicación o aplicación productiva.
 
 ## 7.3. OCSP
 
@@ -226,9 +244,25 @@ La TSA utilizará certificados independientes cuyo único EKU será `timeStampin
 
 La referencia oficial será la Hora Oficial de los Estados Unidos Mexicanos provista por el Centro Nacional de Metrología o la fuente oficial que legalmente la sustituya. Podrán utilizarse servicios técnicos de sincronización de alta disponibilidad siempre que exista trazabilidad documentada respecto de dicha referencia y del Tiempo Universal Coordinado.
 
-La tolerancia máxima admitida, el método de medición, la frecuencia de verificación, las fuentes de contraste, las acciones ante desviaciones y las evidencias conservadas deberán aprobarse mediante un parámetro operativo único y documentarse en esta CPS antes de su entrada en vigor. Mientras dicho parámetro no haya sido formalmente aprobado, no deberá declararse una tolerancia numérica ni equivalencia metrológica no sustentada.
+El parámetro operativo único de sincronización se controlará mediante la siguiente ficha auditable:
 
-Todo documento firmado mediante la plataforma institucional deberá incorporar sello de tiempo. Los perfiles PAdES se regirán por el Anexo K y la política operativa de sellado por el Anexo L.
+| Campo | Valor o estado requerido |
+|---|---|
+| Identificador | POT-TSA-001 |
+| Versión | 1.0 |
+| Tolerancia máxima | Pendiente de aprobación técnica y operativa |
+| Unidad de medida | Milisegundos |
+| Método de medición | Pendiente de aprobación técnica y operativa |
+| Frecuencia de verificación | Pendiente de aprobación técnica y operativa |
+| Fuentes de contraste | Pendiente de aprobación técnica y operativa |
+| Acciones ante desviaciones | Pendiente de aprobación técnica y operativa |
+| Evidencias conservadas | Registros de medición, alertas, ajustes, incidentes y autorizaciones |
+| Autoridad aprobadora | Coordinación de Política Digital y Consejo Técnico |
+| Fecha de entrada en vigor | No aplicable hasta su aprobación formal |
+
+La tolerancia no podrá aplicarse, publicarse ni declararse mientras la ficha no contenga un valor numérico aprobado, método de medición, frecuencia, fuentes de contraste, acciones ante desviaciones, versión vigente y fecha expresa de entrada en vigor. Hasta entonces, no deberá declararse una tolerancia numérica ni equivalencia metrológica no sustentada.
+
+Todo documento firmado mediante la plataforma institucional deberá incorporar sello de tiempo. Los perfiles PAdES se regirán por el Anexo K versión 1.2 y la política operativa de sellado por el Anexo L versión 1.2, ambos con fecha de entrada en vigor de octubre de 2024 y sujetos al control de cambios establecido en la sección 7.2.
 
 ---
 
@@ -236,11 +270,22 @@ Todo documento firmado mediante la plataforma institucional deberá incorporar s
 
 La raíz emisora en línea vigente se reconoce como arquitectura transitoria con controles compensatorios de acceso, monitoreo, trazabilidad, separación de funciones, continuidad y respuesta a incidentes.
 
-La aceptación transitoria caducará en un plazo máximo de veinticuatro meses contado desde la entrada en vigor de la CP v1.2. Al finalizar dicho plazo, la raíz vigente deberá haber dejado de emitir certificados nuevos, sin afectar la validación histórica de los certificados emitidos antes de su retiro.
+La aceptación transitoria caducará en un plazo máximo de veinticuatro meses contado desde octubre de 2024, fecha de entrada en vigor de la CP v1.2. Al finalizar dicho plazo, la raíz vigente deberá haber dejado de emitir certificados nuevos, sin afectar la validación histórica de los certificados emitidos antes de su retiro.
 
 La Coordinación de Política Digital, por conducto de la unidad responsable de la Autoridad de Certificación, ejecutará y documentará la migración. El avance se revisará trimestralmente y se reportará al Consejo Técnico.
 
+El cese de emisión de la raíz vigente requerirá evidencia documentada de que:
+
+a) Las pruebas de interoperabilidad de la nueva cadena concluyeron satisfactoriamente en los sistemas y escenarios definidos en el plan de pruebas;  
+b) El cien por ciento de los validadores críticos inventariados fue actualizado y probado, y existe un listado nominal de los validadores no críticos pendientes con responsable y fecha comprometida;  
+c) La continuidad de OCSP y CRL fue verificada mediante pruebas funcionales, de disponibilidad y de validación histórica;  
+d) La arquitectura vigente y la arquitectura objetivo coexistieron operativamente durante al menos noventa días naturales sin incidentes críticos atribuibles a la nueva cadena;  
+e) Se publicaron la nueva cadena, sus huellas, puntos de distribución, instrucciones de confianza y avisos a terceros confiantes; y  
+f) Las evidencias fueron revisadas por la unidad responsable de la Autoridad de Certificación y aprobadas por la Coordinación de Política Digital y el Consejo Técnico.
+
 La transición incluirá ceremonia de generación de claves, perfiles aprobados, publicación de la nueva cadena, pruebas de interoperabilidad, continuidad de OCSP y CRL, plan de coexistencia, inventario de dependencias, actualización de validadores, comunicación a terceros confiantes y procedimientos de retiro.
+
+Para dependencias o validadores que no hayan concluido su migración al vencimiento de los veinticuatro meses se aplicará un plan de contingencia documentado, sin extender la emisión de nuevos certificados desde la raíz vigente. Dicho plan podrá contemplar ventanas controladas de actualización, soporte prioritario, validadores puente, distribución extraordinaria de cadenas de confianza y restricciones temporales de operación. Cada excepción operativa deberá contar con responsable, análisis de riesgo, fecha límite, controles compensatorios y aprobación de la Coordinación de Política Digital; el Consejo Técnico recibirá seguimiento hasta su cierre.
 
 ---
 
