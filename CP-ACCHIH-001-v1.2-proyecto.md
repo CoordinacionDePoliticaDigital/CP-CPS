@@ -524,7 +524,7 @@ Todo documento firmado mediante la plataforma institucional deberá utilizar PAd
 
 ## 12.3. Conservación
 
-La plataforma institucional conservará copia íntegra de los documentos firmados hasta por diez años, conforme a los controles de seguridad, disponibilidad, integridad, acceso y conservación aplicables.
+La plataforma institucional conservará copia íntegra de los documentos firmados hasta por diez años, contados a partir de la fecha y hora consignadas en el sello de tiempo institucional incorporado al documento. Dicho evento será la referencia única para calcular la fecha ordinaria de eliminación y sustentar la transferencia documental, conforme a los controles de seguridad, disponibilidad, integridad, acceso y conservación aplicables.
 
 La conservación realizada por la plataforma no sustituirá las obligaciones archivísticas de la dependencia dueña del documento.
 
@@ -550,7 +550,7 @@ La conservación de documentos electrónicos, mensajes de datos, evidencias téc
 
 ## 14.2. Plazo
 
-La plataforma institucional conservará copia íntegra de los documentos firmados hasta por diez años. Este plazo constituye el periodo máximo ordinario de conservación prestado por la plataforma y no sustituye las obligaciones archivísticas de la dependencia responsable. La eliminación al concluir el plazo solo procederá cuando no exista obligación legal, archivística, probatoria, administrativa, judicial o de seguridad que requiera conservar el documento o sus evidencias por más tiempo, y cuando se haya efectuado la transferencia documental que corresponda.
+La plataforma institucional conservará copia íntegra de los documentos firmados hasta por diez años, contados a partir de la fecha y hora consignadas en el sello de tiempo institucional incorporado al documento. Dicho evento será la referencia única para calcular la fecha ordinaria de eliminación y sustentar la transferencia documental. Este plazo constituye el periodo máximo ordinario de conservación prestado por la plataforma y no sustituye las obligaciones archivísticas de la dependencia responsable. La eliminación al concluir el plazo solo procederá cuando no exista obligación legal, archivística, probatoria, administrativa, judicial o de seguridad que requiera conservar el documento o sus evidencias por más tiempo, y cuando se haya efectuado la transferencia documental que corresponda.
 
 ## 14.3. Responsabilidad de la dependencia
 
@@ -640,9 +640,11 @@ La arquitectura vigente de la Autoridad de Certificación opera sobre infraestru
 
 Las operaciones criptográficas de la Autoridad de Certificación se realizan mediante un servicio administrado de gestión de claves autorizado, sujeto a controles de acceso, separación de funciones, registro de operaciones, monitoreo y restricciones de exportación cuando resulten aplicables.
 
-La operación vigente mediante una Autoridad de Certificación raíz emisora en línea se reconoce como arquitectura transitoria y continuará siendo reconocida hasta su sustitución, expiración o revocación, bajo controles compensatorios de acceso, monitoreo, trazabilidad, separación de funciones, continuidad y respuesta a incidentes.
+La operación vigente mediante una Autoridad de Certificación raíz emisora en línea se reconoce como arquitectura transitoria y continuará siendo reconocida, bajo controles compensatorios de acceso, monitoreo, trazabilidad, separación de funciones, continuidad y respuesta a incidentes, hasta un plazo máximo de veinticuatro meses contado a partir de la entrada en vigor de la versión 1.2 de esta Política. Concluido dicho plazo, la aceptación transitoria caducará y la raíz emisora en línea deberá haber sido retirada de la emisión de nuevos certificados, sin perjuicio de la validación histórica de los certificados previamente emitidos.
 
 La arquitectura objetivo será una cadena compuesta por una Autoridad de Certificación raíz fuera de línea, una sola capa de autoridades intermedias subordinadas emisoras y certificados de entidad final. La raíz objetivo deberá utilizar `pathLenConstraint=1` y cada autoridad intermedia emisora deberá utilizar `pathLenConstraint=0`; las autoridades intermedias no podrán emitir otras autoridades subordinadas.
+
+La Coordinación de Política Digital, por conducto de la unidad responsable de la Autoridad de Certificación, será responsable de ejecutar y documentar la migración. El avance deberá revisarse trimestralmente y reportarse al Consejo Técnico, incluyendo riesgos, dependencias, pruebas, coexistencia y acciones correctivas.
 
 La transición requerirá aprobación de la Coordinación de Política Digital y del Consejo Técnico, ceremonia de generación de claves, perfiles técnicos aprobados, publicación de la nueva cadena, pruebas de interoperabilidad, continuidad de OCSP y CRL, plan de coexistencia y actualización de la Política y la Declaración de Prácticas de Certificación.
 
