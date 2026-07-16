@@ -44,6 +44,8 @@
 | Versión | Fecha | Descripción del cambio | Responsable |
 |---|---:|---|---|
 | 1.0 | Octubre 2024 | Emisión inicial del documento | Coordinación de Política Digital |
+| 1.1 | Pendiente de formalización | Integración de información técnica y operativa derivada del despliegue inicial | Coordinación de Política Digital |
+| 1.2 | Pendiente de formalización | Revisión de consistencia normativa, neutralidad tecnológica, conservación, sellado de tiempo y arquitectura PKI | Coordinación de Política Digital |
 
 ---
 
@@ -522,7 +524,7 @@ Todo documento firmado mediante la plataforma institucional deberá utilizar PAd
 
 ## 12.3. Conservación
 
-La plataforma conservará copia íntegra de los documentos firmados por un periodo sujeto a las políticas de archivo institucionales vigentes y a las capacidades de almacenamiento disponibles.
+La plataforma institucional conservará copia íntegra de los documentos firmados hasta por diez años, contados a partir de la fecha y hora consignadas en el sello de tiempo institucional incorporado al documento. Dicho evento será la referencia única para calcular la fecha ordinaria de eliminación y sustentar la transferencia documental, conforme a los controles de seguridad, disponibilidad, integridad, acceso y conservación aplicables.
 
 La conservación realizada por la plataforma no sustituirá las obligaciones archivísticas de la dependencia dueña del documento.
 
@@ -532,7 +534,7 @@ La conservación realizada por la plataforma no sustituirá las obligaciones arc
 
 ## 13.1. Referencia temporal
 
-La TSA utilizará como referencia de tiempo cierto la hora provista por servicios de sincronización de tiempo de alta disponibilidad en la nube respaldados por relojes de referencia atómicos, los cuales se sincronizan con los estándares internacionales de Tiempo Universal Coordinado (UTC).
+La TSA utilizará como referencia de tiempo cierto la Hora Oficial de los Estados Unidos Mexicanos provista por el Centro Nacional de Metrología o la fuente oficial que legalmente la sustituya. Para su operación técnica podrán utilizarse servicios de sincronización de alta disponibilidad, siempre que permitan mantener trazabilidad respecto de dicha referencia temporal y del Tiempo Universal Coordinado.
 
 ## 13.2. Uso obligatorio
 
@@ -548,7 +550,7 @@ La conservación de documentos electrónicos, mensajes de datos, evidencias téc
 
 ## 14.2. Plazo
 
-La plataforma institucional conservará copia íntegra de los documentos firmados por un periodo sujeto a las políticas de archivo institucionales vigentes y a las capacidades de almacenamiento disponibles.
+La plataforma institucional conservará copia íntegra de los documentos firmados hasta por diez años, contados a partir de la fecha y hora consignadas en el sello de tiempo institucional incorporado al documento. Dicho evento será la referencia única para calcular la fecha ordinaria de eliminación y sustentar la transferencia documental. Este plazo constituye el periodo máximo ordinario de conservación prestado por la plataforma y no sustituye las obligaciones archivísticas de la dependencia responsable. La eliminación al concluir el plazo solo procederá cuando no exista obligación legal, archivística, probatoria, administrativa, judicial o de seguridad que requiera conservar el documento o sus evidencias por más tiempo, y cuando se haya efectuado la transferencia documental que corresponda.
 
 ## 14.3. Responsabilidad de la dependencia
 
@@ -630,13 +632,21 @@ Los controles deberán abarcar infraestructura PKI, claves criptográficas, OCSP
 
 ## 19.1. Clave de la AC
 
-La clave privada de la AC será administrada mediante un servicio autorizado de gestión de claves en la nube, bajo controles de acceso, mínimo privilegio, autenticación multifactor, registro de operaciones, segregación de funciones y restricciones de exportación cuando apliquen.
+La clave privada de la AC será administrada mediante un servicio criptográfico autorizado, bajo controles de acceso, mínimo privilegio, autenticación multifactor, registro de operaciones y segregación de funciones. La clave privada de la AC raíz deberá ser no exportable por defecto. Cualquier excepción requerirá análisis de riesgo documentado, aprobación formal de la Coordinación de Política Digital y controles compensatorios equivalentes que garanticen su confidencialidad, integridad, trazabilidad y uso exclusivo. La clave de la AC raíz no deberá utilizarse para sellado de tiempo, cifrado de datos, firma de documentos de usuario final, autenticación de cliente o servidor ni firma de código. Los servicios OCSP y TSA deberán utilizar claves y certificados independientes.
 
 ## 19.2. Arquitectura técnica
 
-La arquitectura técnica de la Autoridad de Certificación se basa en un esquema nativo en la nube (Cloud-Native), orquestado mediante clústeres de contenedores de alta disponibilidad.
+La arquitectura vigente de la Autoridad de Certificación opera sobre infraestructura de nube de alta disponibilidad, con servicios desacoplados, componentes redundantes, almacenamiento administrado y mecanismos de escalamiento y recuperación.
 
-Las operaciones criptográficas de firma y el resguardo de la llave privada de la CA Raíz se realizan en línea a través de servicios de gestión de llaves en la nube y módulos de seguridad en hardware virtualizados, garantizando el más alto nivel de seguridad perimetral y lógica sin comprometer la automatización y escalabilidad del servicio.
+Las operaciones criptográficas de la Autoridad de Certificación se realizan mediante un servicio administrado de gestión de claves autorizado, sujeto a controles de acceso, separación de funciones, registro de operaciones, monitoreo y restricciones de exportación cuando resulten aplicables.
+
+La operación vigente mediante una Autoridad de Certificación raíz emisora en línea se reconoce como arquitectura transitoria y continuará siendo reconocida, bajo controles compensatorios de acceso, monitoreo, trazabilidad, separación de funciones, continuidad y respuesta a incidentes, hasta un plazo máximo de veinticuatro meses contado a partir de la entrada en vigor de la versión 1.2 de esta Política. Concluido dicho plazo, la aceptación transitoria caducará y la raíz emisora en línea deberá haber sido retirada de la emisión de nuevos certificados, sin perjuicio de la validación histórica de los certificados previamente emitidos.
+
+La arquitectura objetivo será una cadena compuesta por una Autoridad de Certificación raíz fuera de línea, una sola capa de autoridades intermedias subordinadas emisoras y certificados de entidad final. La raíz objetivo deberá utilizar `pathLenConstraint=1` y cada autoridad intermedia emisora deberá utilizar `pathLenConstraint=0`; las autoridades intermedias no podrán emitir otras autoridades subordinadas.
+
+La Coordinación de Política Digital, por conducto de la unidad responsable de la Autoridad de Certificación, será responsable de ejecutar y documentar la migración. El avance deberá revisarse trimestralmente y reportarse al Consejo Técnico, incluyendo riesgos, dependencias, pruebas, coexistencia y acciones correctivas.
+
+La transición requerirá aprobación de la Coordinación de Política Digital y del Consejo Técnico, ceremonia de generación de claves, perfiles técnicos aprobados, publicación de la nueva cadena, pruebas de interoperabilidad, continuidad de OCSP y CRL, plan de coexistencia y actualización de la Política y la Declaración de Prácticas de Certificación.
 
 ## 19.3. Claves de usuario
 
@@ -664,12 +674,19 @@ Los incidentes críticos podrán requerir suspensión de emisión, revocación d
 
 # 22. Continuidad operativa y recuperación ante desastre
 
-La infraestructura de la AC opera bajo un esquema de alta disponibilidad nativo en la nube, el cual mitiga los riesgos de caídas del servicio mediante:
-a) **Auto-escalamiento (AutoScaling):** Replicación dinámica de contenedores y servidores virtuales según la demanda de los servicios de emisión, OCSP y TSA.
-b) **Bases de Datos Multi-AZ:** Despliegue de bases de datos con replicación en múltiples zonas de disponibilidad para garantizar tolerancia a fallos.
-c) **Respaldos Distribuidos:** Almacenamiento redundante y seguro de bitácoras, evidencias y documentos firmados.
+La infraestructura de la Autoridad de Certificación deberá operar con medidas de alta disponibilidad, redundancia, respaldo, monitoreo, escalamiento y recuperación acordes con la criticidad de los servicios de emisión, revocación, OCSP, TSA, repositorio y conservación de evidencias.
 
-Adicionalmente, la AC deberá mantener planes de continuidad y recuperación ante desastres (DRP/BCP) que contemplen la restauración de la infraestructura criptográfica desde respaldos seguros, cuyos procedimientos deberán probarse periódicamente.
+La Autoridad de Certificación deberá mantener planes de continuidad operativa y recuperación ante desastre que contemplen, al menos:
+
+a) Redundancia de componentes críticos;  
+b) Replicación y recuperación de bases de datos;  
+c) Respaldos protegidos de configuraciones, bitácoras, evidencias y documentos;  
+d) Recuperación de servicios criptográficos;  
+e) Procedimientos alternos de validación y revocación;  
+f) Responsables, prioridades y mecanismos de comunicación;  
+g) Pruebas y simulacros periódicos.
+
+Los detalles de implementación, proveedores y servicios tecnológicos utilizados deberán documentarse en la Declaración de Prácticas de Certificación y en los procedimientos internos correspondientes.
 
 ---
 
