@@ -26,7 +26,7 @@
 
 > Este documento distingue entre los perfiles desplegados actualmente y los perfiles objetivo para nuevas emisiones. Los certificados vigentes conservan las extensiones con las que fueron emitidos hasta su expiración o revocación; no deberán utilizarse como plantilla para nuevas emisiones cuando contradigan el perfil objetivo. La Declaración de Prácticas de Certificación deberá documentar la coexistencia, los controles compensatorios y el plan de transición.
 
-## 1. Disposiciones generales
+### 1. Disposiciones generales
 
 Los certificados deberán cumplir con X.509 versión 3, RFC 5280 y los perfiles técnicos aprobados por la Autoridad de Certificación.
 
@@ -36,15 +36,15 @@ Los algoritmos y longitudes de clave deberán revisarse periódicamente conforme
 
 Los identificadores de política, perfiles y servicios deberán asignarse bajo el arco institucional `1.3.6.1.4.1.63888` y registrarse en el catálogo de OID de la Autoridad de Certificación antes de su uso productivo.
 
-## 2. Perfil del certificado de la AC raíz
+### 2. Perfil del certificado de la AC raíz
 
-### 2.1. Perfil vigente de transición
+#### 2.1. Perfil vigente de transición
 
 El certificado raíz actualmente desplegado conserva los valores con los que fue emitido, incluyendo usos de clave y EKU más amplios que el perfil objetivo. Su reconocimiento no autoriza nuevos certificados raíz con esas extensiones ni habilita su utilización material para fines ajenos a la emisión y administración de certificados.
 
 Mientras permanezca vigente deberán aplicarse controles compensatorios que impidan su uso para firma de documentos, cifrado, autenticación o sellado de tiempo.
 
-### 2.2. Perfil objetivo
+#### 2.2. Perfil objetivo
 
 | Campo | Valor o regla |
 |---|---|
@@ -63,7 +63,7 @@ Mientras permanezca vigente deberán aplicarse controles compensatorios que impi
 
 El certificado raíz objetivo no deberá incluir `Extended Key Usage`.
 
-### 2.3. Restricciones de uso
+#### 2.3. Restricciones de uso
 
 El certificado de la AC raíz no deberá utilizarse para:
 
@@ -74,19 +74,19 @@ d) Autenticación de cliente o servidor;
 e) Firma de código;  
 f) Cualquier finalidad distinta de la emisión de certificados y firma de listas de revocación conforme al perfil autorizado.
 
-### 2.4. Jerarquía autorizada
+#### 2.4. Jerarquía autorizada
 
 La arquitectura objetivo permitirá una sola capa de autoridades intermedias subordinadas. Las autoridades intermedias podrán ser múltiples y operar como emisoras hermanas, pero no podrán emitir otras autoridades subordinadas.
 
 La transición desde la raíz emisora directa requerirá aprobación de la Coordinación de Política Digital y del Consejo Técnico, ceremonia de generación de claves, perfiles aprobados, publicación de la nueva cadena, pruebas de interoperabilidad, continuidad de OCSP y CRL, plan de coexistencia y actualización de la CPS.
 
-## 3. Perfil de certificados de usuario final
+### 3. Perfil de certificados de usuario final
 
-### 3.1. Perfil vigente de transición
+#### 3.1. Perfil vigente de transición
 
 Los certificados de usuario final actualmente emitidos podrán conservar los EKU `clientAuth` y `emailProtection` cuando formen parte de su configuración original. Su permanencia no autoriza nuevas emisiones con esos EKU bajo el perfil general de firma electrónica avanzada.
 
-### 3.2. Perfil objetivo
+#### 3.2. Perfil objetivo
 
 | Campo | Valor o regla |
 |---|---|
@@ -105,7 +105,7 @@ Los certificados de usuario final actualmente emitidos podrán conservar los EKU
 | Authority Information Access | Deberá incluir acceso al servicio OCSP cuando corresponda |
 | Certificate Policies | Deberá identificar la política aplicable mediante OID autorizado bajo el PEN institucional |
 
-### 3.3. Atributos del Subject
+#### 3.3. Atributos del Subject
 
 Podrán utilizarse, conforme al tipo de titular:
 
@@ -124,23 +124,23 @@ Podrán utilizarse, conforme al tipo de titular:
 
 La CPS deberá definir el mapeo exacto de CURP, RFC y otros identificadores, evitando duplicidades, ambigüedades y exposición innecesaria de datos personales.
 
-## 4. Certificados de infraestructura
+### 4. Certificados de infraestructura
 
 Los certificados de OCSP, TSA y demás servicios de infraestructura deberán utilizar claves independientes y perfiles separados.
 
-### 4.1. Certificado OCSP
+#### 4.1. Certificado OCSP
 
 Deberá incluir exclusivamente los usos necesarios para firmar respuestas OCSP y la extensión `id-kp-OCSPSigning` (`1.3.6.1.5.5.7.3.9`), conforme al RFC 6960. La extensión EKU deberá ser crítica y no contener otros usos.
 
 Cada autoridad emisora deberá contar con un certificado de respondedor OCSP delegado emitido directamente por esa misma autoridad. El respondedor utilizado para certificados emitidos por la AC raíz deberá ser emitido por la AC raíz; el respondedor utilizado para certificados emitidos por una AC intermedia deberá ser emitido directamente por dicha intermedia. No deberá reutilizarse un certificado OCSP emitido por una autoridad distinta para responder por certificados fuera de su ámbito de emisión.
 
-### 4.2. Certificado TSA
+#### 4.2. Certificado TSA
 
 Deberá utilizarse exclusivamente para sellado de tiempo e incluir una extensión `Extended Key Usage` marcada como crítica, cuyo único valor permitido será `timeStamping` (`1.3.6.1.5.5.7.3.8`). No deberá contener usos extendidos adicionales.
 
 La clave de la TSA deberá ser independiente de la clave de la AC raíz y de las claves utilizadas para otros servicios.
 
-## 5. Revisión criptográfica
+### 5. Revisión criptográfica
 
 La Autoridad de Certificación deberá revisar periódicamente:
 
@@ -162,11 +162,11 @@ Cualquier cambio que afecte la confianza, compatibilidad o validez de los certif
 **Estado:** Proyecto revisado  
 **IANA PEN:** `1.3.6.1.4.1.63888`  
 
-## 1. Objeto
+### 1. Objeto
 
 El presente anexo define el perfil mínimo para las firmas electrónicas avanzadas aplicadas a documentos PDF mediante la plataforma institucional.
 
-## 2. Estándar base
+### 2. Estándar base
 
 La plataforma institucional utilizará firmas PAdES conforme a la familia de estándares ETSI EN 319 142.
 
@@ -174,7 +174,7 @@ El nivel mínimo será **PAdES Baseline B-T**, que incorpora un sello de tiempo 
 
 PAdES-B-T no deberá considerarse, por sí solo, un mecanismo completo de validación a largo plazo. Cuando el periodo de conservación, el valor probatorio o el riesgo del documento lo requieran, deberán incorporarse los elementos necesarios para conformidad **PAdES Baseline B-LT** o **PAdES Baseline B-LTA**.
 
-### 2.1. Matriz de conformidad
+#### 2.1. Matriz de conformidad
 
 | Nivel | Firma Baseline B | Sello de tiempo RFC 3161 sobre la firma | Certificados y cadena incorporados | Evidencias de revocación incorporadas | Sellos de archivo posteriores | Regla de conformidad |
 |---|---:|---:|---:|---:|---:|---|
@@ -184,7 +184,7 @@ PAdES-B-T no deberá considerarse, por sí solo, un mecanismo completo de valida
 
 La presencia de una representación visual, hoja de firmas, código QR o folio no determina el nivel de conformidad PAdES.
 
-## 3. Algoritmos
+### 3. Algoritmos
 
 | Elemento | Requisito mínimo |
 |---|---|
@@ -196,7 +196,7 @@ La presencia de una representación visual, hoja de firmas, código QR o folio n
 
 Los algoritmos deberán revisarse conforme al estado de la técnica y a la política criptográfica institucional.
 
-## 4. Validación al momento de firma
+### 4. Validación al momento de firma
 
 La plataforma deberá verificar, al menos:
 
@@ -209,7 +209,7 @@ f) Uso permitido del certificado;
 g) Validez del sello de tiempo;  
 h) Correspondencia entre el sello de tiempo y la firma.
 
-## 5. Evidencias de validación
+### 5. Evidencias de validación
 
 La plataforma deberá conservar, asociadas al documento firmado, las evidencias necesarias para su validación posterior, incluyendo cuando corresponda:
 
@@ -225,7 +225,7 @@ i) Bitácoras del proceso.
 
 Para B-LT y B-LTA, los materiales exigidos por la matriz deberán incorporarse al documento conforme al estándar aplicable.
 
-## 6. Representación visual
+### 6. Representación visual
 
 La representación visual de la firma podrá contener:
 
@@ -237,13 +237,13 @@ e) Datos del cargo, dependencia o unidad administrativa cuando correspondan.
 
 La representación visual será informativa. La validez de la firma dependerá de los elementos criptográficos contenidos en el documento y de su correcta validación.
 
-## 7. Firmas múltiples
+### 7. Firmas múltiples
 
 La plataforma deberá preservar la integridad de las firmas previamente incorporadas cuando se agreguen firmas adicionales.
 
 Cada firma deberá contar con su propio certificado, sello de tiempo y evidencia de validación.
 
-## 8. Conservación y mantenimiento de evidencias
+### 8. Conservación y mantenimiento de evidencias
 
 La plataforma institucional, bajo responsabilidad operativa de la Autoridad de Certificación, conservará los documentos y sus evidencias asociadas hasta por diez años, sin sustituir las obligaciones archivísticas de la dependencia responsable del expediente.
 
@@ -260,13 +260,13 @@ Una vez concluido el plazo de conservación de la plataforma, la eliminación so
 **Estado:** Proyecto revisado  
 **IANA PEN:** `1.3.6.1.4.1.63888`  
 
-## 1. Objeto y alcance
+### 1. Objeto y alcance
 
 El presente documento establece las reglas generales bajo las cuales opera la Autoridad de Sellado de Tiempo vinculada a la Autoridad de Certificación de Gobierno del Estado de Chihuahua.
 
 La TSA emitirá sellos de tiempo para documentos, firmas electrónicas, hashes y evidencias electrónicas procesadas por los servicios institucionales autorizados.
 
-## 2. Referencia temporal
+### 2. Referencia temporal
 
 La referencia de tiempo cierto será la Hora Oficial de los Estados Unidos Mexicanos provista por el Centro Nacional de Metrología o la fuente oficial que legalmente la sustituya.
 
@@ -281,7 +281,7 @@ f) Se sujeten a la tolerancia y al método de medición aprobados en la CPS.
 
 No deberán realizarse afirmaciones de equivalencia o superioridad metrológica respecto del CENAM sin evidencia formal que las sustente.
 
-## 3. Formato de los sellos de tiempo
+### 3. Formato de los sellos de tiempo
 
 Las solicitudes y respuestas deberán cumplir con RFC 3161 y con los perfiles técnicos autorizados.
 
@@ -295,7 +295,7 @@ e) Identificador de política asignado bajo `1.3.6.1.4.1.63888`;
 f) Certificado de la TSA;  
 g) Firma electrónica de la TSA.
 
-## 4. Gestión criptográfica
+### 4. Gestión criptográfica
 
 La clave privada de la TSA deberá:
 
@@ -307,7 +307,7 @@ e) Ser no exportable. Cuando una limitación técnica impida aplicar esta restri
 
 El certificado de la TSA deberá cumplir íntegramente el perfil autoritativo establecido en el apartado 4.2 del Anexo A. Este documento no redefine ni duplica dicho perfil.
 
-## 5. Algoritmos
+### 5. Algoritmos
 
 | Elemento | Requisito |
 |---|---|
@@ -318,7 +318,7 @@ El certificado de la TSA deberá cumplir íntegramente el perfil autoritativo es
 
 Los algoritmos autorizados deberán revisarse periódicamente.
 
-## 6. Operación y disponibilidad
+### 6. Operación y disponibilidad
 
 La TSA deberá contar con:
 
@@ -332,7 +332,7 @@ g) Procedimientos de suspensión controlada cuando no pueda garantizarse la prec
 
 La TSA no deberá emitir sellos de tiempo cuando la desviación se encuentre fuera de la tolerancia establecida en la CPS, determinada mediante el método de medición definido en ese mismo documento.
 
-## 7. Bitácoras y evidencias
+### 7. Bitácoras y evidencias
 
 Deberán conservarse, al menos:
 
@@ -349,13 +349,13 @@ j) Incidentes y periodos de indisponibilidad.
 
 La Autoridad de Certificación será responsable de la custodia operativa de las bitácoras y evidencias de la TSA, las cuales se conservarán hasta por diez años. Su eliminación solo procederá cuando haya concluido dicho plazo y no exista obligación legal, archivística, probatoria, administrativa, judicial o de seguridad que exija conservarlas por más tiempo.
 
-## 8. Incidentes
+### 8. Incidentes
 
 Cuando exista pérdida de sincronización, compromiso de la clave, emisión incorrecta o cualquier evento que afecte la confianza de los sellos emitidos, deberán activarse los procedimientos de incidentes y continuidad.
 
 La Autoridad de Certificación determinará el alcance del incidente, los sellos afectados, las notificaciones necesarias y las medidas de recuperación.
 
-## 9. Cese de la TSA
+### 9. Cese de la TSA
 
 El cese deberá contemplar:
 
