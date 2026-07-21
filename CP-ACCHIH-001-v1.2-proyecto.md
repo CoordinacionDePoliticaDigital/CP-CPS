@@ -686,7 +686,7 @@ e) Procedimientos alternos de validación y revocación;
 f) Responsables, prioridades y mecanismos de comunicación;  
 g) Pruebas y simulacros periódicos.
 
-Los detalles de implementación, proveedores y servicios tecnológicos utilizados deberán documentarse en la Declaración de Prácticas de Certificación y en los procedimientos internos correspondientes.
+La Declaración de Prácticas de Certificación deberá documentar la arquitectura funcional, las categorías de servicios tecnológicos, los controles aplicados y el modelo general de implementación. Los nombres de proveedores, productos, cuentas, regiones, configuraciones concretas y demás detalles susceptibles de afectar la seguridad o la contratación se documentarán en inventarios, diagramas y procedimientos internos sujetos a control de cambios.
 
 ---
 
