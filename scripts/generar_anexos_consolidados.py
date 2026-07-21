@@ -23,12 +23,10 @@ def digest(path: Path) -> str:
 
 def demote_title(text: str) -> str:
     lines = text.rstrip().splitlines()
-    demoted: list[str] = []
-    for line in lines:
-        match = re.match(r"^(#{1,5})(\s+.*)$", line)
-        if match:
-            line = "#" + match.group(1) + match.group(2)
-        demoted.append(line)
+    demoted = [
+        "#" + line if re.match(r"^(#{1,5})(\s+.*)$", line) else line
+        for line in lines
+    ]
     return "\n".join(demoted)
 
 
