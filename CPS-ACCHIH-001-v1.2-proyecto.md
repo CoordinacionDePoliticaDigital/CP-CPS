@@ -79,7 +79,7 @@ En caso de discrepancia prevalecerá la Política de Certificación, salvo que e
 
 ## 1.4. Neutralidad tecnológica
 
-Las referencias a servicios de nube, gestión de claves, orquestación, almacenamiento, redes, identidad o mensajería describen capacidades funcionales y controles requeridos. Las secciones 5 a 8 de esta CPS documentan la arquitectura funcional, las categorías de servicios tecnológicos, los controles aplicados y el modelo general de implementación. Los nombres de proveedores, productos, marcas, cuentas, regiones y configuraciones concretas se documentarán en inventarios, diagramas, procedimientos y registros internos sujetos a control de cambios, cuando su publicación pueda afectar la seguridad, la continuidad operativa o las condiciones de contratación.
+Las referencias a servicios de nube, gestión de claves, orquestación, almacenamiento, redes, identidad o mensajería describen capacidades funcionales y controles requeridos. Las secciones 5 a 8 de esta CPS documentan la arquitectura funcional, las categorías de servicios tecnológicos, los controles aplicados y el modelo general de implementación. Los nombres de proveedores, productos, marcas, cuentas, regiones y configuraciones concretas se conservarán siempre en inventarios, diagramas, procedimientos y registros internos sujetos a control de cambios. Su divulgación pública podrá limitarse cuando pueda afectar la seguridad, la continuidad operativa o las condiciones de contratación.
 
 ---
 
