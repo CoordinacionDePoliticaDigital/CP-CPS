@@ -5,6 +5,7 @@ from __future__ import annotations
 
 import argparse
 import hashlib
+import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -22,9 +23,13 @@ def digest(path: Path) -> str:
 
 def demote_title(text: str) -> str:
     lines = text.rstrip().splitlines()
-    if lines and lines[0].startswith("# "):
-        lines[0] = "## " + lines[0][2:]
-    return "\n".join(lines)
+    demoted: list[str] = []
+    for line in lines:
+        match = re.match(r"^(#{1,5})(\s+.*)$", line)
+        if match:
+            line = "#" + match.group(1) + match.group(2)
+        demoted.append(line)
+    return "\n".join(demoted)
 
 
 def render() -> str:
