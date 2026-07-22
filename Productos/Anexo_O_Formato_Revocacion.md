@@ -17,16 +17,16 @@
 
 ## 2. Causa de revocación
 
-Seleccione una sola causa principal del catálogo normalizado del Anexo C. Cuando concurran varias causas, registre como principal la que describa con mayor precisión el motivo determinante y documente las adicionales en el expediente.
+Seleccione una sola causa principal del catálogo normalizado del Anexo C. Cuando concurran varias causas, registre como principal la que describa con mayor precisión el motivo determinante y documente las adicionales mediante su clave y denominación normalizadas.
 
 - [ ] `01_Solicitud_del_titular` — Solicitud de la persona titular.
 - [ ] `02_Orden_judicial_o_administrativa` — Orden judicial o administrativa.
 - [ ] `03_Disolución_de_persona_moral` — Disolución, liquidación o extinción de la persona moral representada.
 - [ ] `04_Fusión_o_escisión` — Fusión o escisión de la persona moral.
 - [ ] `05_Certificado_no_cumple_requisitos_legales` — Incumplimiento de requisitos legales, normativos o técnicos.
-- [ ] `06_Riesgo_confidencialidad_datos_de_creación_de_firma` — Pérdida, robo, exposición o compromiso de la clave privada o contraseña.
+- [ ] `06_Riesgo_confidencialidad_datos_de_creación_de_firma` — Pérdida de la clave privada o del medio que la contiene, exposición, acceso no autorizado, copia o compromiso. El olvido de contraseña, sin evidencia de pérdida, exposición o compromiso, deberá registrarse como `01_Solicitud_del_titular` mediante revocación asistida.
 - [ ] `07_Documentación_de_identidad_falsa` — Documentación falsa, alterada o suplantación de identidad.
-- [ ] `08_Término_de_cargo_de_servicio_público` — Baja, separación, cambio de dependencia, unidad administrativa o cargo.
+- [ ] `08_Término_de_cargo_de_servicio_público` — Baja, separación, cambio de dependencia, unidad administrativa o cargo, o retiro formal de autorización.
 - [ ] `09_Cambio_de_circunstancias_del_sujeto` — Cambio de datos, representación, facultades, situación jurídica, incapacidad o fallecimiento de la persona titular.
 - [ ] `10_Uso_indebido_del_certificado` — Uso fuera de alcance, fraudulento o no autorizado.
 - [ ] `11_Otra_causal_definida_en_el_certificado` — Otra causa formalmente sustentada.
@@ -35,8 +35,11 @@ Seleccione una sola causa principal del catálogo normalizado del Anexo C. Cuand
 ________________________________________________________________________  
 ________________________________________________________________________
 
-**Causas adicionales relacionadas, cuando existan:**  
-________________________________________________________________________
+**Causas adicionales relacionadas, cuando existan:**
+
+1. **Clave normalizada:** ____________________  **Denominación:** ______________________________
+2. **Clave normalizada:** ____________________  **Denominación:** ______________________________
+3. **Clave normalizada:** ____________________  **Denominación:** ______________________________
 
 **Documento o evidencia de soporte:**  
 ________________________________________________________________________
@@ -62,6 +65,12 @@ ________________________________________________________________________
 - [ ] Familiar o tercero legalmente legitimado.
 - [ ] Otra: _________________________________________________
 
+**Mandato, autorización o representación invocada, cuando corresponda:**  
+________________________________________________________________________
+
+**Referencia documental de la autorización o representación:**  
+________________________________________________________________________
+
 **Firma:** _________________________________________________
 
 ---
@@ -70,7 +79,11 @@ ________________________________________________________________________
 
 - **Clave normalizada registrada:** {{CLAVE_CAUSAL}}
 - **Denominación registrada:** {{DENOMINACION_CAUSAL}}
-- **Fecha y hora efectiva de revocación:** {{FECHA_HORA_REVOCACION}}
+- **Fecha y hora de ejecución:** {{FECHA_HORA_EJECUCION}}
+- **Fecha y hora efectiva aplicable:** {{FECHA_HORA_EFECTIVA}}
+- **Fecha de efectos ordenada, para causa 02 cuando sea distinta:** {{FECHA_HORA_ORDENADA}}
 - **Persona o proceso autorizado que ejecutó:** {{EJECUTOR}}
 - **Resultado de publicación OCSP:** {{RESULTADO_OCSP}}
 - **Resultado de publicación CRL, cuando corresponda:** {{RESULTADO_CRL}}
+- **Firma o sello electrónico del acuse:** {{FIRMA_O_SELLO_ACUSE}}
+- **Referencia, identificador o fecha de la firma o sello:** {{REFERENCIA_FIRMA_O_SELLO}}
