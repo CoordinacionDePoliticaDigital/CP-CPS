@@ -79,11 +79,12 @@ ________________________________________________________________________
 
 - **Clave normalizada registrada:** {{CLAVE_CAUSAL}}
 - **Denominación registrada:** {{DENOMINACION_CAUSAL}}
-- **Fecha y hora de ejecución:** {{FECHA_HORA_EJECUCION}}
-- **Fecha y hora efectiva aplicable:** {{FECHA_HORA_EFECTIVA}}
-- **Fecha de efectos ordenada, para causa 02 cuando sea distinta:** {{FECHA_HORA_ORDENADA}}
+- **Fecha y hora efectiva de revocación:** {{FECHA_HORA_EFECTIVA}}
+- **Fecha de efectos ordenada como metadato jurídico, para causa 02 cuando sea distinta:** {{FECHA_HORA_ORDENADA}}
 - **Persona o proceso autorizado que ejecutó:** {{EJECUTOR}}
 - **Resultado de publicación OCSP:** {{RESULTADO_OCSP}}
 - **Resultado de publicación CRL, cuando corresponda:** {{RESULTADO_CRL}}
 - **Firma o sello electrónico del acuse:** {{FIRMA_O_SELLO_ACUSE}}
 - **Referencia, identificador o fecha de la firma o sello:** {{REFERENCIA_FIRMA_O_SELLO}}
+
+La fecha y hora efectiva será la registrada por la Autoridad de Certificación al completar la ejecución y publicar el estado técnico. Una fecha anterior indicada por una orden judicial o administrativa se conservará únicamente como metadato jurídico y no retrotraerá el estado publicado en OCSP o CRL.
