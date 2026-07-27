@@ -1,5 +1,6 @@
 from pathlib import Path
 
+# Ajustes mínimos derivados de la revisión automatizada del PR #8.
 path = Path("Productos/Anexo_G_Procedimiento_Revocacion.md")
 text = path.read_text(encoding="utf-8")
 
