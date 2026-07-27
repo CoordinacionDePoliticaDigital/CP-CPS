@@ -1,0 +1,34 @@
+from pathlib import Path
+
+path = Path("Productos/Anexo_G_Procedimiento_Revocacion.md")
+text = path.read_text(encoding="utf-8")
+
+replacements = [
+    (
+        "Únicamente podrá diferirse la verificación completa cuando exista una autorización explícita de emergencia emitida por la unidad jurídica o la Autoridad de Certificación, la orden haya sido recibida mediante un mecanismo institucional autenticado y se establezca en el expediente un plazo de verificación posterior no mayor a veinticuatro horas. Si la verificación posterior falla, se preservarán todas las evidencias, se notificará de inmediato a la unidad jurídica y al Consejo Técnico, se abrirá un incidente y se determinarán las medidas jurídicas y operativas procedentes; la revocación técnicamente ejecutada no se revertirá ni se ocultará.",
+        "Las comprobaciones esenciales no podrán diferirse: canal institucional autenticado, identidad del emisor, integridad del documento, competencia de la autoridad e identificación inequívoca del certificado o sujeto afectado. Únicamente podrán aplazarse comprobaciones documentales complementarias, como cotejos secundarios, incorporación de copias certificadas o validaciones de forma no determinantes, cuando exista autorización explícita de emergencia emitida por la unidad jurídica o la Autoridad de Certificación y se establezca en el expediente un plazo no mayor a veinticuatro horas para completarlas. Si la verificación posterior de esos elementos complementarios falla, se preservarán las evidencias, se notificará de inmediato a la unidad jurídica y al Consejo Técnico, se abrirá un incidente y se determinarán las medidas jurídicas y operativas procedentes, sin ocultar ni alterar el registro de la actuación ejecutada."
+    ),
+    (
+        "La revocación deberá ejecutarse como una operación autenticada, trazable y durable. El compromiso definitivo del estado local del certificado y el registro transaccional de los eventos de publicación constituirán la operación crítica; la disponibilidad inmediata de OCSP o CRL no condicionará una revocación válida.",
+        "La decisión de revocación y su registro local deberán ejecutarse como una operación autenticada, trazable y durable. El compromiso local será irreversible y deshabilitará inmediatamente el uso institucional del certificado; sin embargo, conforme al Anexo C, la fecha y hora efectiva normativa de revocación se fijará cuando la Autoridad de Certificación complete la publicación técnica del estado mediante OCSP y, cuando corresponda, CRL."
+    ),
+    (
+        "4. registrar la fecha y hora efectiva de revocación;\n5. cambiar y confirmar de forma durable el estado local del certificado como revocado;\n6. registrar, dentro de la misma transacción, eventos pendientes de publicación en una cola transaccional u outbox para OCSP y, cuando corresponda, CRL;\n7. intentar la publicación o puesta a disposición del nuevo estado mediante OCSP;\n8. incorporar la revocación en la CRL correspondiente cuando aplique;\n9. registrar el resultado de cada intento de publicación;\n10. impedir reactivación, modificación o reversión ordinaria.\n\nLa fecha y hora efectiva será la registrada por la Autoridad de Certificación al confirmar durablemente el estado local del certificado como revocado. Una fecha anterior contenida en una orden se conservará separadamente como metadato jurídico y no producirá retroactividad técnica. La publicación OCSP o CRL podrá completarse posteriormente sin modificar la fecha efectiva.",
+        "4. registrar la fecha y hora del compromiso local de la decisión de revocación;\n5. cambiar y confirmar de forma durable el estado local como revocación pendiente de publicación;\n6. registrar, dentro de la misma transacción, eventos pendientes de publicación en una cola transaccional u outbox para OCSP y, cuando corresponda, CRL;\n7. intentar la publicación o puesta a disposición del nuevo estado mediante OCSP;\n8. incorporar la revocación en la CRL correspondiente cuando aplique;\n9. al completar satisfactoriamente la publicación técnica, registrar la fecha y hora efectiva normativa de revocación;\n10. registrar el resultado de cada intento de publicación;\n11. impedir reactivación, modificación o reversión ordinaria.\n\nLa fecha y hora efectiva normativa será aquella en que la Autoridad de Certificación complete satisfactoriamente la operación, registre la revocación y publique el estado correspondiente, conforme al Anexo C. El compromiso local previo permanecerá como evidencia operativa y no se utilizará como fecha efectiva. Una fecha anterior contenida en una orden se conservará separadamente como metadato jurídico y no producirá retroactividad técnica."
+    ),
+    (
+        "Si la publicación OCSP o CRL falla, la revocación no deberá revertirse. El evento permanecerá pendiente en la cola transaccional u outbox y deberá reintentarse automáticamente con identificador idempotente, incremento controlado de espera, límite de intentos antes de escalamiento y trazabilidad de cada resultado. Agotado el límite operativo, se activarán los mecanismos de continuidad y el incidente permanecerá abierto hasta confirmar la publicación.",
+        "Si la publicación OCSP o CRL falla, la decisión local no deberá revertirse. El certificado permanecerá deshabilitado para uso institucional y el evento conservará el estado **revocación pendiente de publicación** en la cola transaccional u outbox. Deberá reintentarse automáticamente con identificador idempotente, incremento controlado de espera, límite de intentos antes de escalamiento y trazabilidad de cada resultado. Agotado el límite operativo, se activarán los mecanismos de continuidad y el incidente permanecerá abierto hasta confirmar la publicación y fijar la fecha y hora efectiva normativa."
+    ),
+    (
+        "El acuse se generará cuando el estado local del certificado haya quedado confirmado durablemente como revocado. Si OCSP o CRL aún no reflejan el nuevo estado, el acuse deberá indicar **publicación pendiente**, identificar los eventos de outbox relacionados y actualizarse o complementarse cuando la publicación quede confirmada.",
+        "Mientras OCSP o CRL no reflejen el nuevo estado, únicamente podrá emitirse una constancia de recepción y compromiso local con la leyenda **revocación pendiente de publicación** y la referencia de los eventos de outbox. El acuse definitivo de revocación se generará cuando la publicación técnica haya quedado confirmada y exista fecha y hora efectiva normativa; la constancia previa deberá actualizarse o complementarse con dicho acuse."
+    ),
+]
+
+for old, new in replacements:
+    if old not in text:
+        raise SystemExit(f"No se encontró el texto esperado: {old[:120]}")
+    text = text.replace(old, new, 1)
+
+path.write_text(text.rstrip("\n") + "\n", encoding="utf-8")
