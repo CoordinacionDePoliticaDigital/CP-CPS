@@ -1,0 +1,43 @@
+name: Ajustar consistencia Anexo G
+
+on:
+  push:
+    branches:
+      - docs/anexo-g-procedimiento-revocacion
+    paths:
+      - .github/scripts/ajustar_anexo_g_consistencia.py
+      - .github/workflows/ajustar-anexo-g-consistencia.yml
+
+permissions:
+  contents: write
+
+jobs:
+  aplicar:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: docs/anexo-g-procedimiento-revocacion
+
+      - run: python .github/scripts/ajustar_anexo_g_consistencia.py
+
+      - name: Validar
+        run: |
+          grep -q 'Las comprobaciones esenciales no podrán diferirse' Productos/Anexo_G_Procedimiento_Revocacion.md
+          grep -q 'fecha y hora efectiva normativa' Productos/Anexo_G_Procedimiento_Revocacion.md
+          grep -q 'revocación pendiente de publicación' Productos/Anexo_G_Procedimiento_Revocacion.md
+          grep -q 'acuse definitivo de revocación' Productos/Anexo_G_Procedimiento_Revocacion.md
+          python - <<'PY'
+          from pathlib import Path
+          data = Path('Productos/Anexo_G_Procedimiento_Revocacion.md').read_bytes()
+          assert data.endswith(b'\n') and not data.endswith(b'\n\n')
+          PY
+
+      - name: Commit
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add Productos/Anexo_G_Procedimiento_Revocacion.md
+          git commit -m 'docs: alinear fecha efectiva y validaciones de emergencia'
+          git push
