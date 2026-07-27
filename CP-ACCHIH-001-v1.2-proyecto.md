@@ -368,6 +368,12 @@ h) CN;
 i) SerialNumber;  
 j) 2.5.4.45.
 
+En todos los certificados de persona física, `organizationName` (`O`) deberá contener el valor `Gobierno del Estado de Chihuahua`.
+
+`organizationalUnitName` (`OU`) se utilizará únicamente cuando exista una adscripción institucional aplicable. En certificados de personas servidoras públicas deberá contener la denominación oficial de la dependencia, entidad u organismo de adscripción; en certificados ciudadanos deberá omitirse.
+
+La clasificación normativa del perfil no dependerá del contenido textual del `Subject`, sino de la extensión `Certificate Policies`, mediante el OID institucional correspondiente al tipo de certificado emitido.
+
 ## 7.4. Datos no permitidos
 
 No deberán incorporarse datos personales sensibles, domicilio particular completo, teléfono personal, datos biométricos directos, imágenes de identificación, documentos completos de identidad ni información innecesaria.

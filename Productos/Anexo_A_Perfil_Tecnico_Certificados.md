@@ -96,14 +96,16 @@ Podrán utilizarse, conforme al tipo de titular:
 | `serialNumber` | Identificador autorizado de la persona titular |
 | `2.5.4.45` | Identificador único autorizado conforme al perfil institucional |
 | `E` o `emailAddress` | Correo electrónico |
-| `O` | Dependencia, entidad u organización relacionada |
-| `OU` | Unidad administrativa |
+| `O` | Obligatorio en todos los certificados de persona física. Valor fijo: `Gobierno del Estado de Chihuahua`. |
+| `OU` | Se utilizará únicamente cuando exista adscripción institucional aplicable. En certificados de personas servidoras públicas contendrá la denominación oficial de la dependencia, entidad u organismo de adscripción; en certificados ciudadanos deberá omitirse. |
 | `L` | Localidad |
 | `S` | Entidad federativa |
 | `C` | País |
 | `postalCode` | Código postal, cuando resulte necesario |
 
 La CPS deberá definir el mapeo exacto de CURP, RFC y otros identificadores, evitando duplicidades, ambigüedades y exposición innecesaria de datos personales.
+
+La clasificación normativa del perfil del certificado no dependerá del contenido textual del `Subject`, sino de la extensión `Certificate Policies`, mediante el OID institucional correspondiente al tipo de certificado emitido. Los sistemas validadores deberán utilizar dicho OID como criterio canónico de clasificación.
 
 ## 4. Certificados de infraestructura
 
