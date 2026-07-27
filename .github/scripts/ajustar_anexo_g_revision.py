@@ -1,5 +1,6 @@
 from pathlib import Path
 
+# Ajustes mínimos derivados de la revisión automatizada del PR #8.
 path = Path("Productos/Anexo_G_Procedimiento_Revocacion.md")
 text = path.read_text(encoding="utf-8")
 
@@ -47,5 +48,4 @@ for old, new in replacements:
         raise SystemExit(f"No se encontró el texto esperado: {old[:100]}")
     text = text.replace(old, new, 1)
 
-# Exactamente un salto de línea final.
 path.write_text(text.rstrip("\n") + "\n", encoding="utf-8")
