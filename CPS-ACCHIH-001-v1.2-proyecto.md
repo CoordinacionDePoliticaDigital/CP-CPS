@@ -217,10 +217,14 @@ El `Subject` de los certificados de usuario final mantendrá el mapeo actualment
 - `emailAddress` (`1.2.840.113549.1.9.1`) contendrá el correo electrónico validado.
 - `serialNumber` (`2.5.4.5`) contendrá la CURP.
 - `x500UniqueIdentifier` (`2.5.4.45`) contendrá el RFC.
+- `organizationName` (`2.5.4.10`) deberá incluirse en todos los certificados de persona física con el valor fijo `Gobierno del Estado de Chihuahua`.
+- `organizationalUnitName` (`2.5.4.11`) se utilizará únicamente cuando exista adscripción institucional aplicable. En certificados de personas servidoras públicas contendrá la denominación oficial de la dependencia, entidad u organismo de adscripción; en certificados ciudadanos se omitirá.
 
 Los certificados históricos que presenten una etiqueta distinta en alguna herramienta de visualización conservarán su validez siempre que el atributo codificado sea el OID `2.5.4.45`. La CPS utilizará exclusivamente la denominación normativa `x500UniqueIdentifier` para dicho OID.
 
 La CURP y el RFC no deberán intercambiarse, duplicarse en ambos atributos ni asignarse a campos distintos dentro de este perfil. Los certificados previamente emitidos con este mapeo conservarán plena validez hasta su expiración o revocación.
+
+La clasificación normativa del tipo de certificado no se inferirá del contenido textual del `Subject`. Deberá determinarse mediante la extensión `Certificate Policies`, utilizando el OID institucional aprobado para el perfil correspondiente. Los validadores y sistemas integrados deberán utilizar dicho OID como criterio canónico de clasificación.
 
 Los detalles normativos adicionales se regirán por los siguientes documentos controlados:
 
