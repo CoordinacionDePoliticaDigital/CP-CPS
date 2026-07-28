@@ -29,4 +29,8 @@ La revocación es definitiva e irreversible. El certificado no podrá utilizarse
 
 **Firma electrónica avanzada del agente autorizado:** {{FIRMA_AGENTE}}
 
+**Referencia o identificador de la firma del agente:** {{REFERENCIA_FIRMA_AGENTE}}
+
 **Sello electrónico de la Autoridad Certificadora:** {{SELLO_ACUSE}}
+
+**Referencia o identificador del sello:** {{REFERENCIA_SELLO_ACUSE}}
