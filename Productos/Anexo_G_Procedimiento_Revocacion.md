@@ -259,7 +259,9 @@ Después de ejecutar deberá comprobarse:
 - generación del acuse;
 - cierre o escalamiento de incidentes relacionados.
 
-Si la publicación OCSP o CRL falla, la revocación local no deberá revertirse. El evento conservará el estado **publicación pendiente** en la cola transaccional u outbox y mantendrá la fecha y hora efectiva ya persistida. Deberá reintentarse automáticamente con identificador idempotente, incremento controlado de espera, límite de intentos antes de escalamiento y trazabilidad de cada resultado. Agotado el límite operativo, se activarán los mecanismos de continuidad y el incidente permanecerá abierto hasta confirmar la publicación.
+Si la publicación OCSP o CRL falla, la revocación local no deberá revertirse. El evento conservará el estado **publicación pendiente** en la cola transaccional u outbox y mantendrá la fecha y hora efectiva ya persistida. Deberá reintentarse automáticamente con identificador idempotente, incremento controlado de espera, límite de intentos antes de escalamiento y trazabilidad de cada resultado.
+
+Cuando la revocación sea urgente por pérdida, exposición, acceso no autorizado, copia o sospecha razonable de compromiso de la clave privada, la primera falla de publicación activará inmediatamente el mecanismo alterno autorizado de continuidad, sin esperar a que se agote el límite ordinario de reintentos. Deberá impedirse que los servicios institucionales acepten el certificado revocado y se deberá procurar la actualización externa por el canal alterno disponible hasta confirmar la publicación. Para revocaciones no urgentes, los mecanismos de continuidad se activarán al agotarse el límite operativo. En todos los casos, el incidente permanecerá abierto hasta confirmar la publicación.
 
 ## 14. Acuse de revocación
 
