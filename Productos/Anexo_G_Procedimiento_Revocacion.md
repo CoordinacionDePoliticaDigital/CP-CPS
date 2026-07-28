@@ -15,7 +15,7 @@
 
 El presente procedimiento establece las actividades, controles, responsabilidades, evidencias y resultados aplicables a la revocación definitiva de certificados emitidos por la Autoridad de Certificación de Gobierno del Estado de Chihuahua.
 
-La revocación será definitiva e irreversible. No existe suspensión temporal, reactivación, modificación ni reemisión del certificado revocado. Cuando la persona interesada continúe requiriendo un certificado, deberá iniciar un trámite independiente de nueva emisión o renovación, según corresponda.
+La revocación será definitiva e irreversible. No existe suspensión temporal, reactivación, modificación ni reemisión del certificado revocado. Cuando la persona interesada continúe requiriendo un certificado, deberá iniciar un trámite independiente de nueva emisión. Un certificado revocado no será elegible para renovación.
 
 ## 2. Alcance
 
@@ -219,23 +219,22 @@ Las causas 05, 07, 10 y 11 requerirán validación expresa de la Autoridad de Ce
 
 ## 12. Ejecución técnica
 
-La decisión de revocación y su registro local deberán ejecutarse como una operación autenticada, trazable y durable. El compromiso local será irreversible y deshabilitará inmediatamente el uso institucional del certificado; sin embargo, conforme al Anexo C, la fecha y hora efectiva normativa de revocación se fijará cuando la Autoridad de Certificación complete la publicación técnica del estado mediante OCSP y, cuando corresponda, CRL.
+La decisión de revocación y su registro local deberán ejecutarse como una operación autenticada, trazable y durable. Antes de construir cualquier respuesta OCSP o entrada de CRL, el sistema asignará y persistirá una fecha y hora efectiva única de revocación. Ese mismo valor se utilizará sin modificación en la publicación técnica y en todos los reintentos posteriores.
 
 El sistema deberá:
 
 1. verificar nuevamente el estado del certificado;
 2. registrar la causa principal y las adicionales;
 3. registrar a la persona o proceso ejecutor;
-4. registrar la fecha y hora del compromiso local de la decisión de revocación;
-5. cambiar y confirmar de forma durable el estado local como revocación pendiente de publicación;
-6. registrar, dentro de la misma transacción, eventos pendientes de publicación en una cola transaccional u outbox para OCSP y, cuando corresponda, CRL;
-7. intentar la publicación o puesta a disposición del nuevo estado mediante OCSP;
-8. incorporar la revocación en la CRL correspondiente cuando aplique;
-9. al completar satisfactoriamente la publicación técnica, registrar la fecha y hora efectiva normativa de revocación;
-10. registrar el resultado de cada intento de publicación;
-11. impedir reactivación, modificación o reversión ordinaria.
+4. asignar y persistir la fecha y hora efectiva única de revocación;
+5. cambiar y confirmar de forma durable el estado local como revocado;
+6. registrar, dentro de la misma transacción, eventos pendientes de publicación en una cola transaccional u outbox para OCSP y, cuando corresponda, CRL, incluyendo la fecha y hora efectiva persistida;
+7. construir e intentar la publicación o puesta a disposición del nuevo estado mediante OCSP utilizando esa misma fecha y hora;
+8. incorporar la revocación en la CRL correspondiente cuando aplique, utilizando esa misma fecha y hora;
+9. registrar el resultado de cada intento de publicación;
+10. impedir reactivación, modificación o reversión ordinaria.
 
-La fecha y hora efectiva normativa será aquella en que la Autoridad de Certificación complete satisfactoriamente la operación, registre la revocación y publique el estado correspondiente, conforme al Anexo C. El compromiso local previo permanecerá como evidencia operativa y no se utilizará como fecha efectiva. Una fecha anterior contenida en una orden se conservará separadamente como metadato jurídico y no producirá retroactividad técnica.
+La fecha y hora efectiva será la asignada y persistida al confirmar durablemente la revocación local. La publicación OCSP o CRL deberá reproducir ese mismo valor; los reintentos no podrán sustituirlo por una fecha posterior. Una fecha anterior contenida en una orden se conservará separadamente como metadato jurídico y no producirá retroactividad técnica.
 
 ## 13. Verificación posterior
 
@@ -249,11 +248,11 @@ Después de ejecutar deberá comprobarse:
 - generación del acuse;
 - cierre o escalamiento de incidentes relacionados.
 
-Si la publicación OCSP o CRL falla, la decisión local no deberá revertirse. El certificado permanecerá deshabilitado para uso institucional y el evento conservará el estado **revocación pendiente de publicación** en la cola transaccional u outbox. Deberá reintentarse automáticamente con identificador idempotente, incremento controlado de espera, límite de intentos antes de escalamiento y trazabilidad de cada resultado. Agotado el límite operativo, se activarán los mecanismos de continuidad y el incidente permanecerá abierto hasta confirmar la publicación y fijar la fecha y hora efectiva normativa.
+Si la publicación OCSP o CRL falla, la revocación local no deberá revertirse. El evento conservará el estado **publicación pendiente** en la cola transaccional u outbox y mantendrá la fecha y hora efectiva ya persistida. Deberá reintentarse automáticamente con identificador idempotente, incremento controlado de espera, límite de intentos antes de escalamiento y trazabilidad de cada resultado. Agotado el límite operativo, se activarán los mecanismos de continuidad y el incidente permanecerá abierto hasta confirmar la publicación.
 
 ## 14. Acuse de revocación
 
-Mientras OCSP o CRL no reflejen el nuevo estado, únicamente podrá emitirse una constancia de recepción y compromiso local con la leyenda **revocación pendiente de publicación** y la referencia de los eventos de outbox. El acuse definitivo de revocación se generará cuando la publicación técnica haya quedado confirmada y exista fecha y hora efectiva normativa; la constancia previa deberá actualizarse o complementarse con dicho acuse.
+El acuse de revocación se generará cuando la revocación local haya quedado confirmada durablemente y exista fecha y hora efectiva persistida. Si OCSP o CRL aún no reflejan el nuevo estado, el acuse deberá indicar **publicación pendiente**, conservar la fecha y hora efectiva ya asignada e identificar los eventos de outbox relacionados; deberá actualizarse o complementarse cuando la publicación quede confirmada.
 
 Deberá incluir, al menos:
 

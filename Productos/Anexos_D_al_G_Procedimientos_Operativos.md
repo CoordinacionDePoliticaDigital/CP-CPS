@@ -21,8 +21,5 @@
 5. **Descarga:** El usuario descarga su certificado público y guarda su llave privada (`.key`) localmente.
 
 ## Anexo G. Procedimiento de Revocación
-1. **Iniciación:** El titular, su superior jerárquico, o la AC inician una solicitud de revocación.
-2. **Autenticación de Solicitud:** Se verifica la identidad del solicitante o la legitimidad de la causa (ej. acta de defunción, oficio de despido).
-3. **Procesamiento:** El sistema administrativo procesa la orden de revocar.
-4. **Actualización de Estado:** El número de serie del certificado se incorpora al servicio OCSP (o CRL si aplica).
-5. **Notificación:** Se envía un correo electrónico al titular informando que su certificado ha sido revocado y la fecha/hora de la acción.
+
+Esta sección queda sustituida por el documento autoritativo `Productos/Anexo_G_Procedimiento_Revocacion.md`. No deberá utilizarse como fuente normativa ni operativa independiente.
