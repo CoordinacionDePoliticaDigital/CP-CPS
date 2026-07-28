@@ -82,8 +82,11 @@ ________________________________________________________________________
 - **Fecha y hora efectiva de revocación:** {{FECHA_HORA_EFECTIVA}}
 - **Fecha de efectos ordenada como metadato jurídico, para causa 02 cuando sea distinta:** {{FECHA_HORA_ORDENADA}}
 - **Persona o proceso autorizado que ejecutó:** {{EJECUTOR}}
+- **Estado de publicación:** {{ESTADO_PUBLICACION}}
 - **Resultado de publicación OCSP:** {{RESULTADO_OCSP}}
 - **Resultado de publicación CRL, cuando corresponda:** {{RESULTADO_CRL}}
+- **Referencia de eventos de publicación u outbox, cuando exista publicación pendiente:** {{REFERENCIA_OUTBOX}}
+- **Fecha y hora de confirmación de publicación, cuando corresponda:** {{FECHA_HORA_PUBLICACION}}
 - **Firma o sello electrónico del acuse:** {{FIRMA_O_SELLO_ACUSE}}
 - **Referencia, identificador o fecha de la firma o sello:** {{REFERENCIA_FIRMA_O_SELLO}}
 
