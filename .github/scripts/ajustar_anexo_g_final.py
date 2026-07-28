@@ -1,5 +1,6 @@
 from pathlib import Path
 
+# Ajustes finales de consistencia normativa y operativa del Anexo G.
 replacements = {
     Path("Productos/Anexo_G_Procedimiento_Revocacion.md"): [
         (
