@@ -1,5 +1,6 @@
 from pathlib import Path
 
+# Ajustes derivados de la revisión del PR #8.
 replacements = {
     Path("Productos/Anexo_G_Procedimiento_Revocacion.md"): [
         (
