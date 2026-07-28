@@ -18,7 +18,8 @@ La **Autoridad de Certificación de Gobierno del Estado de Chihuahua**, identifi
 
 - Número de serie revocado: {{NUMERO_SERIE}}
 - Clave de causal: {{CLAVE_CAUSAL}}
-- Descripción: {{DESCRIPCION_CAUSAL}}
+- Denominación normalizada de la causal: {{DENOMINACION_CAUSAL}}
+- Descripción de los hechos: {{DESCRIPCION_HECHOS}}
 - Fecha y hora efectiva de revocación: {{FECHA_HORA_REVOCACION}}
 - Persona o proceso autorizado que ejecutó: {{EJECUTOR}}
 - Estado de publicación: {{ESTADO_PUBLICACION}}
