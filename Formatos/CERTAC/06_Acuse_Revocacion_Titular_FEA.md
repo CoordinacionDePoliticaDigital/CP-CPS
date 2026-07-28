@@ -20,6 +20,7 @@ La **Autoridad de Certificación de Gobierno del Estado de Chihuahua**, identifi
 - Clave de causal: {{CLAVE_CAUSAL}}
 - Descripción: {{DESCRIPCION_CAUSAL}}
 - Fecha y hora efectiva de revocación: {{FECHA_HORA_REVOCACION}}
+- Persona o proceso autorizado que ejecutó: {{EJECUTOR}}
 - Estado de publicación: {{ESTADO_PUBLICACION}}
 - Referencia de eventos de publicación u outbox: {{REFERENCIA_OUTBOX}}
 - Fecha y hora de confirmación de publicación, cuando corresponda: {{FECHA_HORA_PUBLICACION}}
