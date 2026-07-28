@@ -87,4 +87,4 @@ ________________________________________________________________________
 - **Firma o sello electrónico del acuse:** {{FIRMA_O_SELLO_ACUSE}}
 - **Referencia, identificador o fecha de la firma o sello:** {{REFERENCIA_FIRMA_O_SELLO}}
 
-La fecha y hora efectiva será la registrada por la Autoridad de Certificación al completar la ejecución y publicar el estado técnico. Una fecha anterior indicada por una orden judicial o administrativa se conservará únicamente como metadato jurídico y no retrotraerá el estado publicado en OCSP o CRL.
+La fecha y hora efectiva será la asignada y persistida por la Autoridad de Certificación al confirmar durablemente el estado local como revocado. Ese mismo valor deberá reproducirse sin modificación en OCSP y, cuando corresponda, CRL, incluso durante reintentos de publicación. Una fecha anterior indicada por una orden judicial o administrativa se conservará únicamente como metadato jurídico y no retrotraerá el estado técnico.
