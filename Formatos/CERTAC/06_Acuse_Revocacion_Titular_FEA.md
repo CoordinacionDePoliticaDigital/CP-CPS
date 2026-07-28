@@ -28,3 +28,5 @@ La **Autoridad de Certificación de Gobierno del Estado de Chihuahua**, identifi
 La revocación es definitiva e irreversible. El certificado no podrá utilizarse para generar firmas después de la fecha y hora efectiva indicada. Cuando el estado de publicación sea **pendiente**, este acuse acreditará la revocación local y conservará la referencia de los eventos de publicación; deberá actualizarse o complementarse cuando OCSP y, en su caso, CRL reflejen el estado revocado. Las firmas realizadas previamente deberán evaluarse conforme a su fecha, sello de tiempo, integridad y estado histórico del certificado.
 
 **Firma o sello electrónico de la Autoridad Certificadora:** {{FIRMA_ACUSE}}
+
+**Referencia o identificador de la firma o sello:** {{REFERENCIA_FIRMA_O_SELLO}}
