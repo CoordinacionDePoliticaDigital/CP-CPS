@@ -226,7 +226,7 @@ Antes de ejecutar, el sistema o agente deberá confirmar:
 - rol vigente de la persona ejecutora;
 - disponibilidad del mecanismo durable de registro local y de la cola transaccional de publicación.
 
-Las causas 05, 07, 10 y 11 requerirán validación expresa de la Autoridad de Certificación o de la unidad competente designada, además de la intervención técnica del agente cuando corresponda.
+Toda revocación asistida requerirá la firma electrónica avanzada de una persona con rol vigente de agente autorizado, incluida aquella iniciada por la propia Autoridad de Certificación o por una unidad competente. Las causas 05, 07, 10 y 11 requerirán además validación expresa de la Autoridad de Certificación o de la unidad competente designada.
 
 ## 12. Ejecución técnica
 
