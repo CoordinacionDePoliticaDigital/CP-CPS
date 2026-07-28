@@ -1,0 +1,40 @@
+name: Ajustar rollover y acuses de revocación
+
+on:
+  push:
+    branches:
+      - docs/anexo-g-procedimiento-revocacion
+    paths:
+      - .github/scripts/ajustar_anexo_g_rollover_acuses.py
+      - .github/workflows/ajustar-anexo-g-rollover-acuses.yml
+
+permissions:
+  contents: write
+
+jobs:
+  aplicar:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: docs/anexo-g-procedimiento-revocacion
+
+      - run: python .github/scripts/ajustar_anexo_g_rollover_acuses.py
+
+      - name: Validar
+        run: |
+          grep -q 'plan de sustitución o continuidad' Productos/Anexo_G_Procedimiento_Revocacion.md
+          grep -q 'No deberá continuarse la publicación con una clave comprometida' Productos/Anexo_G_Procedimiento_Revocacion.md
+          grep -q 'Estado de publicación: {{ESTADO_PUBLICACION}}' Formatos/CERTAC/06_Acuse_Revocacion_Titular_FEA.md
+          grep -q 'Referencia de eventos de publicación u outbox' Formatos/CERTAC/08_Acuse_Revocacion_Agente_FEA.md
+          ! grep -q 'Estado publicado: Revocado' Formatos/CERTAC/06_Acuse_Revocacion_Titular_FEA.md
+          ! grep -q 'Estado publicado: Revocado' Formatos/CERTAC/08_Acuse_Revocacion_Agente_FEA.md
+
+      - name: Commit
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add Productos/Anexo_G_Procedimiento_Revocacion.md Formatos/CERTAC/06_Acuse_Revocacion_Titular_FEA.md Formatos/CERTAC/08_Acuse_Revocacion_Agente_FEA.md
+          git commit -m 'docs: definir rollover y publicación pendiente en revocación'
+          git push
