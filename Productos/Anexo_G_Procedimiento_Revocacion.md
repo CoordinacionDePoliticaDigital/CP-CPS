@@ -93,6 +93,17 @@ Antes de ejecutar la revocación deberá verificarse:
 
 La revocación directa mediante firma con el propio certificado no será requisito para estos certificados. La solicitud y autorización deberán realizarse mediante un canal institucional autenticado y quedar vinculadas al expediente, con identificación de quien solicita, quien autoriza y quien ejecuta.
 
+Antes de revocar un certificado OCSP, TSA, de firma de CRL o de infraestructura deberá ejecutarse un plan de sustitución o continuidad que incluya, según corresponda:
+
+1. generar o habilitar una clave y un certificado de reemplazo con perfil autorizado;
+2. distribuir la nueva cadena y configuración a los componentes dependientes;
+3. comprobar firma, validación, publicación y monitoreo con el certificado de reemplazo;
+4. realizar el cambio controlado del servicio y confirmar que no existan dependencias activas del certificado saliente;
+5. preservar inventarios, evidencias de transición, responsables y criterios de reversión;
+6. revocar el certificado saliente únicamente después de confirmar la continuidad del servicio.
+
+Cuando exista compromiso confirmado o riesgo inminente que impida mantener temporalmente el certificado saliente, la Autoridad de Certificación podrá ordenar su aislamiento y revocación inmediata. En ese caso deberá activarse previamente o de forma simultánea un respondedor, firmante o mecanismo alterno autorizado, aplicar el procedimiento de continuidad operativa y documentar cualquier periodo de degradación. No deberá continuarse la publicación con una clave comprometida.
+
 ## 5. Modalidades de revocación
 
 ### 5.1. Revocación directa por la persona titular

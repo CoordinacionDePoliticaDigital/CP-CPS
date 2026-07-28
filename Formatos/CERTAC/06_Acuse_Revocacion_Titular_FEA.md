@@ -20,8 +20,10 @@ La **Autoridad de Certificación de Gobierno del Estado de Chihuahua**, identifi
 - Clave de causal: {{CLAVE_CAUSAL}}
 - Descripción: {{DESCRIPCION_CAUSAL}}
 - Fecha y hora efectiva de revocación: {{FECHA_HORA_REVOCACION}}
-- Estado publicado: Revocado.
+- Estado de publicación: {{ESTADO_PUBLICACION}}
+- Referencia de eventos de publicación u outbox: {{REFERENCIA_OUTBOX}}
+- Fecha y hora de confirmación de publicación, cuando corresponda: {{FECHA_HORA_PUBLICACION}}
 
-La revocación es definitiva e irreversible. El certificado no podrá utilizarse para generar firmas después de la fecha y hora efectiva indicada. Las firmas realizadas previamente deberán evaluarse conforme a su fecha, sello de tiempo, integridad y estado histórico del certificado.
+La revocación es definitiva e irreversible. El certificado no podrá utilizarse para generar firmas después de la fecha y hora efectiva indicada. Cuando el estado de publicación sea **pendiente**, este acuse acreditará la revocación local y conservará la referencia de los eventos de publicación; deberá actualizarse o complementarse cuando OCSP y, en su caso, CRL reflejen el estado revocado. Las firmas realizadas previamente deberán evaluarse conforme a su fecha, sello de tiempo, integridad y estado histórico del certificado.
 
 **Firma o sello electrónico de la Autoridad Certificadora:** {{FIRMA_ACUSE}}
