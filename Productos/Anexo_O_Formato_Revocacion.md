@@ -75,6 +75,8 @@ ________________________________________________________________________
 **Referencia documental:**  
 ________________________________________________________________________
 
+Solicito o autorizo, según la calidad con la que comparezco y el fundamento señalado, la revocación definitiva e irreversible del certificado identificado en este formato. Declaro que la información y documentación aportadas son auténticas y suficientes para sustentar la solicitud, y reconozco que no existe suspensión temporal, reactivación, modificación ni reemisión del certificado revocado.
+
 **Firma de la persona iniciadora, cuando corresponda:** _________________________________________________
 
 ## 4. Verificación, autorización y firma del agente
