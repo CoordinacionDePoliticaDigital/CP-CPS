@@ -48,34 +48,48 @@ Para fallecimiento de la persona titular deberá adjuntarse acta o constancia of
 
 La clave `11_Otra_causal_definida_en_el_certificado` requiere fundamento expreso y evidencia suficiente; no deberá utilizarse cuando alguna de las causas 01 a 10 resulte aplicable.
 
-## 3. Declaración
+## 3. Persona o entidad que inicia la revocación
 
-Solicito o autorizo, según la calidad con la que comparezco, la revocación definitiva e irreversible del certificado señalado. Reconozco que no existe suspensión temporal, reactivación ni reemisión del certificado revocado.
+**Nombre o denominación:**  
+________________________________________________________________________
 
-**Nombre de la persona solicitante o agente autorizado:**  
+**CURP, RFC o identificador institucional, cuando corresponda:**  
 ________________________________________________________________________
 
 **Calidad con la que comparece:**
 
 - [ ] Persona titular.
-- [ ] Agente autorizado.
 - [ ] Superior jerárquico, enlace institucional o unidad competente.
 - [ ] Persona representante, liquidadora o sociedad legitimada.
 - [ ] Autoridad judicial o administrativa.
 - [ ] Familiar o tercero legalmente legitimado.
+- [ ] Autoridad de Certificación.
 - [ ] Otra: _________________________________________________
 
-**Mandato, autorización o representación invocada, cuando corresponda:**  
+**Relación con la persona titular o fundamento de legitimidad:**  
 ________________________________________________________________________
 
-**Referencia documental de la autorización o representación:**  
+**Mandato, autorización, representación o acto de autoridad invocado, cuando corresponda:**  
 ________________________________________________________________________
 
-**Firma:** _________________________________________________
+**Referencia documental:**  
+________________________________________________________________________
+
+**Firma de la persona iniciadora, cuando corresponda:** _________________________________________________
+
+## 4. Verificación, autorización y firma del agente
+
+La persona con rol vigente de agente autorizado hace constar que verificó la identidad o identificación institucional de quien inicia la revocación, su legitimidad, capacidad, mandato, autorización, representación o fundamento aplicable; cotejó las evidencias; validó la causa normalizada; e identificó inequívocamente el certificado. La firma del agente acredita su intervención y autorización, pero no sustituye el mandato, representación o legitimidad de quien inició el trámite.
+
+- **Nombre del agente autorizado:** {{NOMBRE_AGENTE}}
+- **Identificador o rol:** {{IDENTIFICADOR_AGENTE}}
+- **Fecha y hora de autorización:** {{FECHA_HORA_AUTORIZACION}}
+- **Firma electrónica avanzada del agente autorizado:** {{FIRMA_AGENTE}}
+- **Referencia o identificador de la firma:** {{REFERENCIA_FIRMA_AGENTE}}
 
 ---
 
-## 4. Registro de ejecución
+## 5. Registro de ejecución
 
 - **Clave normalizada registrada:** {{CLAVE_CAUSAL}}
 - **Denominación registrada:** {{DENOMINACION_CAUSAL}}
