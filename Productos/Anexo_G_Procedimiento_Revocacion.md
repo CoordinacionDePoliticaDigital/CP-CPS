@@ -237,15 +237,13 @@ El sistema deberá:
 1. verificar nuevamente el estado del certificado;
 2. registrar la causa principal y las adicionales;
 3. registrar a la persona o proceso ejecutor;
-4. asignar y persistir la fecha y hora efectiva única de revocación;
-5. cambiar y confirmar de forma durable el estado local como revocado;
-6. registrar, dentro de la misma transacción, eventos pendientes de publicación en una cola transaccional u outbox para OCSP y, cuando corresponda, CRL, incluyendo la fecha y hora efectiva persistida;
-7. construir e intentar la publicación o puesta a disposición del nuevo estado mediante OCSP utilizando esa misma fecha y hora;
-8. incorporar la revocación en la CRL correspondiente cuando aplique, utilizando esa misma fecha y hora;
-9. registrar el resultado de cada intento de publicación;
-10. impedir reactivación, modificación o reversión ordinaria.
+4. dentro de una misma transacción atómica, asignar y persistir la fecha y hora efectiva única, cambiar el estado local a revocado y registrar los eventos pendientes de publicación en una cola transaccional u outbox para OCSP y, cuando corresponda, CRL; la transacción solo deberá confirmarse si las tres operaciones quedan registradas satisfactoriamente;
+5. después de confirmar la transacción, construir e intentar la publicación o puesta a disposición del nuevo estado mediante OCSP utilizando esa misma fecha y hora;
+6. incorporar la revocación en la CRL correspondiente cuando aplique, utilizando esa misma fecha y hora;
+7. registrar el resultado de cada intento de publicación;
+8. impedir reactivación, modificación o reversión ordinaria.
 
-La fecha y hora efectiva será la asignada y persistida al confirmar durablemente la revocación local. La publicación OCSP o CRL deberá reproducir ese mismo valor; los reintentos no podrán sustituirlo por una fecha posterior. Una fecha anterior contenida en una orden se conservará separadamente como metadato jurídico y no producirá retroactividad técnica.
+La fecha y hora efectiva será la asignada y persistida en la misma transacción atómica que confirme durablemente la revocación local y registre el evento de publicación pendiente. Si la transacción no puede completar esos tres registros, no deberá confirmarse parcialmente. La publicación OCSP o CRL deberá reproducir ese mismo valor; los reintentos no podrán sustituirlo por una fecha posterior. Una fecha anterior contenida en una orden se conservará separadamente como metadato jurídico y no producirá retroactividad técnica.
 
 ## 13. Verificación posterior
 

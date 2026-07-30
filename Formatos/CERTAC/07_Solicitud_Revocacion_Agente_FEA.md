@@ -25,8 +25,9 @@
 ## Certificado a revocar
 
 - Número de serie: {{NUMERO_SERIE}}
-- Clave de causal: {{CLAVE_CAUSAL}}
-- Descripción de causal: {{DESCRIPCION_CAUSAL}}
+- Clave normalizada de causal: {{CLAVE_CAUSAL}}
+- Denominación normalizada de causal: {{DENOMINACION_CAUSAL}}
+- Descripción de los hechos: {{DESCRIPCION_HECHOS}}
 - Documento o evidencia de soporte: {{REFERENCIA_SOPORTE}}
 
 ## Verificación del agente
