@@ -81,15 +81,18 @@ Las órdenes deberán ser identificables, verificables y emitidas por autoridad 
 
 ### 4.6. Certificados de servicios e infraestructura
 
-Para certificados OCSP, TSA, de firma de CRL o de infraestructura, la persona titular será sustituida operativamente por el activo o servicio criptográfico identificado y por su responsable institucional.
+Para certificados OCSP, TSA, de firma de CRL o de infraestructura, el expediente deberá estructurarse conforme al siguiente contrato, distinto del aplicable a certificados de personas físicas titulares:
 
-Antes de ejecutar la revocación deberá verificarse:
+- **Identificador del activo o servicio:** identificación del componente criptográfico, respondedor, firmante de tiempo, firmante de CRL u otro activo de infraestructura vinculado al certificado.
+- **Propietario institucional:** dependencia, unidad administrativa o entidad responsable del activo o servicio.
+- **Unidad responsable de operación:** área encargada de operar, monitorear y mantener el servicio.
+- **Solicitante autorizado:** persona o proceso con facultades vigentes para solicitar la revocación, que podrá ser el propietario institucional, la unidad responsable, la Autoridad de Certificación, el área de seguridad o una autoridad competente.
+- **Evidencia y autorización:** inventario, orden de cambio, reporte de incidente, compromiso de clave, retiro del servicio, sustitución de componente, resolución de autoridad u otra evidencia técnica o administrativa aplicable, además de la autorización de ejecución emitida por la Autoridad de Certificación o por la unidad formalmente designada.
+- **Persona ejecutora:** agente o proceso autorizado que ejecutó la revocación.
 
-- el propietario institucional del activo o servicio y la unidad responsable de su operación;
-- la identidad y vigencia de facultades de la persona solicitante autorizada, que podrá ser el propietario del activo, la unidad responsable, la Autoridad de Certificación, el área de seguridad o una autoridad competente;
-- la vinculación inequívoca entre el certificado, su clave pública, el servicio, el activo, el ambiente y la autoridad emisora;
-- la evidencia técnica o administrativa aplicable, como inventario, orden de cambio, reporte de incidente, compromiso de clave, retiro del servicio, sustitución de componente o resolución de autoridad;
-- la autorización de ejecución emitida por la Autoridad de Certificación o por la unidad formalmente designada.
+Los formularios de firma electrónica avanzada diseñados para personas titulares naturales quedan fuera del alcance de estos certificados. El expediente deberá vincular inequívocamente el certificado, su clave pública, el servicio, el activo, el ambiente y la autoridad emisora.
+
+Antes de ejecutar la revocación deberá verificarse la validez de cada uno de los elementos descritos.
 
 La revocación directa mediante firma con el propio certificado no será requisito para estos certificados. La solicitud y autorización deberán realizarse mediante un canal institucional autenticado y quedar vinculadas al expediente, con identificación de quien solicita, quien autoriza y quien ejecuta.
 

@@ -68,7 +68,7 @@ El expediente de revocación deberá contener, al menos:
 - mandato, autorización o acreditación de representación y su referencia, cuando corresponda;
 - agente o proceso autorizado que la ejecutó;
 - evidencia o referencia documental;
-- fecha y hora efectiva de revocación, asignada y persistida al confirmar durablemente el estado local y reproducida sin modificación en OCSP y, cuando corresponda, CRL;
+- fecha y hora efectiva de revocación, asignada y persistida al confirmar durablemente el estado local, junto con el estado de publicación y la referencia de los eventos de outbox, sin requerir la reproducción inmediata en OCSP o CRL; ese mismo valor deberá reproducirse sin modificación en OCSP y, cuando corresponda, CRL, una vez que la publicación sea exitosa;
 - fecha de efectos ordenada como metadato jurídico, únicamente para la causa 02 cuando sea distinta;
 - resultado de publicación en OCSP y, cuando corresponda, CRL;
 - firma o sello electrónico del acuse.
