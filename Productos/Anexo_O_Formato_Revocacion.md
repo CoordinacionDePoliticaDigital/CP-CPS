@@ -24,7 +24,7 @@ Seleccione una sola causa principal del catálogo normalizado del Anexo C. Cuand
 - [ ] `03_Disolución_de_persona_moral` — Disolución, liquidación o extinción de la persona moral representada.
 - [ ] `04_Fusión_o_escisión` — Fusión o escisión de la persona moral.
 - [ ] `05_Certificado_no_cumple_requisitos_legales` — Incumplimiento de requisitos legales, normativos o técnicos.
-- [ ] `06_Riesgo_confidencialidad_datos_de_creación_de_firma` — Pérdida de la clave privada o del medio que la contiene, exposición, acceso no autorizado, copia o compromiso. El olvido de contraseña, sin evidencia de pérdida, exposición o compromiso, deberá registrarse como `01_Solicitud_del_titular` mediante revocación asistida.
+- [ ] `06_Riesgo_confidencialidad_datos_de_creación_de_firma` — Pérdida de la clave privada o del medio que la contiene, exposición, acceso no autorizado, copia, sospecha razonable de compromiso o cualquier circunstancia que afecte su confidencialidad. El olvido de contraseña, sin evidencia de pérdida, exposición, acceso no autorizado, copia o sospecha razonable de compromiso, deberá registrarse como `01_Solicitud_del_titular` mediante revocación asistida.
 - [ ] `07_Documentación_de_identidad_falsa` — Documentación falsa, alterada o suplantación de identidad.
 - [ ] `08_Término_de_cargo_de_servicio_público` — Baja, separación, cambio de dependencia, unidad administrativa o cargo, o retiro formal de autorización.
 - [ ] `09_Cambio_de_circunstancias_del_sujeto` — Cambio de datos, representación, facultades, situación jurídica, incapacidad o fallecimiento de la persona titular.
