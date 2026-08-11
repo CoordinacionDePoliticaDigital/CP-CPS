@@ -30,6 +30,13 @@
 - Descripción de los hechos: {{DESCRIPCION_HECHOS}}
 - Documento o evidencia de soporte: {{REFERENCIA_SOPORTE}}
 
+## Declaración de la persona o entidad iniciadora
+
+La persona o entidad iniciadora solicita expresamente la revocación definitiva del certificado identificado en este formato y declara que la información y documentación proporcionadas son completas y veraces. Esta declaración queda vinculada a su firma o constancia de autenticación y no sustituye la verificación independiente que corresponde al agente autorizado.
+
+- Fecha y hora de autorización: {{FECHA_HORA_AUTORIZACION}}
+- Referencia o identificador de la firma o constancia de autenticación: {{REFERENCIA_FIRMA_INICIADOR}}
+
 ## Verificación del agente
 
 El agente autorizado hace constar que verificó la identidad de la persona titular y, cuando la solicitud fue iniciada por una persona representante, tercero legitimado, dependencia, unidad competente o autoridad, verificó también la identidad o identificación institucional de quien inicia, su capacidad, mandato, autorización, representación o fundamento de legitimidad y la referencia documental correspondiente. Asimismo, cotejó la documentación y revisó los elementos que sustentan la causal indicada conforme a la Política de Certificación CP-ACCHIH-001, la Declaración de Prácticas de Certificación y la normatividad aplicable.
