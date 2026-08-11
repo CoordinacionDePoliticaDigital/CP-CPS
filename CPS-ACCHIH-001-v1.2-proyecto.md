@@ -224,7 +224,7 @@ Los certificados históricos que presenten una etiqueta distinta en alguna herra
 
 La CURP y el RFC no deberán intercambiarse, duplicarse en ambos atributos ni asignarse a campos distintos dentro de este perfil. Los certificados previamente emitidos con este mapeo conservarán plena validez hasta su expiración o revocación.
 
-La clasificación normativa del tipo de certificado no se inferirá del contenido textual del `Subject`. Deberá determinarse mediante la extensión `Certificate Policies`, utilizando el OID institucional aprobado para el perfil correspondiente. Los validadores y sistemas integrados deberán utilizar dicho OID como criterio canónico de clasificación.
+La clasificación normativa del tipo de certificado no se inferirá del contenido textual del `Subject`. Deberá determinarse mediante la extensión `Certificate Policies`, utilizando el OID institucional aprobado para el perfil correspondiente y el catálogo controlado del Anexo A. Los validadores y sistemas integrados deberán utilizar dicho OID como criterio canónico de clasificación y deberán rechazar o marcar como no clasificable cualquier certificado con política ausente, desconocida, incompatible o conflictiva.
 
 Los detalles normativos adicionales se regirán por los siguientes documentos controlados:
 

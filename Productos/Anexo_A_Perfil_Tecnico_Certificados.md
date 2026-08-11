@@ -97,7 +97,7 @@ Podrán utilizarse, conforme al tipo de titular:
 | `2.5.4.45` | Identificador único autorizado conforme al perfil institucional |
 | `E` o `emailAddress` | Correo electrónico |
 | `O` | Obligatorio en todos los certificados de persona física. Valor fijo: `Gobierno del Estado de Chihuahua`. |
-| `OU` | Se utilizará únicamente cuando exista adscripción institucional aplicable. En certificados de personas servidoras públicas contendrá la denominación oficial de la dependencia, entidad u organismo de adscripción; en certificados ciudadanos deberá omitirse. |
+| `OU` | Se utilizará únicamente cuando exista adscripción institucional aplicable. En certificados de personas servidoras públicas contendrá la denominación oficial de la dependencia, entidad u organismo de adscripción; en certificados de representantes legales contendrá la denominación oficial de la persona moral representada únicamente cuando el perfil aprobado lo autorice y exista evidencia vigente de la representación; en certificados ciudadanos deberá omitirse. |
 | `L` | Localidad |
 | `S` | Entidad federativa |
 | `C` | País |
@@ -106,6 +106,8 @@ Podrán utilizarse, conforme al tipo de titular:
 La CPS deberá definir el mapeo exacto de CURP, RFC y otros identificadores, evitando duplicidades, ambigüedades y exposición innecesaria de datos personales.
 
 La clasificación normativa del perfil del certificado no dependerá del contenido textual del `Subject`, sino de la extensión `Certificate Policies`, mediante el OID institucional correspondiente al tipo de certificado emitido. Los sistemas validadores deberán utilizar dicho OID como criterio canónico de clasificación.
+
+El catálogo controlado que relaciona cada perfil aprobado con su OID institucional deberá mantenerse como parte del control de cambios de este anexo y aprobarse antes de cualquier emisión del perfil. No deberán inventarse OID ni reutilizarse los OID de la CP o la CPS como sustitutos de un OID de perfil. Un certificado con `Certificate Policies` ausente, desconocido, duplicado de forma incompatible o incongruente con el perfil solicitado deberá rechazarse durante la validación o marcarse como no clasificable, sin clasificarse por el texto del `Subject`.
 
 ## 4. Certificados de infraestructura
 
