@@ -20,6 +20,6 @@
 4. **Emisión de AC:** La CA Raíz en línea valida el CSR y la autorización previa, y firma el certificado público (`.cer`).
 5. **Descarga:** El usuario descarga su certificado público y guarda su llave privada (`.key`) localmente.
 
-## Anexo G. Procedimiento de Revocación
+## Anexo G. Procedimiento de Revocación (sustituido)
 
-Esta sección queda sustituida por el documento autoritativo `Productos/Anexo_G_Procedimiento_Revocacion.md`. No deberá utilizarse como fuente normativa ni operativa independiente.
+Esta sección queda sustituida por el documento autoritativo `Productos/Anexo_G_Procedimiento_Revocacion.md` (versión 1.2, estado Proyecto). No deberá utilizarse como fuente normativa ni operativa independiente.

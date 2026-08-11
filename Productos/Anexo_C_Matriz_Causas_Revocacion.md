@@ -1,7 +1,7 @@
 # Anexo C. Matriz de causas de revocación
 
 **Documento relacionado:** Política de Certificación CP-ACCHIH-001  
-**Versión:** 1.2  
+**Versión:** 1.3  
 **Estado:** Proyecto  
 **Autoridad responsable:** Coordinación de Política Digital  
 **Órgano de aprobación:** Coordinación de Política Digital y Consejo Técnico  
