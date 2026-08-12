@@ -19,6 +19,8 @@ La **Autoridad de Certificación de Gobierno del Estado de Chihuahua**, identifi
 - Tipo de trámite: Renovación de certificado.
 - Estado de renovación: Ejecutada satisfactoriamente.
 - Certificado anterior revocado: {{NUMERO_SERIE_ANTERIOR}}
+- Clave normalizada de la causa de revocación del certificado anterior: `01_Solicitud_del_titular`
+- Denominación normalizada de la causa: Solicitud del titular por renovación
 - Fecha y hora efectiva de revocación: {{FECHA_HORA_REVOCACION}}
 - Estado de publicación de la revocación anterior: {{ESTADO_PUBLICACION}}
 - Referencia de eventos de publicación u outbox, cuando exista publicación pendiente: {{REFERENCIA_OUTBOX}}

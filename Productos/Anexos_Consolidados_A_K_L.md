@@ -9,7 +9,7 @@
 
 ## Manifiesto de fuentes
 
-| Fuente autoritativa | SHA-256 |
+| Fuente autoritativa | SHA-256 normalizado UTF-8/LF |
 |---|---|
 | `Productos/Anexo_A_Perfil_Tecnico_Certificados.md` | `bf8ad0920361b7566f538b8ca99d4b90221b4ac1ae20f82b01189d2df4f7b87b` |
 | `Productos/Anexo_K_Perfil_PAdES.md` | `23502d39e815b481b53ab3c236ccf0f993af391a71afc1c3731e4a2b16d54d2a` |

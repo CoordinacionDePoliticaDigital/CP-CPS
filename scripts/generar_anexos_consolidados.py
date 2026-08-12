@@ -57,7 +57,7 @@ def render() -> str:
 
 ## Manifiesto de fuentes
 
-| Fuente autoritativa | SHA-256 |
+| Fuente autoritativa | SHA-256 normalizado UTF-8/LF |
 |---|---|
 {manifest}
 
