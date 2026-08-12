@@ -370,9 +370,9 @@ j) 2.5.4.45.
 
 En todos los certificados de persona física, `organizationName` (`O`) deberá contener el valor `Gobierno del Estado de Chihuahua`.
 
-`organizationalUnitName` (`OU`) se utilizará únicamente cuando exista una adscripción institucional aplicable. En certificados de personas servidoras públicas deberá contener la denominación oficial de la dependencia, entidad u organismo de adscripción; en certificados ciudadanos deberá omitirse.
+`organizationalUnitName` (`OU`) se utilizará únicamente cuando exista una adscripción institucional aplicable. En certificados de personas servidoras públicas deberá contener la denominación oficial de la dependencia, entidad u organismo de adscripción; en certificados de representantes legales podrá contener la denominación oficial de la persona moral representada únicamente para el perfil aprobado `1.3.6.1.4.1.63888.2.3` y con evidencia vigente de representación; en certificados ciudadanos deberá omitirse.
 
-La clasificación normativa del perfil no dependerá del contenido textual del `Subject`, sino de la extensión `Certificate Policies`, mediante el OID institucional correspondiente al tipo de certificado emitido.
+La clasificación normativa del perfil no dependerá del contenido textual del `Subject`, sino de la extensión `Certificate Policies`, mediante el OID institucional correspondiente al tipo de certificado emitido. Para perfiles objetivo nuevos, el catálogo aprobado es ciudadanía `1.3.6.1.4.1.63888.2.1`, persona servidora pública `1.3.6.1.4.1.63888.2.2` y representación legal `1.3.6.1.4.1.63888.2.3`; los certificados históricos o transitorios conservan su ruta de validación hasta expirar o revocarse.
 
 ## 7.4. Datos no permitidos
 

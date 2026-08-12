@@ -271,7 +271,7 @@ El acuse de revocación se generará cuando la revocación local haya quedado co
 Deberá incluir, al menos:
 
 - folio;
-- identificación de la persona titular;
+- identificación de la persona titular, cuando corresponda; para certificados de infraestructura deberá incluirse el identificador del activo o servicio, propietario institucional, unidad responsable, ambiente, autoridad emisora y solicitante autorizado conforme a la sección 4.6;
 - número de serie;
 - clave y denominación de la causa principal;
 - fecha y hora efectiva;

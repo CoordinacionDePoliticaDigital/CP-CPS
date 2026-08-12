@@ -224,7 +224,9 @@ Los certificados históricos que presenten una etiqueta distinta en alguna herra
 
 La CURP y el RFC no deberán intercambiarse, duplicarse en ambos atributos ni asignarse a campos distintos dentro de este perfil. Los certificados previamente emitidos con este mapeo conservarán plena validez hasta su expiración o revocación.
 
-La clasificación normativa del tipo de certificado no se inferirá del contenido textual del `Subject`. Deberá determinarse mediante la extensión `Certificate Policies`, utilizando el OID institucional aprobado para el perfil correspondiente. Los validadores y sistemas integrados deberán utilizar dicho OID como criterio canónico de clasificación.
+La clasificación normativa del tipo de certificado no se inferirá del contenido textual del `Subject`. Deberá determinarse mediante la extensión `Certificate Policies`, utilizando el OID institucional aprobado para el perfil correspondiente: ciudadanía `1.3.6.1.4.1.63888.2.1`, persona servidora pública `1.3.6.1.4.1.63888.2.2` y representación legal `1.3.6.1.4.1.63888.2.3`. Los validadores y sistemas integrados deberán utilizar dicho OID como criterio canónico de clasificación; las políticas ausentes, desconocidas o incompatibles deberán rechazarse o marcarse como no clasificables. Los certificados históricos o transitorios conservarán su ruta de validación hasta expirar o revocarse.
+
+En certificados de representantes legales, `OU` podrá contener la denominación oficial de la persona moral representada únicamente cuando el perfil aprobado lo autorice y exista evidencia vigente de representación.
 
 Los detalles normativos adicionales se regirán por los siguientes documentos controlados:
 
