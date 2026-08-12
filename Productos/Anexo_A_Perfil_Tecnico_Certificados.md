@@ -107,7 +107,17 @@ La CPS deberá definir el mapeo exacto de CURP, RFC y otros identificadores, evi
 
 La clasificación normativa del perfil del certificado no dependerá del contenido textual del `Subject`, sino de la extensión `Certificate Policies`, mediante el OID institucional correspondiente al tipo de certificado emitido. Los sistemas validadores deberán utilizar dicho OID como criterio canónico de clasificación.
 
-El catálogo controlado que relaciona cada perfil aprobado con su OID institucional deberá mantenerse como parte del control de cambios de este anexo y aprobarse antes de cualquier emisión del perfil. No deberán inventarse OID ni reutilizarse los OID de la CP o la CPS como sustitutos de un OID de perfil. Un certificado con `Certificate Policies` ausente, desconocido, duplicado de forma incompatible o incongruente con el perfil solicitado deberá rechazarse durante la validación o marcarse como no clasificable, sin clasificarse por el texto del `Subject`.
+El catálogo controlado de perfiles de persona física queda definido en este anexo bajo el arco institucional `1.3.6.1.4.1.63888.2`:
+
+| Perfil emitible | OID de `Certificate Policies` | Uso normativo |
+|---|---|---|
+| Persona ciudadana | `1.3.6.1.4.1.63888.2.1` | Certificado de firma electrónica avanzada emitido a una persona física ciudadana. |
+| Persona servidora pública | `1.3.6.1.4.1.63888.2.2` | Certificado de firma electrónica avanzada emitido a una persona física con adscripción institucional aplicable. |
+| Representante legal | `1.3.6.1.4.1.63888.2.3` | Certificado de firma electrónica avanzada emitido a una persona física que actúa como representante legal de una persona moral. |
+
+Cada certificado nuevo de los perfiles anteriores deberá incluir exactamente uno de los OID del catálogo, congruente con el perfil autorizado. Los OID `1.3.6.1.4.1.63888.1.1` (CP) y `1.3.6.1.4.1.63888.1.2` (CPS) identifican documentos normativos y no podrán utilizarse como políticas de certificado. Este catálogo forma parte del control de cambios de este anexo: todo perfil nuevo requerirá la asignación y aprobación previa de un OID bajo el arco `1.3.6.1.4.1.63888.2` antes de su emisión.
+
+Un certificado con `Certificate Policies` ausente, con un OID fuera del catálogo, con más de un OID del catálogo o con un OID incongruente con el perfil solicitado deberá rechazarse durante la validación o marcarse como no clasificable, sin clasificarse por el texto del `Subject`.
 
 ## 4. Certificados de infraestructura
 
