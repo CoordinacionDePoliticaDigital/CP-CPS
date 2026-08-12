@@ -55,3 +55,6 @@ Con base en dicha verificación y, cuando aplique, la validación adicional regi
 - Identificador o rol: {{IDENTIFICADOR_AGENTE}}
 
 **Firma electrónica avanzada del agente autorizado:** {{FIRMA_AGENTE}}
+
+- Fecha y hora de autorización del agente: {{FECHA_HORA_AUTORIZACION_AGENTE}}
+- Referencia o identificador de la firma del agente: {{REFERENCIA_FIRMA_AGENTE}}

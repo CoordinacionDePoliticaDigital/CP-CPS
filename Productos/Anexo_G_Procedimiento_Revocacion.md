@@ -231,7 +231,7 @@ Antes de ejecutar, el sistema o agente deberá confirmar:
 
 Toda revocación asistida requerirá la firma electrónica avanzada de una persona con rol vigente de agente autorizado, incluida aquella iniciada por la propia Autoridad de Certificación o por una unidad competente. Las causas 05, 07, 10 y 11 requerirán además validación expresa de la Autoridad de Certificación o de la unidad competente designada.
 
-Si la cola transaccional u outbox no está disponible y la revocación es urgente, antes de iniciar la transacción deberá activarse un canal alterno de continuidad autorizado. Este canal deberá registrar durablemente el evento de publicación, su identificador idempotente, la fecha y hora efectiva propuesta, el responsable que lo autorizó y la evidencia de activación; ese registro sustituirá temporalmente al evento de outbox dentro de la misma decisión de revocación. La transacción local solo podrá confirmarse si queda vinculada a dicho registro durable y el canal alterno inicia de inmediato la propagación externa. La indisponibilidad del outbox deberá documentarse como incidente y conciliarse posteriormente con el outbox sin alterar la fecha y hora efectiva ni duplicar la publicación.
+Si la cola transaccional u outbox no está disponible y la revocación es urgente, antes de iniciar la transacción deberá activarse un canal alterno de continuidad autorizado. Este canal deberá registrar durablemente el evento de publicación, su identificador idempotente, la fecha y hora efectiva propuesta, el responsable que lo autorizó y la evidencia de activación; ese registro sustituirá temporalmente al evento de outbox dentro de la misma decisión de revocación. La transacción local solo podrá confirmarse si queda vinculada a dicho registro durable. La propagación externa por el canal alterno deberá iniciarse únicamente después de confirmar exitosamente la transacción local. La indisponibilidad del outbox deberá documentarse como incidente y conciliarse posteriormente con el outbox sin alterar la fecha y hora efectiva ni duplicar la publicación.
 
 ## 12. Ejecución técnica
 
@@ -242,7 +242,7 @@ El sistema deberá:
 1. verificar nuevamente el estado del certificado;
 2. registrar la causa principal y las adicionales;
 3. registrar a la persona o proceso ejecutor;
-4. dentro de una misma transacción atómica, asignar y persistir la fecha y hora efectiva única, cambiar el estado local a revocado y registrar los eventos pendientes de publicación en una cola transaccional u outbox para OCSP y, cuando corresponda, CRL; la transacción solo deberá confirmarse si las tres operaciones quedan registradas satisfactoriamente;
+4. dentro de una misma transacción atómica, asignar y persistir la fecha y hora efectiva única, cambiar el estado local a revocado y registrar los eventos pendientes de publicación en una cola transaccional u outbox para OCSP y, cuando corresponda, CRL, o el registro durable alterno autorizado en la sección 11 cuando el outbox esté indisponible; la transacción solo deberá confirmarse si las tres operaciones y el vínculo con el evento de publicación quedan registrados satisfactoriamente;
 5. después de confirmar la transacción, construir e intentar la publicación o puesta a disposición del nuevo estado mediante OCSP utilizando esa misma fecha y hora;
 6. incorporar la revocación en la CRL correspondiente cuando aplique, utilizando esa misma fecha y hora;
 7. registrar el resultado de cada intento de publicación;
@@ -273,7 +273,7 @@ El acuse de revocación se generará cuando la revocación local haya quedado co
 Deberá incluir, al menos:
 
 - folio;
-- identificación de la persona titular;
+- identificación de la persona titular, cuando corresponda; para certificados de infraestructura deberá incluirse el identificador del activo o servicio, propietario institucional, unidad responsable y solicitante autorizado conforme a la sección 4.6;
 - número de serie;
 - clave y denominación de la causa principal;
 - fecha y hora efectiva;
