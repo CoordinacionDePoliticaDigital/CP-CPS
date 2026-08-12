@@ -218,13 +218,13 @@ El `Subject` de los certificados de usuario final mantendrá el mapeo actualment
 - `serialNumber` (`2.5.4.5`) contendrá la CURP.
 - `x500UniqueIdentifier` (`2.5.4.45`) contendrá el RFC.
 - `organizationName` (`2.5.4.10`) deberá incluirse en todos los certificados de persona física con el valor fijo `Gobierno del Estado de Chihuahua`.
-- `organizationalUnitName` (`2.5.4.11`) se utilizará únicamente cuando exista adscripción institucional aplicable. En certificados de personas servidoras públicas contendrá la denominación oficial de la dependencia, entidad u organismo de adscripción; en certificados ciudadanos se omitirá.
+- `organizationalUnitName` (`2.5.4.11`) se utilizará únicamente cuando exista adscripción institucional aplicable. En certificados de personas servidoras públicas contendrá la denominación oficial de la dependencia, entidad u organismo de adscripción; en certificados de representantes legales con el perfil `1.3.6.1.4.1.63888.2.3` podrá contener la denominación oficial de la persona moral representada solo cuando el perfil lo autorice y exista evidencia vigente de la representación; en certificados ciudadanos se omitirá.
 
 Los certificados históricos que presenten una etiqueta distinta en alguna herramienta de visualización conservarán su validez siempre que el atributo codificado sea el OID `2.5.4.45`. La CPS utilizará exclusivamente la denominación normativa `x500UniqueIdentifier` para dicho OID.
 
 La CURP y el RFC no deberán intercambiarse, duplicarse en ambos atributos ni asignarse a campos distintos dentro de este perfil. Los certificados previamente emitidos con este mapeo conservarán plena validez hasta su expiración o revocación.
 
-La clasificación normativa del tipo de certificado no se inferirá del contenido textual del `Subject`. Deberá determinarse mediante la extensión `Certificate Policies`, utilizando el OID institucional aprobado para el perfil correspondiente y el catálogo controlado del Anexo A. Los validadores y sistemas integrados deberán utilizar dicho OID como criterio canónico de clasificación y deberán rechazar o marcar como no clasificable cualquier certificado con política ausente, desconocida, incompatible o conflictiva.
+La clasificación normativa del tipo de certificado para perfiles objetivo emitidos a partir de la entrada en vigor de este catálogo no se inferirá del contenido textual del `Subject`. Deberá determinarse mediante la extensión `Certificate Policies`, utilizando el OID institucional aprobado para el perfil correspondiente y el catálogo controlado del Anexo A. Los validadores y sistemas integrados deberán utilizar dicho OID como criterio canónico de clasificación y deberán rechazar o marcar como no clasificable cualquier certificado de esos perfiles con política ausente, desconocida, incompatible o conflictiva. Los certificados históricos o de transición conservarán su ruta de validación histórica hasta su expiración o revocación, incluso si no incluyen esta extensión.
 
 Los detalles normativos adicionales se regirán por los siguientes documentos controlados:
 

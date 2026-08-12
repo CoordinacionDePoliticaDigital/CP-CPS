@@ -11,9 +11,9 @@
 
 | Fuente autoritativa | SHA-256 |
 |---|---|
-| `Productos/Anexo_A_Perfil_Tecnico_Certificados.md` | `22857718c84c9193375b5cb97d8f0e92b2ea3192da3294fdc15a29aba73e84ad` |
-| `Productos/Anexo_K_Perfil_PAdES.md` | `23502d39e815b481b53ab3c236ccf0f993af391a71afc1c3731e4a2b16d54d2a` |
-| `Productos/Anexo_L_Politica_Sellado_Tiempo.md` | `f23550e494093101f7140f7b46cfeb46d51907355dcfa02b561fd593ecddbb2f` |
+| `Productos/Anexo_A_Perfil_Tecnico_Certificados.md` | `efd7095b14d9f008560f9c017404d157dbe9e566aeeb7695b2a9c7dca0ae0258` |
+| `Productos/Anexo_K_Perfil_PAdES.md` | `c88bdaa5930d082b12e76b9a98d9b5791e94e8fdb8e4e57451f390251c75a8c2` |
+| `Productos/Anexo_L_Politica_Sellado_Tiempo.md` | `d96f6a517518561d05fbe65b109b187578335cdc4eea14e54d380aef9c9a8408` |
 
 ---
 
@@ -115,14 +115,28 @@ Podrán utilizarse, conforme al tipo de titular:
 | `serialNumber` | Identificador autorizado de la persona titular |
 | `2.5.4.45` | Identificador único autorizado conforme al perfil institucional |
 | `E` o `emailAddress` | Correo electrónico |
-| `O` | Dependencia, entidad u organización relacionada |
-| `OU` | Unidad administrativa |
+| `O` | Obligatorio en todos los certificados de persona física. Valor fijo: `Gobierno del Estado de Chihuahua`. |
+| `OU` | Se utilizará únicamente cuando exista adscripción institucional aplicable. En certificados de personas servidoras públicas contendrá la denominación oficial de la dependencia, entidad u organismo de adscripción; en certificados de representantes legales contendrá la denominación oficial de la persona moral representada únicamente cuando el perfil aprobado lo autorice y exista evidencia vigente de la representación; en certificados ciudadanos deberá omitirse. |
 | `L` | Localidad |
 | `S` | Entidad federativa |
 | `C` | País |
 | `postalCode` | Código postal, cuando resulte necesario |
 
 La CPS deberá definir el mapeo exacto de CURP, RFC y otros identificadores, evitando duplicidades, ambigüedades y exposición innecesaria de datos personales.
+
+La clasificación normativa del perfil del certificado no dependerá del contenido textual del `Subject`, sino de la extensión `Certificate Policies`, mediante el OID institucional correspondiente al tipo de certificado emitido. Los sistemas validadores deberán utilizar dicho OID como criterio canónico de clasificación.
+
+El catálogo controlado de perfiles de persona física queda definido en este anexo bajo el arco institucional `1.3.6.1.4.1.63888.2`:
+
+| Perfil emitible | OID de `Certificate Policies` | Uso normativo |
+|---|---|---|
+| Persona ciudadana | `1.3.6.1.4.1.63888.2.1` | Certificado de firma electrónica avanzada emitido a una persona física ciudadana. |
+| Persona servidora pública | `1.3.6.1.4.1.63888.2.2` | Certificado de firma electrónica avanzada emitido a una persona física con adscripción institucional aplicable. |
+| Representante legal | `1.3.6.1.4.1.63888.2.3` | Certificado de firma electrónica avanzada emitido a una persona física que actúa como representante legal de una persona moral. |
+
+Cada certificado nuevo de los perfiles anteriores deberá incluir exactamente uno de los OID del catálogo, congruente con el perfil autorizado. Los OID `1.3.6.1.4.1.63888.1.1` (CP) y `1.3.6.1.4.1.63888.1.2` (CPS) identifican documentos normativos y no podrán utilizarse como políticas de certificado. Este catálogo forma parte del control de cambios de este anexo: todo perfil nuevo requerirá la asignación y aprobación previa de un OID bajo el arco `1.3.6.1.4.1.63888.2` antes de su emisión.
+
+Un certificado con `Certificate Policies` ausente, con un OID fuera del catálogo, con más de un OID del catálogo o con un OID incongruente con el perfil solicitado deberá rechazarse durante la validación o marcarse como no clasificable, sin clasificarse por el texto del `Subject`.
 
 ### 4. Certificados de infraestructura
 

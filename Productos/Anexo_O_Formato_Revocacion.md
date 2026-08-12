@@ -81,13 +81,21 @@ Solicito o autorizo, según la calidad con la que comparezco y el fundamento se�
 
 ## 4. Verificación, autorización y firma del agente
 
-La persona con rol vigente de agente autorizado hace constar que verificó la identidad o identificación institucional de quien inicia la revocación, su legitimidad, capacidad, mandato, autorización, representación o fundamento aplicable; cotejó las evidencias; validó la causa normalizada; e identificó inequívocamente el certificado. La firma del agente acredita su intervención y autorización, pero no sustituye el mandato, representación o legitimidad de quien inició el trámite.
+La persona con rol vigente de agente autorizado hace constar que verificó la identidad o identificación institucional de quien inicia la revocación, su legitimidad, capacidad, mandato, autorización, representación o fundamento aplicable; cotejó las evidencias; validó la causa normalizada; e identificó inequívocamente el certificado. La firma del agente acredita su intervención, pero no sustituye el mandato, representación o legitimidad de quien inició el trámite ni la validación adicional exigida para las causas 05, 07, 10 y 11.
 
 - **Nombre del agente autorizado:** {{NOMBRE_AGENTE}}
 - **Identificador o rol:** {{IDENTIFICADOR_AGENTE}}
 - **Fecha y hora de autorización:** {{FECHA_HORA_AUTORIZACION}}
 - **Firma electrónica avanzada del agente autorizado:** {{FIRMA_AGENTE}}
 - **Referencia o identificador de la firma:** {{REFERENCIA_FIRMA_AGENTE}}
+
+Para las causas 05, 07, 10 y 11, deberá registrarse antes de la ejecución la validación expresa de la Autoridad de Certificación o de la unidad competente designada:
+
+- **Unidad validadora:** {{UNIDAD_VALIDADORA}}
+- **Decisión:** {{DECISION_VALIDACION_ADICIONAL}}
+- **Fecha y hora:** {{FECHA_HORA_VALIDACION_ADICIONAL}}
+- **Firma electrónica avanzada o sello de validación:** {{FIRMA_VALIDACION_ADICIONAL}}
+- **Referencia de la evidencia o del registro externo obligatorio:** {{REFERENCIA_VALIDACION_ADICIONAL}}
 
 ---
 

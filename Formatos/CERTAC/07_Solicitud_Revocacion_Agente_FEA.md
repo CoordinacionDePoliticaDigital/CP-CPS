@@ -39,9 +39,17 @@ La persona o entidad iniciadora solicita expresamente la revocación definitiva 
 
 ## Verificación del agente
 
-El agente autorizado hace constar que verificó la identidad de la persona titular y, cuando la solicitud fue iniciada por una persona representante, tercero legitimado, dependencia, unidad competente o autoridad, verificó también la identidad o identificación institucional de quien inicia, su capacidad, mandato, autorización, representación o fundamento de legitimidad y la referencia documental correspondiente. Asimismo, cotejó la documentación y revisó los elementos que sustentan la causal indicada conforme a la Política de Certificación CP-ACCHIH-001, la Declaración de Prácticas de Certificación y la normatividad aplicable.
+El agente autorizado hace constar que identificó inequívocamente el certificado y verificó la identidad de la persona titular únicamente cuando corresponda al tipo de solicitante o al procedimiento. En todos los casos verificó la identidad o identificación institucional de quien inicia, así como su legitimidad, capacidad, mandato, autorización, representación o fundamento aplicable y la referencia documental correspondiente. Asimismo, cotejó la documentación y revisó los elementos que sustentan la causal indicada conforme a la Política de Certificación CP-ACCHIH-001, la Declaración de Prácticas de Certificación y la normatividad aplicable.
 
-Con base en dicha verificación, el agente autoriza y ejecuta la revocación definitiva del certificado señalado. La revocación es irreversible y el certificado no podrá ser reactivado.
+Para las causas 05, 07, 10 y 11, la ejecución solo podrá iniciar después de registrar la validación expresa de la Autoridad de Certificación o de la unidad competente designada, con su evidencia. La firma del agente no sustituye dicha validación.
+
+- Unidad validadora: {{UNIDAD_VALIDADORA}}
+- Decisión de validación: {{DECISION_VALIDACION_ADICIONAL}}
+- Fecha y hora de validación: {{FECHA_HORA_VALIDACION_ADICIONAL}}
+- Firma de validación: {{FIRMA_VALIDACION_ADICIONAL}}
+- Referencia de evidencia o registro externo: {{REFERENCIA_VALIDACION_ADICIONAL}}
+
+Con base en dicha verificación y, cuando aplique, la validación adicional registrada, el agente autoriza y ejecuta la revocación definitiva del certificado señalado. La revocación es irreversible y el certificado no podrá ser reactivado.
 
 - Nombre del agente: {{NOMBRE_AGENTE}}
 - Identificador o rol: {{IDENTIFICADOR_AGENTE}}

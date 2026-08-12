@@ -227,9 +227,11 @@ Antes de ejecutar, el sistema o agente deberá confirmar:
 - autorizaciones necesarias;
 - ausencia de errores materiales en número de serie o identidad;
 - rol vigente de la persona ejecutora;
-- disponibilidad del mecanismo durable de registro local y de la cola transaccional de publicación.
+- disponibilidad del mecanismo durable de registro local y de la cola transaccional de publicación, o del canal alterno de continuidad autorizado que la sustituya.
 
 Toda revocación asistida requerirá la firma electrónica avanzada de una persona con rol vigente de agente autorizado, incluida aquella iniciada por la propia Autoridad de Certificación o por una unidad competente. Las causas 05, 07, 10 y 11 requerirán además validación expresa de la Autoridad de Certificación o de la unidad competente designada.
+
+Si la cola transaccional u outbox no está disponible y la revocación es urgente, antes de iniciar la transacción deberá activarse un canal alterno de continuidad autorizado. Este canal deberá registrar durablemente el evento de publicación, su identificador idempotente, la fecha y hora efectiva propuesta, el responsable que lo autorizó y la evidencia de activación; ese registro sustituirá temporalmente al evento de outbox dentro de la misma decisión de revocación. La transacción local solo podrá confirmarse si queda vinculada a dicho registro durable y el canal alterno inicia de inmediato la propagación externa. La indisponibilidad del outbox deberá documentarse como incidente y conciliarse posteriormente con el outbox sin alterar la fecha y hora efectiva ni duplicar la publicación.
 
 ## 12. Ejecución técnica
 
