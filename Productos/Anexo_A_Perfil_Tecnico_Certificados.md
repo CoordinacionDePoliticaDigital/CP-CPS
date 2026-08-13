@@ -1,11 +1,19 @@
 # Anexo A. Perfil Técnico de Certificados
 
 **Documento relacionado:** Política de Certificación CP-ACCHIH-001  
-**Versión:** 1.2  
+**Versión:** 1.3
 **Estado:** Proyecto revisado  
+**Fecha de entrada en vigor:** Pendiente de formalización
 **IANA PEN:** `1.3.6.1.4.1.63888`  
 
 > Este documento distingue entre los perfiles desplegados actualmente y los perfiles objetivo para nuevas emisiones. Los certificados vigentes conservan las extensiones con las que fueron emitidos hasta su expiración o revocación; no deberán utilizarse como plantilla para nuevas emisiones cuando contradigan el perfil objetivo. La Declaración de Prácticas de Certificación deberá documentar la coexistencia, los controles compensatorios y el plan de transición.
+
+## Control de versiones
+
+| Versión | Fecha | Descripción del cambio | Responsable |
+|---|---:|---|---|
+| 1.2 | Octubre 2024 | Perfil técnico de referencia previo a la clasificación por `Certificate Policies`. | Coordinación de Política Digital |
+| 1.3 | Pendiente de formalización | Control de `Subject`, catálogo de OID para perfiles de persona física y reglas de validación y transición. | Coordinación de Política Digital |
 
 ## 1. Disposiciones generales
 

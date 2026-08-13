@@ -9,10 +9,10 @@
 
 **Clave del documento:** CPS-ACCHIH-001  
 **OID:** 1.3.6.1.4.1.63888.1.2  
-**Versión:** 1.2  
+**Versión:** 1.3
 **Estado:** Proyecto  
 **Fecha de emisión:** Pendiente de formalización  
-**Fecha de entrada en vigor:** Octubre 2024  
+**Fecha de entrada en vigor:** Pendiente de formalización
 **Autoridad responsable:** Coordinación de Política Digital  
 **Autoridad emisora:** Autoridad de Certificación de Gobierno del Estado de Chihuahua  
 **Denominación institucional de difusión:** Autoridad Certificadora  
@@ -30,10 +30,10 @@
 | Nombre del documento | Declaración de Prácticas de Certificación de la Autoridad de Certificación de Gobierno del Estado de Chihuahua |
 | Clave | CPS-ACCHIH-001 |
 | OID | 1.3.6.1.4.1.63888.1.2 |
-| Versión | 1.2 |
+| Versión | 1.3 |
 | Estado | Proyecto |
 | Fecha de emisión | Pendiente de formalización |
-| Fecha de entrada en vigor | Octubre 2024 |
+| Fecha de entrada en vigor | Pendiente de formalización |
 | Autoridad responsable | Coordinación de Política Digital |
 | Autoridad emisora | Autoridad de Certificación de Gobierno del Estado de Chihuahua |
 | Denominación institucional de difusión | Autoridad Certificadora |
@@ -49,6 +49,7 @@
 | 1.0 | Octubre 2024 | Emisión inicial del documento | Coordinación de Política Digital |
 | 1.1 | Pendiente de formalización | Integración de información técnica y operativa derivada del despliegue inicial | Coordinación de Política Digital |
 | 1.2 | Pendiente de formalización | Alineación con la CP v1.2, perfiles vigentes y objetivo, CENAM, transición PKI y conservación | Coordinación de Política Digital |
+| 1.3 | Pendiente de formalización | Sincronización con la CP v1.3 y el Anexo A v1.3: catálogo de `Certificate Policies`, clasificación, transición y reglas de `Subject`. | Coordinación de Política Digital |
 
 ---
 
@@ -230,7 +231,7 @@ Los detalles normativos adicionales se regirán por los siguientes documentos co
 
 | Documento | Versión controlada | Fecha de entrada en vigor | Referencia de control de cambios |
 |---|---:|---|---|
-| Anexo A. Perfil Técnico de Certificados | 1.2 | Octubre 2024 | Historial y control documental del propio Anexo A |
+| Anexo A. Perfil Técnico de Certificados | 1.3 | Pendiente de formalización | Historial y control documental del propio Anexo A |
 | Anexo K. Perfil PAdES Institucional | 1.2 | Octubre 2024 | Historial y control documental del propio Anexo K |
 | Anexo L. Política de Sellado de Tiempo | 1.2 | Octubre 2024 | Historial y control documental del propio Anexo L |
 

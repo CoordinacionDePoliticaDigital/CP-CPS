@@ -231,7 +231,7 @@ Antes de ejecutar, el sistema o agente deberá confirmar:
 
 Toda revocación asistida requerirá la firma electrónica avanzada de una persona con rol vigente de agente autorizado, incluida aquella iniciada por la propia Autoridad de Certificación o por una unidad competente. Las causas 05, 07, 10 y 11 requerirán además validación expresa de la Autoridad de Certificación o de la unidad competente designada.
 
-Si la cola transaccional u outbox no está disponible y la revocación es urgente, antes de iniciar la transacción deberá activarse un canal alterno de continuidad autorizado. Este canal deberá registrar durablemente el evento de publicación, su identificador idempotente, la fecha y hora efectiva propuesta, el responsable que lo autorizó y la evidencia de activación; ese registro sustituirá temporalmente al evento de outbox dentro de la misma decisión de revocación. La transacción local solo podrá confirmarse si queda vinculada a dicho registro durable. La propagación externa por el canal alterno deberá iniciarse únicamente después de confirmar exitosamente la transacción local. La indisponibilidad del outbox deberá documentarse como incidente y conciliarse posteriormente con el outbox sin alterar la fecha y hora efectiva ni duplicar la publicación.
+Si la cola transaccional u outbox no está disponible y la revocación es urgente, antes de iniciar la transacción deberá activarse un canal alterno de continuidad autorizado. Este canal deberá registrar durablemente el evento de publicación, su identificador idempotente, la fecha y hora efectiva que la transacción deberá adoptar y persistir sin modificación, el responsable que lo autorizó y la evidencia de activación; ese registro sustituirá temporalmente al evento de outbox dentro de la misma decisión de revocación. La transacción local solo podrá confirmarse si queda vinculada a dicho registro durable y persiste exactamente esa misma fecha y hora efectiva. La propagación externa por el canal alterno deberá iniciarse únicamente después de confirmar exitosamente la transacción local. La indisponibilidad del outbox deberá documentarse como incidente y conciliarse posteriormente con el outbox sin alterar la fecha y hora efectiva ni duplicar la publicación.
 
 ## 12. Ejecución técnica
 
@@ -242,13 +242,13 @@ El sistema deberá:
 1. verificar nuevamente el estado del certificado;
 2. registrar la causa principal y las adicionales;
 3. registrar a la persona o proceso ejecutor;
-4. dentro de una misma transacción atómica, asignar y persistir la fecha y hora efectiva única, cambiar el estado local a revocado y registrar los eventos pendientes de publicación en una cola transaccional u outbox para OCSP y, cuando corresponda, CRL, o el registro durable alterno autorizado en la sección 11 cuando el outbox esté indisponible; la transacción solo deberá confirmarse si las tres operaciones y el vínculo con el evento de publicación quedan registrados satisfactoriamente;
+4. dentro de una misma transacción atómica, asignar y persistir la fecha y hora efectiva única, o adoptar sin modificación la fecha y hora previamente registrada por el canal alterno autorizado de la sección 11, cambiar el estado local a revocado y registrar los eventos pendientes de publicación en una cola transaccional u outbox para OCSP y, cuando corresponda, CRL, o el registro durable alterno autorizado cuando el outbox esté indisponible; la transacción solo deberá confirmarse si las tres operaciones y el vínculo con el evento de publicación quedan registrados satisfactoriamente;
 5. después de confirmar la transacción, construir e intentar la publicación o puesta a disposición del nuevo estado mediante OCSP utilizando esa misma fecha y hora;
 6. incorporar la revocación en la CRL correspondiente cuando aplique, utilizando esa misma fecha y hora;
 7. registrar el resultado de cada intento de publicación;
 8. impedir reactivación, modificación o reversión ordinaria.
 
-La fecha y hora efectiva será la asignada y persistida en la misma transacción atómica que confirme durablemente la revocación local y registre el evento de publicación pendiente. Si la transacción no puede completar esos tres registros, no deberá confirmarse parcialmente. La publicación OCSP o CRL deberá reproducir ese mismo valor; los reintentos no podrán sustituirlo por una fecha posterior. Una fecha anterior contenida en una orden se conservará separadamente como metadato jurídico y no producirá retroactividad técnica.
+La fecha y hora efectiva será la asignada y persistida en la misma transacción atómica que confirme durablemente la revocación local y registre el evento de publicación pendiente; cuando exista un registro durable alterno previo, será exactamente la fecha y hora registrada en él. Si la transacción no puede completar esos tres registros, no deberá confirmarse parcialmente. La publicación OCSP o CRL deberá reproducir ese mismo valor; los reintentos no podrán sustituirlo por una fecha posterior. Una fecha anterior contenida en una orden se conservará separadamente como metadato jurídico y no producirá retroactividad técnica.
 
 ## 13. Verificación posterior
 
@@ -268,7 +268,7 @@ Ante cualquier falla de publicación, los servicios institucionales deberán rec
 
 ## 14. Acuse de revocación
 
-El acuse de revocación se generará cuando la revocación local haya quedado confirmada durablemente y exista fecha y hora efectiva persistida. Si OCSP o CRL aún no reflejan el nuevo estado, el acuse deberá indicar **publicación pendiente**, conservar la fecha y hora efectiva ya asignada e identificar los eventos de outbox relacionados; deberá actualizarse o complementarse cuando la publicación quede confirmada.
+El acuse de revocación se generará cuando la revocación local haya quedado confirmada durablemente y exista fecha y hora efectiva persistida. Si OCSP o CRL aún no reflejan el nuevo estado, el acuse deberá indicar **publicación pendiente**, conservar la fecha y hora efectiva ya asignada e identificar los eventos de outbox relacionados o, mientras se reconcilia la continuidad, el identificador del registro durable alterno y su referencia idempotente; deberá actualizarse o complementarse cuando la publicación quede confirmada.
 
 Deberá incluir, al menos:
 

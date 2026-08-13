@@ -11,7 +11,7 @@
 
 | Fuente autoritativa | SHA-256 normalizado UTF-8/LF |
 |---|---|
-| `Productos/Anexo_A_Perfil_Tecnico_Certificados.md` | `bf8ad0920361b7566f538b8ca99d4b90221b4ac1ae20f82b01189d2df4f7b87b` |
+| `Productos/Anexo_A_Perfil_Tecnico_Certificados.md` | `61ab4c94ff86095931f2ac276fd1bc6d46e3e239a0f419b48be65e67a52072d2` |
 | `Productos/Anexo_K_Perfil_PAdES.md` | `23502d39e815b481b53ab3c236ccf0f993af391a71afc1c3731e4a2b16d54d2a` |
 | `Productos/Anexo_L_Politica_Sellado_Tiempo.md` | `f23550e494093101f7140f7b46cfeb46d51907355dcfa02b561fd593ecddbb2f` |
 
@@ -20,11 +20,19 @@
 ## Anexo A. Perfil Técnico de Certificados
 
 **Documento relacionado:** Política de Certificación CP-ACCHIH-001  
-**Versión:** 1.2  
+**Versión:** 1.3
 **Estado:** Proyecto revisado  
+**Fecha de entrada en vigor:** Pendiente de formalización
 **IANA PEN:** `1.3.6.1.4.1.63888`  
 
 > Este documento distingue entre los perfiles desplegados actualmente y los perfiles objetivo para nuevas emisiones. Los certificados vigentes conservan las extensiones con las que fueron emitidos hasta su expiración o revocación; no deberán utilizarse como plantilla para nuevas emisiones cuando contradigan el perfil objetivo. La Declaración de Prácticas de Certificación deberá documentar la coexistencia, los controles compensatorios y el plan de transición.
+
+### Control de versiones
+
+| Versión | Fecha | Descripción del cambio | Responsable |
+|---|---:|---|---|
+| 1.2 | Octubre 2024 | Perfil técnico de referencia previo a la clasificación por `Certificate Policies`. | Coordinación de Política Digital |
+| 1.3 | Pendiente de formalización | Control de `Subject`, catálogo de OID para perfiles de persona física y reglas de validación y transición. | Coordinación de Política Digital |
 
 ### 1. Disposiciones generales
 

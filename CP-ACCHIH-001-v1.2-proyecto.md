@@ -9,10 +9,10 @@
 
 **Clave del documento:** CP-ACCHIH-001  
 **OID:** 1.3.6.1.4.1.63888.1.1  
-**Versión:** 1.2  
+**Versión:** 1.3
 **Estado:** Proyecto  
 **Fecha de emisión:** Octubre 2024  
-**Fecha de entrada en vigor:** Octubre 2024  
+**Fecha de entrada en vigor:** Pendiente de formalización
 **Autoridad responsable:** Coordinación de Política Digital  
 **Órgano de aprobación:** Coordinación de Política Digital y Consejo Técnico  
 **Sitio de publicación:** autoridadcertificadora.chihuahua.gob.mx  
@@ -27,10 +27,10 @@
 | Nombre del documento | Política de Certificación de la Autoridad de Certificación de Gobierno del Estado de Chihuahua |
 | Clave | CP-ACCHIH-001 |
 | OID | 1.3.6.1.4.1.63888.1.1 |
-| Versión | 1.2 |
+| Versión | 1.3 |
 | Estado | Proyecto |
 | Fecha de emisión | Octubre 2024 |
-| Fecha de entrada en vigor | Octubre 2024 |
+| Fecha de entrada en vigor | Pendiente de formalización |
 | Autoridad responsable | Coordinación de Política Digital |
 | Autoridad emisora | Autoridad de Certificación de Gobierno del Estado de Chihuahua |
 | Denominación institucional de difusión | Autoridad Certificadora |
@@ -46,6 +46,7 @@
 | 1.0 | Octubre 2024 | Emisión inicial del documento | Coordinación de Política Digital |
 | 1.1 | Pendiente de formalización | Integración de información técnica y operativa derivada del despliegue inicial | Coordinación de Política Digital |
 | 1.2 | Pendiente de formalización | Revisión de consistencia normativa, neutralidad tecnológica, conservación, sellado de tiempo y arquitectura PKI | Coordinación de Política Digital |
+| 1.3 | Pendiente de formalización | Actualización del Anexo A con catálogo de `Certificate Policies`, reglas de clasificación y transición de perfiles. | Coordinación de Política Digital |
 
 ---
 
