@@ -30,6 +30,15 @@
 - Descripción de los hechos: {{DESCRIPCION_HECHOS}}
 - Documento o evidencia de soporte: {{REFERENCIA_SOPORTE}}
 
+## Causas adicionales, cuando existan
+
+Cada causa adicional deberá registrarse con clave y denominación normalizadas, descripción de hechos y referencia de evidencia. Este bloque es repetible por cada causa adicional.
+
+- Clave normalizada de causal adicional: {{CLAVE_CAUSAL_ADICIONAL}}
+- Denominación normalizada de causal adicional: {{DENOMINACION_CAUSAL_ADICIONAL}}
+- Descripción de los hechos adicionales: {{DESCRIPCION_HECHOS_ADICIONALES}}
+- Documento o evidencia de soporte adicional: {{REFERENCIA_SOPORTE_ADICIONAL}}
+
 ## Declaración de la persona o entidad iniciadora
 
 La persona o entidad iniciadora solicita expresamente la revocación definitiva del certificado identificado en este formato y declara que la información y documentación proporcionadas son completas y veraces. Esta declaración queda vinculada a su firma o constancia de autenticación y no sustituye la verificación independiente que corresponde al agente autorizado.
