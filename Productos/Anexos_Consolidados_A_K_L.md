@@ -11,16 +11,16 @@
 
 | Fuente autoritativa | SHA-256 |
 |---|---|
-| `Productos/Anexo_A_Perfil_Tecnico_Certificados.md` | `22857718c84c9193375b5cb97d8f0e92b2ea3192da3294fdc15a29aba73e84ad` |
-| `Productos/Anexo_K_Perfil_PAdES.md` | `23502d39e815b481b53ab3c236ccf0f993af391a71afc1c3731e4a2b16d54d2a` |
-| `Productos/Anexo_L_Politica_Sellado_Tiempo.md` | `f23550e494093101f7140f7b46cfeb46d51907355dcfa02b561fd593ecddbb2f` |
+| `Productos/Anexo_A_Perfil_Tecnico_Certificados.md` | `5b766e1e4352e6b922a26c83179eb4dc21c585c7bc41418848b75ab8d5a902d6` |
+| `Productos/Anexo_K_Perfil_PAdES.md` | `c88bdaa5930d082b12e76b9a98d9b5791e94e8fdb8e4e57451f390251c75a8c2` |
+| `Productos/Anexo_L_Politica_Sellado_Tiempo.md` | `d96f6a517518561d05fbe65b109b187578335cdc4eea14e54d380aef9c9a8408` |
 
 ---
 
 ## Anexo A. Perfil Técnico de Certificados
 
 **Documento relacionado:** Política de Certificación CP-ACCHIH-001  
-**Versión:** 1.2  
+**Versión:** 1.3  
 **Estado:** Proyecto revisado  
 **IANA PEN:** `1.3.6.1.4.1.63888`  
 
@@ -115,14 +115,16 @@ Podrán utilizarse, conforme al tipo de titular:
 | `serialNumber` | Identificador autorizado de la persona titular |
 | `2.5.4.45` | Identificador único autorizado conforme al perfil institucional |
 | `E` o `emailAddress` | Correo electrónico |
-| `O` | Dependencia, entidad u organización relacionada |
-| `OU` | Unidad administrativa |
+| `O` | Obligatorio en todos los certificados de persona física. Valor fijo: `Gobierno del Estado de Chihuahua`. |
+| `OU` | Se utilizará únicamente cuando exista adscripción institucional aplicable. En certificados de personas servidoras públicas contendrá la denominación oficial de la dependencia, entidad u organismo de adscripción; en certificados de representantes legales contendrá la denominación oficial de la persona moral representada únicamente cuando el perfil aprobado lo autorice y exista evidencia vigente de representación; en certificados ciudadanos deberá omitirse. |
 | `L` | Localidad |
 | `S` | Entidad federativa |
 | `C` | País |
 | `postalCode` | Código postal, cuando resulte necesario |
 
 La CPS deberá definir el mapeo exacto de CURP, RFC y otros identificadores, evitando duplicidades, ambigüedades y exposición innecesaria de datos personales.
+
+La clasificación normativa del perfil del certificado no dependerá del contenido textual del `Subject`, sino de la extensión `Certificate Policies`, mediante el OID institucional correspondiente al tipo de certificado emitido. Para perfiles objetivo nuevos, los OID aprobados son: ciudadanía `1.3.6.1.4.1.63888.2.1`, persona servidora pública `1.3.6.1.4.1.63888.2.2` y representación legal `1.3.6.1.4.1.63888.2.3`. Los sistemas validadores deberán utilizar dicho OID como criterio canónico de clasificación; una política ausente, desconocida o incompatible deberá rechazarse o marcarse como no clasificable. Los certificados históricos o transitorios conservarán su ruta de validación hasta expirar o revocarse.
 
 ### 4. Certificados de infraestructura
 

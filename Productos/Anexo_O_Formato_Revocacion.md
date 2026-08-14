@@ -24,7 +24,7 @@ Seleccione una sola causa principal del catálogo normalizado del Anexo C. Cuand
 - [ ] `03_Disolución_de_persona_moral` — Disolución, liquidación o extinción de la persona moral representada.
 - [ ] `04_Fusión_o_escisión` — Fusión o escisión de la persona moral.
 - [ ] `05_Certificado_no_cumple_requisitos_legales` — Incumplimiento de requisitos legales, normativos o técnicos.
-- [ ] `06_Riesgo_confidencialidad_datos_de_creación_de_firma` — Pérdida de la clave privada o del medio que la contiene, exposición, acceso no autorizado, copia o compromiso. El olvido de contraseña, sin evidencia de pérdida, exposición o compromiso, deberá registrarse como `01_Solicitud_del_titular` mediante revocación asistida.
+- [ ] `06_Riesgo_confidencialidad_datos_de_creación_de_firma` — Pérdida de la clave privada o del medio que la contiene, exposición, acceso no autorizado, copia, sospecha razonable de compromiso o cualquier circunstancia que afecte su confidencialidad. El olvido de contraseña, sin evidencia de pérdida, exposición, acceso no autorizado, copia o sospecha razonable de compromiso, deberá registrarse como `01_Solicitud_del_titular` mediante revocación asistida.
 - [ ] `07_Documentación_de_identidad_falsa` — Documentación falsa, alterada o suplantación de identidad.
 - [ ] `08_Término_de_cargo_de_servicio_público` — Baja, separación, cambio de dependencia, unidad administrativa o cargo, o retiro formal de autorización.
 - [ ] `09_Cambio_de_circunstancias_del_sujeto` — Cambio de datos, representación, facultades, situación jurídica, incapacidad o fallecimiento de la persona titular.
@@ -48,43 +48,62 @@ Para fallecimiento de la persona titular deberá adjuntarse acta o constancia of
 
 La clave `11_Otra_causal_definida_en_el_certificado` requiere fundamento expreso y evidencia suficiente; no deberá utilizarse cuando alguna de las causas 01 a 10 resulte aplicable.
 
-## 3. Declaración
+## 3. Persona o entidad que inicia la revocación
 
-Solicito o autorizo, según la calidad con la que comparezco, la revocación definitiva e irreversible del certificado señalado. Reconozco que no existe suspensión temporal, reactivación ni reemisión del certificado revocado.
+**Nombre o denominación:**  
+________________________________________________________________________
 
-**Nombre de la persona solicitante o agente autorizado:**  
+**CURP, RFC o identificador institucional, cuando corresponda:**  
 ________________________________________________________________________
 
 **Calidad con la que comparece:**
 
 - [ ] Persona titular.
-- [ ] Agente autorizado.
 - [ ] Superior jerárquico, enlace institucional o unidad competente.
 - [ ] Persona representante, liquidadora o sociedad legitimada.
 - [ ] Autoridad judicial o administrativa.
 - [ ] Familiar o tercero legalmente legitimado.
+- [ ] Autoridad de Certificación.
 - [ ] Otra: _________________________________________________
 
-**Mandato, autorización o representación invocada, cuando corresponda:**  
+**Relación con la persona titular o fundamento de legitimidad:**  
 ________________________________________________________________________
 
-**Referencia documental de la autorización o representación:**  
+**Mandato, autorización, representación o acto de autoridad invocado, cuando corresponda:**  
 ________________________________________________________________________
 
-**Firma:** _________________________________________________
+**Referencia documental:**  
+________________________________________________________________________
+
+Solicito o autorizo, según la calidad con la que comparezco y el fundamento señalado, la revocación definitiva e irreversible del certificado identificado en este formato. Declaro que la información y documentación aportadas son auténticas y suficientes para sustentar la solicitud, y reconozco que no existe suspensión temporal, reactivación, modificación ni reemisión del certificado revocado.
+
+**Firma de la persona iniciadora, cuando corresponda:** _________________________________________________
+
+## 4. Verificación, autorización y firma del agente
+
+La persona con rol vigente de agente autorizado hace constar que verificó la identidad o identificación institucional de quien inicia la revocación, su legitimidad, capacidad, mandato, autorización, representación o fundamento aplicable; cotejó las evidencias; validó la causa normalizada; e identificó inequívocamente el certificado. La firma del agente acredita su intervención y autorización, pero no sustituye el mandato, representación o legitimidad de quien inició el trámite.
+
+- **Nombre del agente autorizado:** {{NOMBRE_AGENTE}}
+- **Identificador o rol:** {{IDENTIFICADOR_AGENTE}}
+- **Fecha y hora de autorización:** {{FECHA_HORA_AUTORIZACION}}
+- **Firma electrónica avanzada del agente autorizado:** {{FIRMA_AGENTE}}
+- **Referencia o identificador de la firma:** {{REFERENCIA_FIRMA_AGENTE}}
 
 ---
 
-## 4. Registro de ejecución
+## 5. Registro de ejecución
 
 - **Clave normalizada registrada:** {{CLAVE_CAUSAL}}
 - **Denominación registrada:** {{DENOMINACION_CAUSAL}}
 - **Fecha y hora efectiva de revocación:** {{FECHA_HORA_EFECTIVA}}
 - **Fecha de efectos ordenada como metadato jurídico, para causa 02 cuando sea distinta:** {{FECHA_HORA_ORDENADA}}
 - **Persona o proceso autorizado que ejecutó:** {{EJECUTOR}}
+- **Estado de publicación:** {{ESTADO_PUBLICACION}}
 - **Resultado de publicación OCSP:** {{RESULTADO_OCSP}}
 - **Resultado de publicación CRL, cuando corresponda:** {{RESULTADO_CRL}}
+- **Referencia de eventos de publicación u outbox, cuando exista publicación pendiente:** {{REFERENCIA_OUTBOX}}
+- **Fecha y hora de confirmación de publicación, cuando corresponda:** {{FECHA_HORA_PUBLICACION}}
 - **Firma o sello electrónico del acuse:** {{FIRMA_O_SELLO_ACUSE}}
 - **Referencia, identificador o fecha de la firma o sello:** {{REFERENCIA_FIRMA_O_SELLO}}
 
-La fecha y hora efectiva será la registrada por la Autoridad de Certificación al completar la ejecución y publicar el estado técnico. Una fecha anterior indicada por una orden judicial o administrativa se conservará únicamente como metadato jurídico y no retrotraerá el estado publicado en OCSP o CRL.
+La fecha y hora efectiva será la asignada y persistida por la Autoridad de Certificación al confirmar durablemente el estado local como revocado. Ese mismo valor deberá reproducirse sin modificación en OCSP y, cuando corresponda, CRL, incluso durante reintentos de publicación. Una fecha anterior indicada por una orden judicial o administrativa se conservará únicamente como metadato jurídico y no retrotraerá el estado técnico.

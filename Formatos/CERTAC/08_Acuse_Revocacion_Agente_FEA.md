@@ -18,13 +18,22 @@ La **Autoridad de Certificación de Gobierno del Estado de Chihuahua**, identifi
 
 - Número de serie revocado: {{NUMERO_SERIE}}
 - Clave de causal: {{CLAVE_CAUSAL}}
-- Descripción: {{DESCRIPCION_CAUSAL}}
+- Denominación normalizada de la causal: {{DENOMINACION_CAUSAL}}
+- Descripción de los hechos: {{DESCRIPCION_HECHOS}}
 - Fecha y hora efectiva de revocación: {{FECHA_HORA_REVOCACION}}
+- Sujeto que inició la revocación: {{INICIADOR}}
+- Autorización o representación invocada, cuando corresponda: {{AUTORIZACION_REPRESENTACION}}
 - Agente ejecutor: {{NOMBRE_AGENTE}}
-- Estado publicado: Revocado.
+- Estado de publicación: {{ESTADO_PUBLICACION}}
+- Referencia de eventos de publicación u outbox, solo cuando la publicación esté pendiente: {{REFERENCIA_OUTBOX}} (No aplica si la publicación ya fue confirmada)
+- Fecha y hora de confirmación de publicación, cuando corresponda: {{FECHA_HORA_PUBLICACION}}
 
-La revocación es definitiva e irreversible. El certificado no podrá utilizarse para generar firmas después de la fecha y hora efectiva indicada. Las firmas realizadas previamente deberán evaluarse conforme a su fecha, sello de tiempo, integridad y estado histórico del certificado.
+La revocación es definitiva e irreversible. El certificado queda invalidado para efectos de validación y no deberá ser aceptado para crear o verificar firmas posteriores a la fecha y hora efectiva indicada. Cuando el estado de publicación sea **pendiente**, este acuse acredita que la revocación local quedó confirmada durablemente y conserva la referencia de los eventos de publicación; deberá actualizarse o complementarse cuando OCSP y, en su caso, CRL reflejen el estado revocado. Las firmas realizadas previamente deberán evaluarse conforme a su fecha, sello de tiempo, integridad y estado histórico del certificado.
 
 **Firma electrónica avanzada del agente autorizado:** {{FIRMA_AGENTE}}
 
+**Referencia o identificador de la firma del agente:** {{REFERENCIA_FIRMA_AGENTE}}
+
 **Sello electrónico de la Autoridad Certificadora:** {{SELLO_ACUSE}}
+
+**Referencia o identificador del sello:** {{REFERENCIA_SELLO_ACUSE}}

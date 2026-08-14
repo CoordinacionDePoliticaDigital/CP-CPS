@@ -17,7 +17,8 @@
 
 - Número de serie: {{NUMERO_SERIE}}
 - Clave de causal: {{CLAVE_CAUSAL}}
-- Descripción de causal: {{DESCRIPCION_CAUSAL}}
+- Denominación normalizada de causal: {{DENOMINACION_CAUSAL}}
+- Descripción de los hechos: {{DESCRIPCION_HECHOS}}
 
 ## Declaración
 

@@ -1,7 +1,7 @@
 # Anexo C. Matriz de causas de revocación
 
 **Documento relacionado:** Política de Certificación CP-ACCHIH-001  
-**Versión:** 1.2  
+**Versión:** 1.3  
 **Estado:** Proyecto  
 **Autoridad responsable:** Coordinación de Política Digital  
 **Órgano de aprobación:** Coordinación de Política Digital y Consejo Técnico  
@@ -20,7 +20,7 @@ La revocación será definitiva e irreversible. No existe suspensión temporal n
 2. La causa seleccionada deberá corresponder con los hechos y evidencias disponibles.
 3. Cuando concurran varias causas, se registrará como principal la que describa con mayor precisión el motivo determinante. Cada causa adicional deberá documentarse en el expediente mediante su clave y denominación normalizadas.
 4. La clave `11_Otra_causal_definida_en_el_certificado` solo se utilizará cuando ninguna de las causas 01 a 10 describa adecuadamente el supuesto y exista fundamento documentado en la CP, la CPS, el perfil del certificado, los términos y condiciones, un convenio aplicable o una determinación de autoridad competente.
-5. La fecha y hora efectiva de revocación será aquella en que la Autoridad de Certificación complete satisfactoriamente la operación, registre la revocación y publique el estado correspondiente. Cuando una orden judicial o administrativa señale una fecha anterior, esta se conservará únicamente como fecha de efectos ordenada y metadato jurídico del expediente; no modificará retroactivamente la fecha efectiva de revocación ni la publicación técnica en OCSP o CRL.
+5. La fecha y hora efectiva de revocación será aquella que la Autoridad de Certificación asigne y persista al confirmar durablemente el estado local del certificado como revocado. Este valor deberá incorporarse sin modificación en OCSP y, cuando corresponda, CRL, y conservarse en todos los reintentos de publicación. Cuando una orden judicial o administrativa señale una fecha anterior, esta se conservará únicamente como fecha de efectos ordenada y metadato jurídico del expediente; no modificará retroactivamente la fecha efectiva de revocación ni la publicación técnica.
 6. La revocación deberá publicarse mediante OCSP y, cuando corresponda, CRL.
 7. La revocación de un certificado no invalida por sí misma las firmas generadas antes de la fecha y hora efectiva de revocación; su validez deberá evaluarse conforme a la integridad del documento, sello de tiempo, cadena de confianza, estado histórico del certificado y, cuando corresponda, el alcance jurídico de una orden de autoridad.
 8. Cuando CERTAC o un formato histórico presente la opción específica **Fallecimiento del titular**, esta deberá registrarse operativamente bajo la causa canónica `09_Cambio_de_circunstancias_del_sujeto`, conservando en el expediente la etiqueta específica y el acta o constancia oficial correspondiente.
@@ -68,7 +68,7 @@ El expediente de revocación deberá contener, al menos:
 - mandato, autorización o acreditación de representación y su referencia, cuando corresponda;
 - agente o proceso autorizado que la ejecutó;
 - evidencia o referencia documental;
-- fecha y hora efectiva de revocación, coincidente con la ejecución, registro y publicación técnica por la Autoridad de Certificación;
+- fecha y hora efectiva de revocación, asignada y persistida al confirmar durablemente el estado local, junto con el estado de publicación y la referencia de los eventos de outbox, sin requerir la reproducción inmediata en OCSP o CRL; ese mismo valor deberá reproducirse sin modificación en OCSP y, cuando corresponda, CRL, una vez que la publicación sea exitosa;
 - fecha de efectos ordenada como metadato jurídico, únicamente para la causa 02 cuando sea distinta;
 - resultado de publicación en OCSP y, cuando corresponda, CRL;
 - firma o sello electrónico del acuse.
