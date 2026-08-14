@@ -19,6 +19,16 @@
 - Clave de causal: {{CLAVE_CAUSAL}}
 - Denominación normalizada de causal: {{DENOMINACION_CAUSAL}}
 - Descripción de los hechos: {{DESCRIPCION_HECHOS}}
+- Documento o evidencia de soporte, cuando corresponda: {{REFERENCIA_SOPORTE}}
+
+## Causas adicionales, cuando existan
+
+Este bloque es repetible por cada causa adicional.
+
+- Clave normalizada de causal adicional: {{CLAVE_CAUSAL_ADICIONAL}}
+- Denominación normalizada de causal adicional: {{DENOMINACION_CAUSAL_ADICIONAL}}
+- Descripción de los hechos adicionales: {{DESCRIPCION_HECHOS_ADICIONALES}}
+- Documento o evidencia de soporte adicional: {{REFERENCIA_SOPORTE_ADICIONAL}}
 
 ## Declaración
 

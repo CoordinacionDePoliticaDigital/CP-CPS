@@ -30,6 +30,15 @@
 - Descripción de los hechos: {{DESCRIPCION_HECHOS}}
 - Documento o evidencia de soporte: {{REFERENCIA_SOPORTE}}
 
+## Causas adicionales, cuando existan
+
+Este bloque es repetible por cada causa adicional.
+
+- Clave normalizada de causal adicional: {{CLAVE_CAUSAL_ADICIONAL}}
+- Denominación normalizada de causal adicional: {{DENOMINACION_CAUSAL_ADICIONAL}}
+- Descripción de los hechos adicionales: {{DESCRIPCION_HECHOS_ADICIONALES}}
+- Documento o evidencia de soporte adicional: {{REFERENCIA_SOPORTE_ADICIONAL}}
+
 ## Declaración de la persona o entidad iniciadora
 
 La persona o entidad iniciadora solicita expresamente la revocación definitiva del certificado identificado en este formato y declara que la información y documentación proporcionadas son completas y veraces. Esta declaración queda vinculada a su firma o constancia de autenticación y no sustituye la verificación independiente que corresponde al agente autorizado.
@@ -47,12 +56,6 @@ Para las causas 05, 07, 10 y 11, la ejecución solo podrá iniciar después de r
 - Decisión de validación adicional: {{DECISION_VALIDACION_ADICIONAL}}
 - Fecha y hora de validación adicional: {{FECHA_HORA_VALIDACION_ADICIONAL}}
 - Firma o sello de validación adicional: {{FIRMA_VALIDACION_ADICIONAL}}
-- Referencia de evidencia o registro externo: {{REFERENCIA_VALIDACION_ADICIONAL}}
-
-- Unidad validadora: {{UNIDAD_VALIDADORA}}
-- Decisión de validación: {{DECISION_VALIDACION_ADICIONAL}}
-- Fecha y hora de validación: {{FECHA_HORA_VALIDACION_ADICIONAL}}
-- Firma de validación: {{FIRMA_VALIDACION_ADICIONAL}}
 - Referencia de evidencia o registro externo: {{REFERENCIA_VALIDACION_ADICIONAL}}
 
 Con base en dicha verificación y, cuando aplique, la validación adicional registrada, el agente autoriza y ejecuta la revocación definitiva del certificado señalado. La revocación es irreversible y el certificado no podrá ser reactivado.

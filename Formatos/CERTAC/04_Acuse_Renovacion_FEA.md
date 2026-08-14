@@ -26,6 +26,8 @@ La **Autoridad de Certificación de Gobierno del Estado de Chihuahua**, identifi
 - Estado de publicación de la revocación anterior: {{ESTADO_PUBLICACION}}
 - Referencia de eventos de publicación u outbox, cuando exista publicación pendiente: {{REFERENCIA_OUTBOX}}
 - Fecha y hora de confirmación de publicación, cuando corresponda: {{FECHA_HORA_PUBLICACION}}
+- Persona o proceso autorizado que ejecutó la revocación anterior: {{EJECUTOR_REVOCACION}}
+- Referencia de la firma o sello de ejecución: {{REFERENCIA_FIRMA_EJECUTOR}}
 - Certificado nuevo emitido: {{NUMERO_SERIE_NUEVO}}
 - Inicio de vigencia: {{INICIO_VIGENCIA_NUEVA}}
 - Fin de vigencia: {{FIN_VIGENCIA_NUEVA}}
@@ -35,3 +37,5 @@ El certificado nuevo fue emitido con los datos asentados en la solicitud validad
 El tratamiento de los datos personales relacionados con este trámite se realizará conforme al aviso de privacidad aplicable.
 
 **Firma electrónica del agente o proceso automatizado autorizado:** {{FIRMA_AUTORIZACION}}
+
+**Referencia o identificador de la firma o sello:** {{REFERENCIA_FIRMA_AUTORIZACION}}

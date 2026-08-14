@@ -117,10 +117,11 @@ Procederá cuando la persona titular:
 2. identifique el certificado;
 3. seleccione la causa normalizada;
 4. describa brevemente los hechos;
-5. firme la solicitud con el certificado vigente;
-6. confirme el carácter definitivo e irreversible de la operación.
+5. adjunte o referencie la evidencia mínima exigible por la causa seleccionada cuando corresponda;
+6. firme la solicitud con el certificado vigente;
+7. confirme el carácter definitivo e irreversible de la operación.
 
-El sistema verificará la firma, la vigencia del certificado, su correspondencia con la persona titular y la integridad de la solicitud antes de ejecutar la revocación.
+El sistema verificará la firma, la vigencia del certificado, su correspondencia con la persona titular, la integridad de la solicitud y la evidencia mínima exigible por la causa antes de ejecutar la revocación. Cuando la evidencia requerida no pueda aportarse por este canal, el trámite continuará mediante revocación asistida.
 
 ### 5.2. Revocación asistida por agente autorizado
 
@@ -160,7 +161,7 @@ Antes de continuar deberá verificarse que:
 
 - el certificado existe;
 - corresponde a la persona titular o sujeto afectado;
-- no se encuentra ya revocado;
+- se encuentra vigente para una primera transición o, si ya está revocado, la solicitud coincide con un expediente idempotente existente;
 - su estado y cadena pueden consultarse;
 - el número de serie coincide en la solicitud, expediente y operación.
 
@@ -240,7 +241,7 @@ El sistema deberá:
 1. verificar nuevamente el estado del certificado;
 2. registrar la causa principal y las adicionales;
 3. registrar a la persona o proceso ejecutor;
-4. dentro de una misma transacción atómica, asignar y persistir la fecha y hora efectiva única, cambiar el estado local a revocado y registrar los eventos pendientes de publicación en una cola transaccional u outbox para OCSP y, cuando corresponda, CRL; la transacción solo deberá confirmarse si las tres operaciones quedan registradas satisfactoriamente;
+4. dentro de una misma transacción atómica, verificar mediante bloqueo o actualización compare-and-set por emisor y número de serie que el certificado no esté ya revocado; si ya está revocado y la solicitud coincide con el expediente idempotente, devolver sin alteración la causa, ejecutor, evidencia, fecha efectiva y eventos existentes, así como el acuse existente o su generación pendiente; si no está revocado, asignar y persistir la fecha y hora efectiva única, cambiar el estado local a revocado y registrar los eventos pendientes de publicación en una cola transaccional u outbox para OCSP y, cuando corresponda, CRL; la transacción solo deberá confirmarse si las tres operaciones quedan registradas satisfactoriamente;
 5. después de confirmar la transacción, construir e intentar la publicación o puesta a disposición del nuevo estado mediante OCSP utilizando esa misma fecha y hora;
 6. incorporar la revocación en la CRL correspondiente cuando aplique, utilizando esa misma fecha y hora;
 7. registrar el resultado de cada intento de publicación;
@@ -262,7 +263,7 @@ Después de ejecutar deberá comprobarse:
 
 Si la publicación OCSP o CRL falla, la revocación local no deberá revertirse. El evento conservará el estado **publicación pendiente** en la cola transaccional u outbox y mantendrá la fecha y hora efectiva ya persistida. Deberá reintentarse automáticamente con identificador idempotente, incremento controlado de espera, límite de intentos antes de escalamiento y trazabilidad de cada resultado.
 
-Ante cualquier falla de publicación, los servicios institucionales deberán rechazar inmediatamente el certificado revocado con base en el estado local durable, sin esperar a que OCSP o CRL reflejen la actualización. Para toda revocación clasificada como urgente conforme a la sección 10, la primera falla activará además el mecanismo alterno autorizado de continuidad y la actualización externa por el canal alterno disponible, sin esperar a que se agote el límite ordinario de reintentos. Esta regla comprende, entre otros, compromiso o riesgo de la clave privada, suplantación o documentación falsa, uso indebido activo, órdenes de ejecución inmediata, compromiso de cuentas, dispositivos o sistemas y afectaciones potenciales a múltiples certificados, validadores o servicios. Para revocaciones no urgentes, el rechazo institucional será igualmente inmediato, mientras que los mecanismos alternos de propagación externa se activarán al agotarse el límite operativo. En todos los casos, el incidente permanecerá abierto hasta confirmar la publicación.
+Ante cualquier falla de publicación, los servicios institucionales deberán rechazar inmediatamente los usos nuevos o posteriores a la fecha y hora efectiva con base en el estado local durable, sin esperar a que OCSP o CRL reflejen la actualización. La validación de firmas o documentos anteriores conservará la ruta histórica de la sección 16, evaluando sello de tiempo, integridad, cadena de confianza y estado histórico. Para toda revocación clasificada como urgente conforme a la sección 10, la primera falla activará además el mecanismo alterno autorizado de continuidad y la actualización externa por el canal alterno disponible, sin esperar a que se agote el límite ordinario de reintentos. Esta regla comprende, entre otros, compromiso o riesgo de la clave privada, suplantación o documentación falsa, uso indebido activo, órdenes de ejecución inmediata, compromiso de cuentas, dispositivos o sistemas y afectaciones potenciales a múltiples certificados, validadores o servicios. Para revocaciones no urgentes, el rechazo institucional será igualmente inmediato, mientras que los mecanismos alternos de propagación externa se activarán al agotarse el límite operativo. En todos los casos, el incidente permanecerá abierto hasta confirmar la publicación.
 
 ## 14. Acuse de revocación
 

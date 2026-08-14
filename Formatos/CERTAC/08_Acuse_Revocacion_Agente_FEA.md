@@ -25,7 +25,7 @@ La **Autoridad de Certificación de Gobierno del Estado de Chihuahua**, identifi
 - Autorización o representación invocada, cuando corresponda: {{AUTORIZACION_REPRESENTACION}}
 - Agente ejecutor: {{NOMBRE_AGENTE}}
 - Estado de publicación: {{ESTADO_PUBLICACION}}
-- Referencia de eventos de publicación u outbox, solo cuando la publicación esté pendiente: {{REFERENCIA_OUTBOX}} (No aplica si la publicación ya fue confirmada)
+- Referencia del evento de publicación u outbox, o del registro durable alterno autorizado cuando corresponda: {{REFERENCIA_EVENTO_PUBLICACION}} (No aplica si la publicación ya fue confirmada)
 - Fecha y hora de confirmación de publicación, cuando corresponda: {{FECHA_HORA_PUBLICACION}}
 
 La revocación es definitiva e irreversible. El certificado queda invalidado para efectos de validación y no deberá ser aceptado para crear o verificar firmas posteriores a la fecha y hora efectiva indicada. Cuando el estado de publicación sea **pendiente**, este acuse acredita que la revocación local quedó confirmada durablemente y conserva la referencia de los eventos de publicación; deberá actualizarse o complementarse cuando OCSP y, en su caso, CRL reflejen el estado revocado. Las firmas realizadas previamente deberán evaluarse conforme a su fecha, sello de tiempo, integridad y estado histórico del certificado.

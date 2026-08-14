@@ -11,9 +11,9 @@
 
 | Fuente autoritativa | SHA-256 normalizado UTF-8/LF |
 |---|---|
-| `Productos/Anexo_A_Perfil_Tecnico_Certificados.md` | `5b766e1e4352e6b922a26c83179eb4dc21c585c7bc41418848b75ab8d5a902d6` |
-| `Productos/Anexo_K_Perfil_PAdES.md` | `c88bdaa5930d082b12e76b9a98d9b5791e94e8fdb8e4e57451f390251c75a8c2` |
-| `Productos/Anexo_L_Politica_Sellado_Tiempo.md` | `d96f6a517518561d05fbe65b109b187578335cdc4eea14e54d380aef9c9a8408` |
+| `Productos/Anexo_A_Perfil_Tecnico_Certificados.md` | `ff91189b9de9360d67041c5f867d11481fabad544db022d058af6b9e27d8a9f1` |
+| `Productos/Anexo_K_Perfil_PAdES.md` | `23502d39e815b481b53ab3c236ccf0f993af391a71afc1c3731e4a2b16d54d2a` |
+| `Productos/Anexo_L_Politica_Sellado_Tiempo.md` | `f23550e494093101f7140f7b46cfeb46d51907355dcfa02b561fd593ecddbb2f` |
 
 ---
 
