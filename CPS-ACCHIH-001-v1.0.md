@@ -12,7 +12,7 @@
 **Versión:** 1.0
 **Estado:** Vigente
 **Fecha de emisión:** 14 de agosto de 2026
-**Fecha de entrada en vigor:** Operación documentada desde octubre de 2024; regularización documental vigente desde el 14 de agosto de 2026
+**Fecha de entrada en vigor:** 14 de agosto de 2026
 **Autoridad responsable:** Coordinación de Política Digital  
 **Autoridad emisora:** Autoridad de Certificación de Gobierno del Estado de Chihuahua  
 **Denominación institucional de difusión:** Autoridad Certificadora  
@@ -33,7 +33,7 @@
 | Versión | 1.0 |
 | Estado | Vigente |
 | Fecha de emisión | 14 de agosto de 2026 |
-| Fecha de entrada en vigor | Operación documentada desde octubre de 2024; regularización documental vigente desde el 14 de agosto de 2026 |
+| Fecha de entrada en vigor | 14 de agosto de 2026 |
 | Autoridad responsable | Coordinación de Política Digital |
 | Autoridad emisora | Autoridad de Certificación de Gobierno del Estado de Chihuahua |
 | Denominación institucional de difusión | Autoridad Certificadora |
@@ -46,8 +46,7 @@
 
 | Versión | Fecha | Descripción del cambio | Responsable |
 |---|---:|---|---|
-| 1.0 | 14 de agosto de 2026 | Regularización documental: integra el contenido técnico desarrollado durante la operación iniciada en octubre de 2024, sin afirmar aprobación histórica inexistente. | Titular de la Autoridad Certificadora |
-| Borradores 1.1–1.3 | No vigentes | Iteraciones técnicas preservadas para trazabilidad; no constituyen versiones normativas aprobadas. | Coordinación de Política Digital |
+| 1.0 | 14 de agosto de 2026 | Emisión inicial de la línea documental controlada. | Titular de la Autoridad Certificadora |
 
 ---
 

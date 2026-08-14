@@ -1,5 +1,10 @@
 # Acuse de emisión del Certificado de Firma Electrónica Avanzada
 
+**Documento relacionado:** CP-ACCHIH-001 y CPS-ACCHIH-001
+**Versión:** 1.0
+**Estado:** Vigente
+**Fecha de entrada en vigor:** 14 de agosto de 2026
+
 **Sistema:** CERTAC  
 **Fecha y hora de ejecución:** {{FECHA_HORA}}  
 **Folio:** {{FOLIO}}  

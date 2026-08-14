@@ -3,6 +3,9 @@
 **Documento relacionado:** Política de Certificación CP-ACCHIH-001  
 **Versión:** 1.0
 **Estado:** Vigente
+**Fecha de entrada en vigor:** 14 de agosto de 2026
+**Autoridad responsable:** Coordinación de Política Digital
+**Órgano de aprobación:** Titular de la Autoridad Certificadora, con revisión jurídica y técnica
 **IANA PEN:** `1.3.6.1.4.1.63888`  
 
 ## 1. Objeto y alcance

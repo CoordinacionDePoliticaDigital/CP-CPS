@@ -1,5 +1,10 @@
 # Solicitud de revocación del Certificado de Firma Electrónica Avanzada
 
+**Documento relacionado:** CP-ACCHIH-001 y CPS-ACCHIH-001
+**Versión:** 1.0
+**Estado:** Vigente
+**Fecha de entrada en vigor:** 14 de agosto de 2026
+
 **Modalidad:** Revocación directa por la persona titular  
 **Sistema:** CERTAC — Aplicación Web Progresiva de Enrolamiento Remoto  
 **Fecha:** {{FECHA}}  

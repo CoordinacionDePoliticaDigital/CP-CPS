@@ -1,5 +1,9 @@
 # Formatos operativos de CERTAC
 
+**Línea documental:** 1.0
+**Estado:** Vigente
+**Fecha de entrada en vigor:** 14 de agosto de 2026
+
 Este directorio contiene las versiones fuente en Markdown de los formatos utilizados por CERTAC para los trámites de emisión, renovación y revocación de certificados de Firma Electrónica Avanzada.
 
 ## Catálogo
