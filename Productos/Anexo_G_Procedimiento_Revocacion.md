@@ -231,7 +231,7 @@ Antes de ejecutar, el sistema o agente deberá confirmar:
 
 Toda revocación asistida requerirá la firma electrónica avanzada de una persona con rol vigente de agente autorizado, incluida aquella iniciada por la propia Autoridad de Certificación o por una unidad competente. Las causas 05, 07, 10 y 11 requerirán además validación expresa de la Autoridad de Certificación o de la unidad competente designada.
 
-Si la cola transaccional u outbox no está disponible y la revocación es urgente, antes de iniciar la transacción deberá activarse un canal alterno de continuidad autorizado. Este canal deberá registrar durablemente el evento de publicación, su identificador idempotente, la fecha y hora efectiva que la transacción deberá adoptar y persistir sin modificación, el responsable que lo autorizó y la evidencia de activación; ese registro sustituirá temporalmente al evento de outbox dentro de la misma decisión de revocación. La transacción local solo podrá confirmarse si queda vinculada a dicho registro durable y persiste exactamente esa misma fecha y hora efectiva. La propagación externa por el canal alterno deberá iniciarse únicamente después de confirmar exitosamente la transacción local. La indisponibilidad del outbox deberá documentarse como incidente y conciliarse posteriormente con el outbox sin alterar la fecha y hora efectiva ni duplicar la publicación.
+Si la cola transaccional u outbox no está disponible y la revocación es urgente, antes de iniciar la transacción deberá activarse un canal alterno de continuidad autorizado. Este canal deberá crear una reserva durable no publicable con estado pendiente de confirmación local, registrando su identificador idempotente, la fecha y hora efectiva que la transacción deberá adoptar y persistir sin modificación, el responsable que lo autorizó y la evidencia de activación. La transacción local solo podrá confirmarse si queda vinculada a dicha reserva durable y persiste exactamente esa misma fecha y hora efectiva. Tras confirmar exitosamente la transacción de revocación, la reserva se promoverá a publicación pendiente conservando la fecha y hora efectiva definida al commit; ese registro sustituirá temporalmente al evento de outbox. La propagación externa por el canal alterno deberá iniciarse únicamente después de promover la reserva a publicación pendiente. Si el commit falla o no ocurre, la reconciliación deberá excluir la reserva. La indisponibilidad del outbox deberá documentarse como incidente y conciliarse posteriormente con el outbox sin alterar la fecha y hora efectiva ni duplicar la publicación.
 
 ## 12. Ejecución técnica
 
@@ -242,7 +242,7 @@ El sistema deberá:
 1. verificar nuevamente el estado del certificado;
 2. registrar la causa principal y las adicionales;
 3. registrar a la persona o proceso ejecutor;
-4. dentro de una misma transacción atómica, asignar y persistir la fecha y hora efectiva única, o adoptar sin modificación la fecha y hora previamente registrada por el canal alterno autorizado de la sección 11, cambiar el estado local a revocado y registrar los eventos pendientes de publicación en una cola transaccional u outbox para OCSP y, cuando corresponda, CRL, o el registro durable alterno autorizado cuando el outbox esté indisponible; la transacción solo deberá confirmarse si las tres operaciones y el vínculo con el evento de publicación quedan registrados satisfactoriamente;
+4. dentro de una misma transacción atómica, verificar mediante bloqueo o actualización compare-and-set por emisor y número de serie que el certificado no esté ya revocado; si ya está revocado, reutilizar la fecha efectiva y el evento de publicación existentes sin crear una nueva publicación ni acuse, y confirmar la transacción sin registrar cambio de estado; si no está revocado, asignar y persistir la fecha y hora efectiva única, o adoptar sin modificación la fecha y hora previamente registrada por el canal alterno autorizado de la sección 11, cambiar el estado local a revocado y registrar los eventos pendientes de publicación en una cola transaccional u outbox para OCSP y, cuando corresponda, CRL, o promover la reserva durable alterna a publicación pendiente cuando el outbox esté indisponible; la transacción solo deberá confirmarse si las tres operaciones y el vínculo con el evento de publicación quedan registrados satisfactoriamente, o si se comprueba que el certificado ya estaba revocado y se reutilizan sus eventos existentes;
 5. después de confirmar la transacción, construir e intentar la publicación o puesta a disposición del nuevo estado mediante OCSP utilizando esa misma fecha y hora;
 6. incorporar la revocación en la CRL correspondiente cuando aplique, utilizando esa misma fecha y hora;
 7. registrar el resultado de cada intento de publicación;
@@ -254,13 +254,18 @@ La fecha y hora efectiva será la asignada y persistida en la misma transacción
 
 Después de ejecutar deberá comprobarse:
 
-- respuesta OCSP con estado revocado;
 - correspondencia del número de serie;
 - causa y fecha registradas;
-- incorporación en CRL cuando corresponda;
 - integridad de bitácoras;
-- generación del acuse;
 - cierre o escalamiento de incidentes relacionados.
+
+Tras confirmar la publicación correspondiente, deberá comprobarse además:
+
+- respuesta OCSP con estado revocado;
+- incorporación en CRL cuando corresponda;
+- generación del acuse definitivo.
+
+Mientras el estado sea **publicación pendiente**, la comprobación de la respuesta OCSP revocada y la incorporación en la CRL quedarán explícitamente diferidas, y no se emitirá el acuse definitivo.
 
 Si la publicación OCSP o CRL falla, la revocación local no deberá revertirse. El evento conservará el estado **publicación pendiente** en la cola transaccional u outbox o, mientras se reconcilia, en el registro durable alterno autorizado de la sección 11; mantendrá la fecha y hora efectiva ya persistida. Deberá reintentarse automáticamente con identificador idempotente, incremento controlado de espera, límite de intentos antes de escalamiento y trazabilidad de cada resultado. La reconciliación no podrá descartar el evento alterno ni crear una segunda publicación para el mismo identificador.
 

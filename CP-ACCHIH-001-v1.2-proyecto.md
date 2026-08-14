@@ -7,11 +7,11 @@
 # Política de Certificación  
 ## Autoridad de Certificación de Gobierno del Estado de Chihuahua
 
-**Clave del documento:** CP-ACCHIH-001  
-**OID:** 1.3.6.1.4.1.63888.1.1  
+**Clave del documento:** CP-ACCHIH-001
+**OID:** 1.3.6.1.4.1.63888.1.1
 **Versión:** 1.3
-**Estado:** Proyecto  
-**Fecha de emisión:** Octubre 2024  
+**Estado:** Proyecto
+**Fecha de emisión:** Pendiente de formalización
 **Fecha de entrada en vigor:** Pendiente de formalización
 **Autoridad responsable:** Coordinación de Política Digital  
 **Órgano de aprobación:** Coordinación de Política Digital y Consejo Técnico  
@@ -29,7 +29,7 @@
 | OID | 1.3.6.1.4.1.63888.1.1 |
 | Versión | 1.3 |
 | Estado | Proyecto |
-| Fecha de emisión | Octubre 2024 |
+| Fecha de emisión | Pendiente de formalización |
 | Fecha de entrada en vigor | Pendiente de formalización |
 | Autoridad responsable | Coordinación de Política Digital |
 | Autoridad emisora | Autoridad de Certificación de Gobierno del Estado de Chihuahua |
