@@ -4,10 +4,10 @@
 **Declaración relacionada:** CPS-ACCHIH-001  
 **Anexo relacionado:** Anexo C. Matriz de causas de revocación  
 **Formato relacionado:** Anexo O. Formato de Solicitud de Revocación  
-**Versión:** 1.2  
-**Estado:** Proyecto  
+**Versión:** 1.0
+**Estado:** Vigente
 **Autoridad responsable:** Coordinación de Política Digital  
-**Órgano de aprobación:** Coordinación de Política Digital y Consejo Técnico  
+**Órgano de aprobación:** Titular de la Autoridad Certificadora, con revisión jurídica y técnica
 
 ---
 
@@ -202,7 +202,7 @@ Se requerirá acta o constancia oficial de defunción y legitimidad de la person
 
 La orden deberá contener autoridad emisora, referencia, alcance, certificado o persona afectada y, cuando corresponda, fecha de efectos. Deberá recibirse por un canal institucional autenticado y comprobarse la identidad del emisor, la integridad del documento y la competencia de la autoridad antes de ejecutar, incluso cuando se solicite atención inmediata.
 
-Las comprobaciones esenciales no podrán diferirse: canal institucional autenticado, identidad del emisor, integridad del documento, competencia de la autoridad e identificación inequívoca del certificado o sujeto afectado. Únicamente podrán aplazarse comprobaciones documentales complementarias, como cotejos secundarios, incorporación de copias certificadas o validaciones de forma no determinantes, cuando exista autorización explícita de emergencia emitida por la unidad jurídica o la Autoridad de Certificación y se establezca en el expediente un plazo no mayor a veinticuatro horas para completarlas. Si la verificación posterior de esos elementos complementarios falla, se preservarán las evidencias, se notificará de inmediato a la unidad jurídica y al Consejo Técnico, se abrirá un incidente y se determinarán las medidas jurídicas y operativas procedentes, sin ocultar ni alterar el registro de la actuación ejecutada.
+Las comprobaciones esenciales no podrán diferirse: canal institucional autenticado, identidad del emisor, integridad del documento, competencia de la autoridad e identificación inequívoca del certificado o sujeto afectado. Únicamente podrán aplazarse comprobaciones documentales complementarias, como cotejos secundarios, incorporación de copias certificadas o validaciones de forma no determinantes, cuando exista autorización explícita de emergencia emitida por la unidad jurídica o la Autoridad de Certificación y se establezca en el expediente un plazo no mayor a veinticuatro horas para completarlas. Si la verificación posterior de esos elementos complementarios falla, se preservarán las evidencias, se notificará de inmediato a la unidad jurídica y al Titular de la Autoridad Certificadora, se abrirá un incidente y se determinarán las medidas jurídicas y operativas procedentes, sin ocultar ni alterar el registro de la actuación ejecutada.
 
 ## 10. Clasificación de prioridad
 
@@ -352,4 +352,4 @@ Toda modificación a este procedimiento deberá evaluar su impacto en:
 - bitácoras, acuses e integraciones;
 - procedimientos de incidentes y continuidad.
 
-Los cambios sustantivos requerirán aprobación de la Coordinación de Política Digital y del Consejo Técnico, así como actualización de versión y fecha de entrada en vigor.
+Los cambios sustantivos requerirán aprobación del Titular de la Autoridad Certificadora, con revisión jurídica y técnica, así como actualización de versión y fecha de entrada en vigor.

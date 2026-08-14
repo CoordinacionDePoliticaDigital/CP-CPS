@@ -1,8 +1,8 @@
 # Anexo L. Política de Sellado de Tiempo
 
 **Documento relacionado:** Política de Certificación CP-ACCHIH-001  
-**Versión:** 1.2  
-**Estado:** Proyecto revisado  
+**Versión:** 1.0
+**Estado:** Vigente
 **IANA PEN:** `1.3.6.1.4.1.63888`  
 
 ## 1. Objeto y alcance

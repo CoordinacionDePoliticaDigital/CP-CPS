@@ -5,7 +5,7 @@ El presente anexo describe los principales roles involucrados en la infraestruct
 | Rol | Responsabilidades Principales |
 |---|---|
 | **Coordinación de Política Digital** | Autorizar la emisión de políticas y prácticas. Ejercer el liderazgo institucional. Designar a los administradores principales. |
-| **Consejo Técnico** | Aprobar la CP y CPS. Fungir como órgano colegiado de toma de decisiones estratégicas. |
+| **Titular de la Autoridad Certificadora** | Aprobar la CP y CPS, con revisión jurídica y técnica, mientras no exista un órgano colegiado formalmente instalado con competencia aplicable. |
 | **Administrador de PKI (Root Admin)** | Gestionar la clave privada de la CA Raíz. Ejecutar las ceremonias de generación de claves. Configurar los servicios criptográficos core. |
 | **Oficial de Seguridad** | Monitorear el cumplimiento normativo. Revisar bitácoras. Gestionar incidentes de seguridad y aprobar controles de acceso. |
 | **Agente Registrador (RA)** | Validar presencial o remotamente la identidad de los solicitantes. Cotejar documentación. Autorizar o denegar solicitudes de enrolamiento. |

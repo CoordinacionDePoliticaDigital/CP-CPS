@@ -22,4 +22,4 @@
 
 ## Anexo G. Procedimiento de Revocación (sustituido)
 
-Esta sección queda sustituida por el documento autoritativo `Productos/Anexo_G_Procedimiento_Revocacion.md` (versión 1.2, estado Proyecto). No deberá utilizarse como fuente normativa ni operativa independiente.
+Esta sección queda sustituida por el documento autoritativo `Productos/Anexo_G_Procedimiento_Revocacion.md` (versión 1.0, estado Vigente). No deberá utilizarse como fuente normativa ni operativa independiente.

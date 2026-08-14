@@ -1,7 +1,7 @@
 # Anexos consolidados A, K y L
 
 **Documento relacionado:** Política de Certificación CP-ACCHIH-001  
-**Versión del consolidado:** 1.2  
+**Versión del consolidado:** 1.0
 **Estado:** Documento derivado  
 **Fuente de verdad:** archivos individuales indicados en el manifiesto  
 
@@ -11,18 +11,18 @@
 
 | Fuente autoritativa | SHA-256 normalizado UTF-8/LF |
 |---|---|
-| `Productos/Anexo_A_Perfil_Tecnico_Certificados.md` | `ff91189b9de9360d67041c5f867d11481fabad544db022d058af6b9e27d8a9f1` |
-| `Productos/Anexo_K_Perfil_PAdES.md` | `23502d39e815b481b53ab3c236ccf0f993af391a71afc1c3731e4a2b16d54d2a` |
-| `Productos/Anexo_L_Politica_Sellado_Tiempo.md` | `f23550e494093101f7140f7b46cfeb46d51907355dcfa02b561fd593ecddbb2f` |
+| `Productos/Anexo_A_Perfil_Tecnico_Certificados.md` | `33c54ceb2d5379343c20325b61a19b11c6715692af5c58a9d47ced5a7c084f97` |
+| `Productos/Anexo_K_Perfil_PAdES.md` | `51070e7241d3822b21a9342c4cf6aaf3b466838f6ed0c9f7adb1acb717157e0c` |
+| `Productos/Anexo_L_Politica_Sellado_Tiempo.md` | `ca783b32b256e19541087c7e6699a8414da9f453707c17cfc54d891645f118ba` |
 
 ---
 
 ## Anexo A. Perfil Técnico de Certificados
 
 **Documento relacionado:** Política de Certificación CP-ACCHIH-001  
-**Versión:** 1.3  
-**Estado:** Proyecto revisado  
-**Fecha de entrada en vigor:** Pendiente de formalización
+**Versión:** 1.0
+**Estado:** Vigente
+**Fecha de entrada en vigor:** 14 de agosto de 2026
 **IANA PEN:** `1.3.6.1.4.1.63888`  
 
 > Este documento distingue entre los perfiles desplegados actualmente y los perfiles objetivo para nuevas emisiones. Los certificados vigentes conservan las extensiones con las que fueron emitidos hasta su expiración o revocación; no deberán utilizarse como plantilla para nuevas emisiones cuando contradigan el perfil objetivo. La Declaración de Prácticas de Certificación deberá documentar la coexistencia, los controles compensatorios y el plan de transición.
@@ -31,8 +31,8 @@
 
 | Versión | Fecha | Descripción del cambio | Responsable |
 |---|---:|---|---|
-| 1.2 | Octubre 2024 | Perfil técnico de referencia previo a la clasificación por `Certificate Policies`. | Coordinación de Política Digital |
-| 1.3 | Pendiente de formalización | Control de `Subject`, catálogo de OID para perfiles de persona física y reglas de validación y transición. | Coordinación de Política Digital |
+| 1.0 | 14 de agosto de 2026 | Regularización del perfil técnico, catálogo de `Certificate Policies`, reglas de clasificación y transición. | Titular de la Autoridad Certificadora |
+| Borradores 1.1–1.3 | No vigentes | Iteraciones técnicas preservadas para trazabilidad; no constituyen versiones normativas aprobadas. | Coordinación de Política Digital |
 
 ### 1. Disposiciones generales
 
@@ -86,7 +86,7 @@ f) Cualquier finalidad distinta de la emisión de certificados y firma de listas
 
 La arquitectura objetivo permitirá una sola capa de autoridades intermedias subordinadas. Las autoridades intermedias podrán ser múltiples y operar como emisoras hermanas, pero no podrán emitir otras autoridades subordinadas.
 
-La transición desde la raíz emisora directa requerirá aprobación de la Coordinación de Política Digital y del Consejo Técnico, ceremonia de generación de claves, perfiles aprobados, publicación de la nueva cadena, pruebas de interoperabilidad, continuidad de OCSP y CRL, plan de coexistencia y actualización de la CPS.
+La transición desde la raíz emisora directa requerirá aprobación del Titular de la Autoridad Certificadora, con revisión jurídica y técnica, ceremonia de generación de claves, perfiles aprobados, publicación de la nueva cadena, pruebas de interoperabilidad, continuidad de OCSP y CRL, plan de coexistencia y actualización de la CPS.
 
 ### 3. Perfil de certificados de usuario final
 
@@ -168,8 +168,8 @@ Cualquier cambio que afecte la confianza, compatibilidad o validez de los certif
 ## Anexo K. Perfil PAdES Institucional
 
 **Documento relacionado:** Política de Certificación CP-ACCHIH-001  
-**Versión:** 1.2  
-**Estado:** Proyecto revisado  
+**Versión:** 1.0
+**Estado:** Vigente
 **IANA PEN:** `1.3.6.1.4.1.63888`  
 
 ### 1. Objeto
@@ -266,8 +266,8 @@ Una vez concluido el plazo de conservación de la plataforma, la eliminación so
 ## Anexo L. Política de Sellado de Tiempo
 
 **Documento relacionado:** Política de Certificación CP-ACCHIH-001  
-**Versión:** 1.2  
-**Estado:** Proyecto revisado  
+**Versión:** 1.0
+**Estado:** Vigente
 **IANA PEN:** `1.3.6.1.4.1.63888`  
 
 ### 1. Objeto y alcance

@@ -1,10 +1,10 @@
 # Anexo C. Matriz de causas de revocación
 
 **Documento relacionado:** Política de Certificación CP-ACCHIH-001  
-**Versión:** 1.3  
-**Estado:** Proyecto  
+**Versión:** 1.0
+**Estado:** Vigente
 **Autoridad responsable:** Coordinación de Política Digital  
-**Órgano de aprobación:** Coordinación de Política Digital y Consejo Técnico  
+**Órgano de aprobación:** Titular de la Autoridad Certificadora, con revisión jurídica y técnica
 
 ---
 
@@ -94,5 +94,5 @@ Toda modificación al catálogo, claves, denominaciones o reglas de aplicación 
 
 1. mantener compatibilidad con los registros históricos;
 2. evaluar su impacto en CERTAC, OCSP, CRL, acuses, auditoría y sistemas integrados;
-3. ser aprobada por la Coordinación de Política Digital y el Consejo Técnico;
+3. ser aprobada por el Titular de la Autoridad Certificadora, con revisión jurídica y técnica;
 4. actualizar la versión de este anexo y, cuando corresponda, la CP y la CPS.

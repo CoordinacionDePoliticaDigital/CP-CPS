@@ -49,7 +49,7 @@ def render() -> str:
     return f"""# Anexos consolidados A, K y L
 
 **Documento relacionado:** Política de Certificación CP-ACCHIH-001  
-**Versión del consolidado:** 1.2  
+**Versión del consolidado:** 1.0
 **Estado:** Documento derivado  
 **Fuente de verdad:** archivos individuales indicados en el manifiesto  
 
