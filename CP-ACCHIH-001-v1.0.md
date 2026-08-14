@@ -7,14 +7,14 @@
 # Política de Certificación  
 ## Autoridad de Certificación de Gobierno del Estado de Chihuahua
 
-**Clave del documento:** CP-ACCHIH-001  
-**OID:** 1.3.6.1.4.1.63888.1.1  
-**Versión:** 1.2  
-**Estado:** Proyecto  
-**Fecha de emisión:** Octubre 2024  
-**Fecha de entrada en vigor:** Octubre 2024  
+**Clave del documento:** CP-ACCHIH-001
+**OID:** 1.3.6.1.4.1.63888.1.1
+**Versión:** 1.0
+**Estado:** Vigente
+**Fecha de emisión:** 14 de agosto de 2026
+**Fecha de entrada en vigor:** Operación documentada desde octubre de 2024; regularización documental vigente desde el 14 de agosto de 2026
 **Autoridad responsable:** Coordinación de Política Digital  
-**Órgano de aprobación:** Coordinación de Política Digital y Consejo Técnico  
+**Órgano de aprobación:** Titular de la Autoridad Certificadora, con revisión jurídica y técnica
 **Sitio de publicación:** autoridadcertificadora.chihuahua.gob.mx  
 **Apartado de publicación:** Normatividad Operativa  
 
@@ -27,25 +27,24 @@
 | Nombre del documento | Política de Certificación de la Autoridad de Certificación de Gobierno del Estado de Chihuahua |
 | Clave | CP-ACCHIH-001 |
 | OID | 1.3.6.1.4.1.63888.1.1 |
-| Versión | 1.2 |
-| Estado | Proyecto |
-| Fecha de emisión | Octubre 2024 |
-| Fecha de entrada en vigor | Octubre 2024 |
+| Versión | 1.0 |
+| Estado | Vigente |
+| Fecha de emisión | 14 de agosto de 2026 |
+| Fecha de entrada en vigor | Operación documentada desde octubre de 2024; regularización documental vigente desde el 14 de agosto de 2026 |
 | Autoridad responsable | Coordinación de Política Digital |
 | Autoridad emisora | Autoridad de Certificación de Gobierno del Estado de Chihuahua |
 | Denominación institucional de difusión | Autoridad Certificadora |
-| Aprobación | Coordinación de Política Digital y Consejo Técnico |
+| Aprobación | Titular de la Autoridad Certificadora, con revisión jurídica y técnica |
 | Ubicación oficial de publicación | autoridadcertificadora.chihuahua.gob.mx, apartado de Normatividad Operativa |
 | Documento relacionado | Declaración de Prácticas de Certificación de la Autoridad de Certificación de Gobierno del Estado de Chihuahua |
-| Periodicidad de revisión | Cuando existan cambios normativos, técnicos, operativos o de seguridad que lo ameriten, o por determinación de la Coordinación de Política Digital o del Consejo Técnico |
+| Periodicidad de revisión | Cuando existan cambios normativos, técnicos, operativos o de seguridad que lo ameriten, o por determinación de la Coordinación de Política Digital o del Titular de la Autoridad Certificadora |
 
 ## Historial de versiones
 
 | Versión | Fecha | Descripción del cambio | Responsable |
 |---|---:|---|---|
-| 1.0 | Octubre 2024 | Emisión inicial del documento | Coordinación de Política Digital |
-| 1.1 | Pendiente de formalización | Integración de información técnica y operativa derivada del despliegue inicial | Coordinación de Política Digital |
-| 1.2 | Pendiente de formalización | Revisión de consistencia normativa, neutralidad tecnológica, conservación, sellado de tiempo y arquitectura PKI | Coordinación de Política Digital |
+| 1.0 | 14 de agosto de 2026 | Regularización documental: integra el contenido técnico desarrollado durante la operación iniciada en octubre de 2024, sin afirmar aprobación histórica inexistente. | Titular de la Autoridad Certificadora |
+| Borradores 1.1–1.3 | No vigentes | Iteraciones técnicas preservadas para trazabilidad; no constituyen versiones normativas aprobadas. | Coordinación de Política Digital |
 
 ---
 
@@ -179,7 +178,7 @@ La Autoridad de Certificación dependerá formalmente de la Coordinación de Pol
 
 ## 2.3. Órgano de aprobación
 
-La presente Política será aprobada por la Coordinación de Política Digital y el Consejo Técnico.
+La presente Política será aprobada por el Titular de la Autoridad Certificadora, con revisión jurídica y técnica correspondiente mientras no exista un órgano colegiado formalmente instalado con competencia aplicable.
 
 ## 2.4. Portal oficial y repositorio público
 
@@ -199,7 +198,7 @@ La comunidad de confianza estará integrada por:
 
 a) La Autoridad de Certificación;  
 b) La Coordinación de Política Digital;  
-c) El Consejo Técnico;  
+c) El Titular de la Autoridad Certificadora;
 d) Las autoridades de registro;  
 e) Los agentes registradores;  
 f) Las personas solicitantes;  
@@ -646,13 +645,13 @@ La arquitectura vigente de la Autoridad de Certificación opera sobre infraestru
 
 Las operaciones criptográficas de la Autoridad de Certificación se realizan mediante un servicio administrado de gestión de claves autorizado, sujeto a controles de acceso, separación de funciones, registro de operaciones, monitoreo y restricciones de exportación cuando resulten aplicables.
 
-La operación vigente mediante una Autoridad de Certificación raíz emisora en línea se reconoce como arquitectura transitoria y continuará siendo reconocida, bajo controles compensatorios de acceso, monitoreo, trazabilidad, separación de funciones, continuidad y respuesta a incidentes, hasta un plazo máximo de veinticuatro meses contado a partir de la entrada en vigor de la versión 1.2 de esta Política. Concluido dicho plazo, la aceptación transitoria caducará y la raíz emisora en línea deberá haber sido retirada de la emisión de nuevos certificados, sin perjuicio de la validación histórica de los certificados previamente emitidos.
+La operación vigente mediante una Autoridad de Certificación raíz emisora en línea se reconoce como arquitectura transitoria y continuará siendo reconocida, bajo controles compensatorios de acceso, monitoreo, trazabilidad, separación de funciones, continuidad y respuesta a incidentes, hasta un plazo máximo de veinticuatro meses contado a partir de la entrada en vigor operativa documentada de la versión 1.0 de esta Política. Concluido dicho plazo, la aceptación transitoria caducará y la raíz emisora en línea deberá haber dejado de emitir certificados nuevos, sin perjuicio de la validación histórica de los certificados previamente emitidos.
 
 La arquitectura objetivo será una cadena compuesta por una Autoridad de Certificación raíz fuera de línea, una sola capa de autoridades intermedias subordinadas emisoras y certificados de entidad final. La raíz objetivo deberá utilizar `pathLenConstraint=1` y cada autoridad intermedia emisora deberá utilizar `pathLenConstraint=0`; las autoridades intermedias no podrán emitir otras autoridades subordinadas.
 
-La Coordinación de Política Digital, por conducto de la unidad responsable de la Autoridad de Certificación, será responsable de ejecutar y documentar la migración. El avance deberá revisarse trimestralmente y reportarse al Consejo Técnico, incluyendo riesgos, dependencias, pruebas, coexistencia y acciones correctivas.
+La Coordinación de Política Digital, por conducto de la unidad responsable de la Autoridad de Certificación, será responsable de ejecutar y documentar la migración. El avance deberá revisarse trimestralmente y reportarse al Titular de la Autoridad Certificadora, incluyendo riesgos, dependencias, pruebas, coexistencia y acciones correctivas.
 
-La transición requerirá aprobación de la Coordinación de Política Digital y del Consejo Técnico, ceremonia de generación de claves, perfiles técnicos aprobados, publicación de la nueva cadena, pruebas de interoperabilidad, continuidad de OCSP y CRL, plan de coexistencia y actualización de la Política y la Declaración de Prácticas de Certificación.
+La transición requerirá aprobación del Titular de la Autoridad Certificadora, con revisión jurídica y técnica, ceremonia de generación de claves, perfiles técnicos aprobados, publicación de la nueva cadena, pruebas de interoperabilidad, continuidad de OCSP y CRL, plan de coexistencia y actualización de la Política y la Declaración de Prácticas de Certificación.
 
 ## 19.3. Claves de usuario
 
@@ -698,7 +697,7 @@ La Declaración de Prácticas de Certificación deberá documentar la arquitectu
 
 # 23. Cese de operaciones
 
-El cese deberá realizarse conforme a un plan aprobado por la Coordinación de Política Digital y el Consejo Técnico.
+El cese deberá realizarse conforme a un plan aprobado por el Titular de la Autoridad Certificadora, con revisión jurídica y técnica.
 
 El plan deberá contemplar avisos, estado de certificados, transferencia de servicios, conservación de registros y evidencias, operación posterior de OCSP o CRL, custodia de claves y protección de datos personales.
 
@@ -722,7 +721,7 @@ El acceso a la plataforma institucional estará reservado a personas servidoras 
 
 # 25. Aprobación, modificación, publicación y vigencia
 
-La presente Política deberá ser aprobada por la Coordinación de Política Digital y el Consejo Técnico.
+La presente Política deberá ser aprobada por el Titular de la Autoridad Certificadora, con revisión jurídica y técnica mientras no exista un órgano colegiado formalmente instalado con competencia aplicable.
 
 Las modificaciones sustantivas deberán someterse a la misma aprobación.
 

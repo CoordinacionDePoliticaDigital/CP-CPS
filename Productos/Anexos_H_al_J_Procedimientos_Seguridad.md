@@ -14,7 +14,7 @@
 4. **Pruebas y Simulacros:** Ejecución obligatoria de pruebas de recuperación y simulacros de failover entre zonas de disponibilidad.
 
 ## Anexo J. Procedimiento de Cese de Operaciones
-1. **Planeación:** Si la Autoridad de Certificación debe dejar de operar permanentemente, se redactará un plan detallado aprobado por el Consejo Técnico con meses de antelación.
+1. **Planeación:** Si la Autoridad de Certificación debe dejar de operar permanentemente, se redactará un plan detallado aprobado por el Titular de la Autoridad Certificadora, con revisión jurídica y técnica, con meses de antelación.
 2. **Aviso Público:** Publicación masiva anunciando la fecha límite de operación y emisión.
 3. **Revocación Masiva o Caducidad:** Decisión técnica sobre si revocar todos los certificados activos o dejarlos expirar de forma natural manteniendo vivo únicamente el servicio OCSP.
 4. **Custodia de Llaves y Destrucción:** Destrucción criptográfica segura de las claves privadas de la CA Raíz.

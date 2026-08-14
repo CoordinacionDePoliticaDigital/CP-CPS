@@ -1,7 +1,7 @@
 # Anexos consolidados A, K y L
 
 **Documento relacionado:** Política de Certificación CP-ACCHIH-001  
-**Versión del consolidado:** 1.2  
+**Versión del consolidado:** 1.0
 **Estado:** Documento derivado  
 **Fuente de verdad:** archivos individuales indicados en el manifiesto  
 
@@ -9,22 +9,30 @@
 
 ## Manifiesto de fuentes
 
-| Fuente autoritativa | SHA-256 |
+| Fuente autoritativa | SHA-256 normalizado UTF-8/LF |
 |---|---|
-| `Productos/Anexo_A_Perfil_Tecnico_Certificados.md` | `5b766e1e4352e6b922a26c83179eb4dc21c585c7bc41418848b75ab8d5a902d6` |
-| `Productos/Anexo_K_Perfil_PAdES.md` | `c88bdaa5930d082b12e76b9a98d9b5791e94e8fdb8e4e57451f390251c75a8c2` |
-| `Productos/Anexo_L_Politica_Sellado_Tiempo.md` | `d96f6a517518561d05fbe65b109b187578335cdc4eea14e54d380aef9c9a8408` |
+| `Productos/Anexo_A_Perfil_Tecnico_Certificados.md` | `33c54ceb2d5379343c20325b61a19b11c6715692af5c58a9d47ced5a7c084f97` |
+| `Productos/Anexo_K_Perfil_PAdES.md` | `51070e7241d3822b21a9342c4cf6aaf3b466838f6ed0c9f7adb1acb717157e0c` |
+| `Productos/Anexo_L_Politica_Sellado_Tiempo.md` | `ca783b32b256e19541087c7e6699a8414da9f453707c17cfc54d891645f118ba` |
 
 ---
 
 ## Anexo A. Perfil Técnico de Certificados
 
 **Documento relacionado:** Política de Certificación CP-ACCHIH-001  
-**Versión:** 1.3  
-**Estado:** Proyecto revisado  
+**Versión:** 1.0
+**Estado:** Vigente
+**Fecha de entrada en vigor:** 14 de agosto de 2026
 **IANA PEN:** `1.3.6.1.4.1.63888`  
 
 > Este documento distingue entre los perfiles desplegados actualmente y los perfiles objetivo para nuevas emisiones. Los certificados vigentes conservan las extensiones con las que fueron emitidos hasta su expiración o revocación; no deberán utilizarse como plantilla para nuevas emisiones cuando contradigan el perfil objetivo. La Declaración de Prácticas de Certificación deberá documentar la coexistencia, los controles compensatorios y el plan de transición.
+
+### Control de versiones
+
+| Versión | Fecha | Descripción del cambio | Responsable |
+|---|---:|---|---|
+| 1.0 | 14 de agosto de 2026 | Regularización del perfil técnico, catálogo de `Certificate Policies`, reglas de clasificación y transición. | Titular de la Autoridad Certificadora |
+| Borradores 1.1–1.3 | No vigentes | Iteraciones técnicas preservadas para trazabilidad; no constituyen versiones normativas aprobadas. | Coordinación de Política Digital |
 
 ### 1. Disposiciones generales
 
@@ -78,7 +86,7 @@ f) Cualquier finalidad distinta de la emisión de certificados y firma de listas
 
 La arquitectura objetivo permitirá una sola capa de autoridades intermedias subordinadas. Las autoridades intermedias podrán ser múltiples y operar como emisoras hermanas, pero no podrán emitir otras autoridades subordinadas.
 
-La transición desde la raíz emisora directa requerirá aprobación de la Coordinación de Política Digital y del Consejo Técnico, ceremonia de generación de claves, perfiles aprobados, publicación de la nueva cadena, pruebas de interoperabilidad, continuidad de OCSP y CRL, plan de coexistencia y actualización de la CPS.
+La transición desde la raíz emisora directa requerirá aprobación del Titular de la Autoridad Certificadora, con revisión jurídica y técnica, ceremonia de generación de claves, perfiles aprobados, publicación de la nueva cadena, pruebas de interoperabilidad, continuidad de OCSP y CRL, plan de coexistencia y actualización de la CPS.
 
 ### 3. Perfil de certificados de usuario final
 
@@ -160,8 +168,8 @@ Cualquier cambio que afecte la confianza, compatibilidad o validez de los certif
 ## Anexo K. Perfil PAdES Institucional
 
 **Documento relacionado:** Política de Certificación CP-ACCHIH-001  
-**Versión:** 1.2  
-**Estado:** Proyecto revisado  
+**Versión:** 1.0
+**Estado:** Vigente
 **IANA PEN:** `1.3.6.1.4.1.63888`  
 
 ### 1. Objeto
@@ -258,8 +266,8 @@ Una vez concluido el plazo de conservación de la plataforma, la eliminación so
 ## Anexo L. Política de Sellado de Tiempo
 
 **Documento relacionado:** Política de Certificación CP-ACCHIH-001  
-**Versión:** 1.2  
-**Estado:** Proyecto revisado  
+**Versión:** 1.0
+**Estado:** Vigente
 **IANA PEN:** `1.3.6.1.4.1.63888`  
 
 ### 1. Objeto y alcance

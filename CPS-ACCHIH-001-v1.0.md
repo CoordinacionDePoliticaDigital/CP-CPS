@@ -9,17 +9,17 @@
 
 **Clave del documento:** CPS-ACCHIH-001  
 **OID:** 1.3.6.1.4.1.63888.1.2  
-**Versión:** 1.2  
-**Estado:** Proyecto  
-**Fecha de emisión:** Pendiente de formalización  
-**Fecha de entrada en vigor:** Octubre 2024  
+**Versión:** 1.0
+**Estado:** Vigente
+**Fecha de emisión:** 14 de agosto de 2026
+**Fecha de entrada en vigor:** Operación documentada desde octubre de 2024; regularización documental vigente desde el 14 de agosto de 2026
 **Autoridad responsable:** Coordinación de Política Digital  
 **Autoridad emisora:** Autoridad de Certificación de Gobierno del Estado de Chihuahua  
 **Denominación institucional de difusión:** Autoridad Certificadora  
-**Órgano de aprobación:** Coordinación de Política Digital y Consejo Técnico  
+**Órgano de aprobación:** Titular de la Autoridad Certificadora, con revisión jurídica y técnica
 **Sitio de publicación:** autoridadcertificadora.chihuahua.gob.mx  
 **Apartado de publicación:** Normatividad Operativa  
-**Periodicidad de revisión:** Cuando existan cambios normativos, técnicos, operativos o de seguridad que lo ameriten, o por determinación de la Coordinación de Política Digital o del Consejo Técnico
+**Periodicidad de revisión:** Cuando existan cambios normativos, técnicos, operativos o de seguridad que lo ameriten, o por determinación de la Coordinación de Política Digital o del Titular de la Autoridad Certificadora
 
 ---
 
@@ -30,25 +30,24 @@
 | Nombre del documento | Declaración de Prácticas de Certificación de la Autoridad de Certificación de Gobierno del Estado de Chihuahua |
 | Clave | CPS-ACCHIH-001 |
 | OID | 1.3.6.1.4.1.63888.1.2 |
-| Versión | 1.2 |
-| Estado | Proyecto |
-| Fecha de emisión | Pendiente de formalización |
-| Fecha de entrada en vigor | Octubre 2024 |
+| Versión | 1.0 |
+| Estado | Vigente |
+| Fecha de emisión | 14 de agosto de 2026 |
+| Fecha de entrada en vigor | Operación documentada desde octubre de 2024; regularización documental vigente desde el 14 de agosto de 2026 |
 | Autoridad responsable | Coordinación de Política Digital |
 | Autoridad emisora | Autoridad de Certificación de Gobierno del Estado de Chihuahua |
 | Denominación institucional de difusión | Autoridad Certificadora |
-| Aprobación | Coordinación de Política Digital y Consejo Técnico |
+| Aprobación | Titular de la Autoridad Certificadora, con revisión jurídica y técnica |
 | Política asociada | CP-ACCHIH-001, OID 1.3.6.1.4.1.63888.1.1 |
 | Ubicación oficial de publicación | autoridadcertificadora.chihuahua.gob.mx, apartado Normatividad Operativa |
-| Periodicidad de revisión | Cuando existan cambios normativos, técnicos, operativos o de seguridad que lo ameriten, o por determinación de la Coordinación de Política Digital o del Consejo Técnico |
+| Periodicidad de revisión | Cuando existan cambios normativos, técnicos, operativos o de seguridad que lo ameriten, o por determinación de la Coordinación de Política Digital o del Titular de la Autoridad Certificadora |
 
 ## Historial de versiones
 
 | Versión | Fecha | Descripción del cambio | Responsable |
 |---|---:|---|---|
-| 1.0 | Octubre 2024 | Emisión inicial del documento | Coordinación de Política Digital |
-| 1.1 | Pendiente de formalización | Integración de información técnica y operativa derivada del despliegue inicial | Coordinación de Política Digital |
-| 1.2 | Pendiente de formalización | Alineación con la CP v1.2, perfiles vigentes y objetivo, CENAM, transición PKI y conservación | Coordinación de Política Digital |
+| 1.0 | 14 de agosto de 2026 | Regularización documental: integra el contenido técnico desarrollado durante la operación iniciada en octubre de 2024, sin afirmar aprobación histórica inexistente. | Titular de la Autoridad Certificadora |
+| Borradores 1.1–1.3 | No vigentes | Iteraciones técnicas preservadas para trazabilidad; no constituyen versiones normativas aprobadas. | Coordinación de Política Digital |
 
 ---
 
@@ -232,9 +231,9 @@ Los detalles normativos adicionales se regirán por los siguientes documentos co
 
 | Documento | Versión controlada | Fecha de entrada en vigor | Referencia de control de cambios |
 |---|---:|---|---|
-| Anexo A. Perfil Técnico de Certificados | 1.2 | Octubre 2024 | Historial y control documental del propio Anexo A |
-| Anexo K. Perfil PAdES Institucional | 1.2 | Octubre 2024 | Historial y control documental del propio Anexo K |
-| Anexo L. Política de Sellado de Tiempo | 1.2 | Octubre 2024 | Historial y control documental del propio Anexo L |
+| Anexo A. Perfil Técnico de Certificados | 1.0 | 14 de agosto de 2026 | Control documental del propio Anexo A |
+| Anexo K. Perfil PAdES Institucional | 1.0 | 14 de agosto de 2026 | Control documental del propio Anexo K |
+| Anexo L. Política de Sellado de Tiempo | 1.0 | 14 de agosto de 2026 | Control documental del propio Anexo L |
 
 Toda modificación de versión, fecha de entrada en vigor o regla normativa de cualquiera de estos anexos requerirá revisar y actualizar esta CPS, registrar el cambio en su historial y mantener sincronizadas las referencias anteriores antes de su publicación o aplicación productiva.
 
@@ -265,12 +264,12 @@ El parámetro operativo único de sincronización se controlará mediante la sig
 | Fuentes de contraste | Pendiente de aprobación técnica y operativa |
 | Acciones ante desviaciones | Pendiente de aprobación técnica y operativa |
 | Evidencias conservadas | Registros de medición, alertas, ajustes, incidentes y autorizaciones |
-| Autoridad aprobadora | Coordinación de Política Digital y Consejo Técnico |
+| Autoridad aprobadora | Titular de la Autoridad Certificadora, con revisión jurídica y técnica |
 | Fecha de entrada en vigor | No aplicable hasta su aprobación formal |
 
 La tolerancia no podrá aplicarse, publicarse ni declararse mientras la ficha no contenga un valor numérico aprobado, método de medición, frecuencia, fuentes de contraste, acciones ante desviaciones, versión vigente y fecha expresa de entrada en vigor. Hasta entonces, no deberá declararse una tolerancia numérica ni equivalencia metrológica no sustentada.
 
-Todo documento firmado mediante la plataforma institucional deberá incorporar sello de tiempo. Los perfiles PAdES se regirán por el Anexo K versión 1.2 y la política operativa de sellado por el Anexo L versión 1.2, ambos con fecha de entrada en vigor de octubre de 2024 y sujetos al control de cambios establecido en la sección 7.2.
+Todo documento firmado mediante la plataforma institucional deberá incorporar sello de tiempo. Los perfiles PAdES se regirán por el Anexo K versión 1.0 y la política operativa de sellado por el Anexo L versión 1.0, ambos sujetos al control de cambios establecido en la sección 7.2.
 
 ---
 
@@ -278,9 +277,9 @@ Todo documento firmado mediante la plataforma institucional deberá incorporar s
 
 La raíz emisora en línea vigente se reconoce como arquitectura transitoria con controles compensatorios de acceso, monitoreo, trazabilidad, separación de funciones, continuidad y respuesta a incidentes.
 
-La aceptación transitoria caducará en un plazo máximo de veinticuatro meses contado desde octubre de 2024, fecha de entrada en vigor de la CP v1.2. Al finalizar dicho plazo, la raíz vigente deberá haber dejado de emitir certificados nuevos, sin afectar la validación histórica de los certificados emitidos antes de su retiro.
+La aceptación transitoria caducará en un plazo máximo de veinticuatro meses contado desde la entrada en vigor operativa documentada de la CP v1.0. Al finalizar dicho plazo, la raíz vigente deberá haber dejado de emitir certificados nuevos, sin afectar la validación histórica de los certificados emitidos antes de su retiro.
 
-La Coordinación de Política Digital, por conducto de la unidad responsable de la Autoridad de Certificación, ejecutará y documentará la migración. El avance se revisará trimestralmente y se reportará al Consejo Técnico.
+La Coordinación de Política Digital, por conducto de la unidad responsable de la Autoridad de Certificación, ejecutará y documentará la migración. El avance se revisará trimestralmente y se reportará al Titular de la Autoridad Certificadora.
 
 El cese de emisión de la raíz vigente requerirá evidencia documentada de que:
 
@@ -289,11 +288,11 @@ b) El cien por ciento de los validadores críticos inventariados fue actualizado
 c) La continuidad de OCSP y CRL fue verificada mediante pruebas funcionales, de disponibilidad y de validación histórica;  
 d) La arquitectura vigente y la arquitectura objetivo coexistieron operativamente durante al menos noventa días naturales sin incidentes críticos atribuibles a la nueva cadena;  
 e) Se publicaron la nueva cadena, sus huellas, puntos de distribución, instrucciones de confianza y avisos a terceros confiantes; y  
-f) Las evidencias fueron revisadas por la unidad responsable de la Autoridad de Certificación y aprobadas por la Coordinación de Política Digital y el Consejo Técnico.
+f) Las evidencias fueron revisadas por la unidad responsable de la Autoridad de Certificación y aprobadas por el Titular de la Autoridad Certificadora, con revisión jurídica y técnica.
 
 La transición incluirá ceremonia de generación de claves, perfiles aprobados, publicación de la nueva cadena, pruebas de interoperabilidad, continuidad de OCSP y CRL, plan de coexistencia, inventario de dependencias, actualización de validadores, comunicación a terceros confiantes y procedimientos de retiro.
 
-Para dependencias o validadores que no hayan concluido su migración al vencimiento de los veinticuatro meses se aplicará un plan de contingencia documentado, sin extender la emisión de nuevos certificados desde la raíz vigente. Dicho plan podrá contemplar ventanas controladas de actualización, soporte prioritario, validadores puente, distribución extraordinaria de cadenas de confianza y restricciones temporales de operación. Cada excepción operativa deberá contar con responsable, análisis de riesgo, fecha límite, controles compensatorios y aprobación de la Coordinación de Política Digital; el Consejo Técnico recibirá seguimiento hasta su cierre.
+Para dependencias o validadores que no hayan concluido su migración al vencimiento de los veinticuatro meses se aplicará un plan de contingencia documentado, sin extender la emisión de nuevos certificados desde la raíz vigente. Dicho plan podrá contemplar ventanas controladas de actualización, soporte prioritario, validadores puente, distribución extraordinaria de cadenas de confianza y restricciones temporales de operación. Cada excepción operativa deberá contar con responsable, análisis de riesgo, fecha límite, controles compensatorios y aprobación del Titular de la Autoridad Certificadora, con revisión jurídica y técnica, hasta su cierre.
 
 ---
 

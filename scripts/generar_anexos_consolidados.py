@@ -18,7 +18,10 @@ SOURCES = (
 
 
 def digest(path: Path) -> str:
-    return hashlib.sha256(path.read_bytes()).hexdigest()
+    # Normaliza saltos de línea para que el manifiesto sea reproducible con
+    # checkout LF en CI y CRLF en estaciones Windows.
+    content = path.read_text(encoding="utf-8")
+    return hashlib.sha256(content.encode("utf-8")).hexdigest()
 
 
 def demote_title(text: str) -> str:
@@ -46,7 +49,7 @@ def render() -> str:
     return f"""# Anexos consolidados A, K y L
 
 **Documento relacionado:** Política de Certificación CP-ACCHIH-001  
-**Versión del consolidado:** 1.2  
+**Versión del consolidado:** 1.0
 **Estado:** Documento derivado  
 **Fuente de verdad:** archivos individuales indicados en el manifiesto  
 
@@ -54,7 +57,7 @@ def render() -> str:
 
 ## Manifiesto de fuentes
 
-| Fuente autoritativa | SHA-256 |
+| Fuente autoritativa | SHA-256 normalizado UTF-8/LF |
 |---|---|
 {manifest}
 

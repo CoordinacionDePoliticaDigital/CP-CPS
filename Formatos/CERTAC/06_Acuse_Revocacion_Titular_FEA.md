@@ -23,7 +23,7 @@ La **Autoridad de Certificación de Gobierno del Estado de Chihuahua**, identifi
 - Fecha y hora efectiva de revocación: {{FECHA_HORA_REVOCACION}}
 - Persona o proceso autorizado que ejecutó: {{EJECUTOR}}
 - Estado de publicación: {{ESTADO_PUBLICACION}}
-- Referencia de eventos de publicación u outbox, solo cuando la publicación esté pendiente: {{REFERENCIA_OUTBOX}} (No aplica si la publicación ya fue confirmada)
+- Referencia del evento de publicación u outbox, o del registro durable alterno autorizado cuando corresponda: {{REFERENCIA_EVENTO_PUBLICACION}} (No aplica si la publicación ya fue confirmada)
 - Fecha y hora de confirmación de publicación, cuando corresponda: {{FECHA_HORA_PUBLICACION}}
 
 La descripción de los hechos se obtiene de la solicitud directa CERTAC 05 mediante la correspondencia `{{DESCRIPCION_HECHOS}}`; la denominación normalizada se obtiene de `{{DENOMINACION_CAUSAL}}` conforme al catálogo vigente.
