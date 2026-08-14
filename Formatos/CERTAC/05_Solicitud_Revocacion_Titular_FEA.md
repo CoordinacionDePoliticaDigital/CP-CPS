@@ -16,12 +16,9 @@
 ## Certificado a revocar
 
 - Número de serie: {{NUMERO_SERIE}}
-- Clave normalizada de causal: {{CLAVE_CAUSAL}}
+- Clave de causal: {{CLAVE_CAUSAL}}
 - Denominación normalizada de causal: {{DENOMINACION_CAUSAL}}
 - Descripción de los hechos: {{DESCRIPCION_HECHOS}}
-- Documento o evidencia de soporte, cuando la causa lo requiera: {{REFERENCIA_SOPORTE}}
-
-Las causas que exijan evidencia corporativa, registral, judicial o administrativa deberán adjuntar o referenciar esa evidencia. Si no puede aportarse mediante esta modalidad, la solicitud se tramitará por revocación asistida.
 
 ## Declaración
 

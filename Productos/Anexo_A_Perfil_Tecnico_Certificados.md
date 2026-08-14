@@ -1,7 +1,7 @@
 # Anexo A. Perfil Técnico de Certificados
 
 **Documento relacionado:** Política de Certificación CP-ACCHIH-001  
-**Versión:** 1.3
+**Versión:** 1.3  
 **Estado:** Proyecto revisado  
 **Fecha de entrada en vigor:** Pendiente de formalización
 **IANA PEN:** `1.3.6.1.4.1.63888`  
@@ -105,7 +105,7 @@ Podrán utilizarse, conforme al tipo de titular:
 | `2.5.4.45` | Identificador único autorizado conforme al perfil institucional |
 | `E` o `emailAddress` | Correo electrónico |
 | `O` | Obligatorio en todos los certificados de persona física. Valor fijo: `Gobierno del Estado de Chihuahua`. |
-| `OU` | Se utilizará únicamente cuando exista adscripción institucional aplicable. En certificados de personas servidoras públicas contendrá la denominación oficial de la dependencia, entidad u organismo de adscripción; en certificados de representantes legales contendrá la denominación oficial de la persona moral representada únicamente cuando el perfil aprobado lo autorice y exista evidencia vigente de la representación; en certificados ciudadanos deberá omitirse. |
+| `OU` | Se utilizará únicamente cuando exista adscripción institucional aplicable. En certificados de personas servidoras públicas contendrá la denominación oficial de la dependencia, entidad u organismo de adscripción; en certificados de representantes legales contendrá la denominación oficial de la persona moral representada únicamente cuando el perfil aprobado lo autorice y exista evidencia vigente de representación; en certificados ciudadanos deberá omitirse. |
 | `L` | Localidad |
 | `S` | Entidad federativa |
 | `C` | País |
@@ -113,19 +113,7 @@ Podrán utilizarse, conforme al tipo de titular:
 
 La CPS deberá definir el mapeo exacto de CURP, RFC y otros identificadores, evitando duplicidades, ambigüedades y exposición innecesaria de datos personales.
 
-La clasificación normativa del perfil del certificado no dependerá del contenido textual del `Subject`, sino de la extensión `Certificate Policies`, mediante el OID institucional correspondiente al tipo de certificado emitido. Los sistemas validadores deberán utilizar dicho OID como criterio canónico de clasificación.
-
-El catálogo controlado de perfiles de persona física queda definido en este anexo bajo el arco institucional `1.3.6.1.4.1.63888.2`:
-
-| Perfil emitible | OID de `Certificate Policies` | Uso normativo |
-|---|---|---|
-| Persona ciudadana | `1.3.6.1.4.1.63888.2.1` | Certificado de firma electrónica avanzada emitido a una persona física ciudadana. |
-| Persona servidora pública | `1.3.6.1.4.1.63888.2.2` | Certificado de firma electrónica avanzada emitido a una persona física con adscripción institucional aplicable. |
-| Representante legal | `1.3.6.1.4.1.63888.2.3` | Certificado de firma electrónica avanzada emitido a una persona física que actúa como representante legal de una persona moral. |
-
-Cada certificado nuevo de los perfiles anteriores deberá incluir exactamente uno de los OID del catálogo, congruente con el perfil autorizado. Los OID `1.3.6.1.4.1.63888.1.1` (CP) y `1.3.6.1.4.1.63888.1.2` (CPS) identifican documentos normativos y no podrán utilizarse como políticas de certificado. Este catálogo forma parte del control de cambios de este anexo: todo perfil nuevo requerirá la asignación y aprobación previa de un OID bajo el arco `1.3.6.1.4.1.63888.2` antes de su emisión.
-
-Un certificado con `Certificate Policies` ausente, con un OID fuera del catálogo, con más de un OID del catálogo o con un OID incongruente con el perfil solicitado deberá rechazarse durante la validación o marcarse como no clasificable, sin clasificarse por el texto del `Subject`.
+La clasificación normativa del perfil del certificado no dependerá del contenido textual del `Subject`, sino de la extensión `Certificate Policies`, mediante el OID institucional correspondiente al tipo de certificado emitido. Para perfiles objetivo nuevos, los OID aprobados son: ciudadanía `1.3.6.1.4.1.63888.2.1`, persona servidora pública `1.3.6.1.4.1.63888.2.2` y representación legal `1.3.6.1.4.1.63888.2.3`. Los sistemas validadores deberán utilizar dicho OID como criterio canónico de clasificación; una política ausente, desconocida o incompatible deberá rechazarse o marcarse como no clasificable. Los certificados históricos o transitorios conservarán su ruta de validación hasta expirar o revocarse.
 
 ## 4. Certificados de infraestructura
 

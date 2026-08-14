@@ -30,15 +30,6 @@
 - Descripción de los hechos: {{DESCRIPCION_HECHOS}}
 - Documento o evidencia de soporte: {{REFERENCIA_SOPORTE}}
 
-## Causas adicionales, cuando existan
-
-Cada causa adicional deberá registrarse con clave y denominación normalizadas, descripción de hechos y referencia de evidencia. Este bloque es repetible por cada causa adicional.
-
-- Clave normalizada de causal adicional: {{CLAVE_CAUSAL_ADICIONAL}}
-- Denominación normalizada de causal adicional: {{DENOMINACION_CAUSAL_ADICIONAL}}
-- Descripción de los hechos adicionales: {{DESCRIPCION_HECHOS_ADICIONALES}}
-- Documento o evidencia de soporte adicional: {{REFERENCIA_SOPORTE_ADICIONAL}}
-
 ## Declaración de la persona o entidad iniciadora
 
 La persona o entidad iniciadora solicita expresamente la revocación definitiva del certificado identificado en este formato y declara que la información y documentación proporcionadas son completas y veraces. Esta declaración queda vinculada a su firma o constancia de autenticación y no sustituye la verificación independiente que corresponde al agente autorizado.
@@ -48,9 +39,15 @@ La persona o entidad iniciadora solicita expresamente la revocación definitiva 
 
 ## Verificación del agente
 
-El agente autorizado hace constar que identificó inequívocamente el certificado y verificó la identidad de la persona titular únicamente cuando corresponda al tipo de solicitante o al procedimiento. En todos los casos verificó la identidad o identificación institucional de quien inicia, así como su legitimidad, capacidad, mandato, autorización, representación o fundamento aplicable y la referencia documental correspondiente. Asimismo, cotejó la documentación y revisó los elementos que sustentan la causal indicada conforme a la Política de Certificación CP-ACCHIH-001, la Declaración de Prácticas de Certificación y la normatividad aplicable.
+El agente autorizado hace constar que identificó inequívocamente el certificado y verificó la identidad de la persona titular únicamente cuando corresponda al tipo de solicitante o procedimiento. En todos los casos verificó la identidad o identificación institucional de quien inicia, su legitimidad, capacidad, mandato, autorización, representación o fundamento aplicable y la referencia documental correspondiente. Asimismo, cotejó la documentación y revisó los elementos que sustentan la causal indicada conforme a la Política de Certificación CP-ACCHIH-001, la Declaración de Prácticas de Certificación y la normatividad aplicable.
 
-Para las causas 05, 07, 10 y 11, la ejecución solo podrá iniciar después de registrar la validación expresa de la Autoridad de Certificación o de la unidad competente designada, con su evidencia. La firma del agente no sustituye dicha validación.
+Para las causas 05, 07, 10 y 11, la ejecución solo podrá iniciar después de registrar la validación expresa de la Autoridad de Certificación o de la unidad competente designada. La firma del agente no sustituye dicha validación.
+
+- Unidad validadora: {{UNIDAD_VALIDADORA}}
+- Decisión de validación adicional: {{DECISION_VALIDACION_ADICIONAL}}
+- Fecha y hora de validación adicional: {{FECHA_HORA_VALIDACION_ADICIONAL}}
+- Firma o sello de validación adicional: {{FIRMA_VALIDACION_ADICIONAL}}
+- Referencia de evidencia o registro externo: {{REFERENCIA_VALIDACION_ADICIONAL}}
 
 - Unidad validadora: {{UNIDAD_VALIDADORA}}
 - Decisión de validación: {{DECISION_VALIDACION_ADICIONAL}}

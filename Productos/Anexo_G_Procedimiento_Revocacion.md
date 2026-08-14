@@ -117,11 +117,10 @@ Procederá cuando la persona titular:
 2. identifique el certificado;
 3. seleccione la causa normalizada;
 4. describa brevemente los hechos;
-5. adjunte o referencie la evidencia mínima exigible por la causa seleccionada cuando esta no sea `01_Solicitud_del_titular`;
-6. firme la solicitud con el certificado vigente;
-7. confirme el carácter definitivo e irreversible de la operación.
+5. firme la solicitud con el certificado vigente;
+6. confirme el carácter definitivo e irreversible de la operación.
 
-El sistema verificará la firma, la vigencia del certificado, su correspondencia con la persona titular, la integridad de la solicitud y la evidencia mínima exigible por la causa antes de ejecutar la revocación. Cuando la causa requiera evidencia corporativa, registral, judicial o administrativa que la persona titular no pueda aportar por este canal, el trámite deberá continuar mediante revocación asistida.
+El sistema verificará la firma, la vigencia del certificado, su correspondencia con la persona titular y la integridad de la solicitud antes de ejecutar la revocación.
 
 ### 5.2. Revocación asistida por agente autorizado
 
@@ -228,11 +227,9 @@ Antes de ejecutar, el sistema o agente deberá confirmar:
 - autorizaciones necesarias;
 - ausencia de errores materiales en número de serie o identidad;
 - rol vigente de la persona ejecutora;
-- disponibilidad del mecanismo durable de registro local y de la cola transaccional de publicación, o del canal alterno de continuidad autorizado que la sustituya.
+- disponibilidad del mecanismo durable de registro local y de la cola transaccional de publicación.
 
 Toda revocación asistida requerirá la firma electrónica avanzada de una persona con rol vigente de agente autorizado, incluida aquella iniciada por la propia Autoridad de Certificación o por una unidad competente. Las causas 05, 07, 10 y 11 requerirán además validación expresa de la Autoridad de Certificación o de la unidad competente designada.
-
-Si la cola transaccional u outbox no está disponible y la revocación es urgente, antes de iniciar la transacción deberá activarse un canal alterno de continuidad autorizado. Este canal deberá crear una reserva durable no publicable con estado pendiente de confirmación local, registrando su identificador idempotente, fecha y hora de reserva, responsable que lo autorizó y evidencia de activación. La fecha y hora efectiva no se asignará en la reserva: se asignará y persistirá únicamente en la transacción atómica que confirme la revocación local. Tras confirmar exitosamente la transacción, la reserva se promoverá a publicación pendiente y se vinculará con la fecha y hora efectiva definida al commit; ese registro sustituirá temporalmente al evento de outbox. La propagación externa por el canal alterno deberá iniciarse únicamente después de promover la reserva a publicación pendiente. Si el commit falla o no ocurre, la reconciliación deberá excluir la reserva. La indisponibilidad del outbox deberá documentarse como incidente y conciliarse posteriormente con el outbox sin alterar la fecha y hora efectiva ni duplicar la publicación.
 
 ## 12. Ejecución técnica
 
@@ -243,43 +240,38 @@ El sistema deberá:
 1. verificar nuevamente el estado del certificado;
 2. registrar la causa principal y las adicionales;
 3. registrar a la persona o proceso ejecutor;
-4. dentro de una misma transacción atómica, verificar mediante bloqueo o actualización compare-and-set por emisor y número de serie que el certificado no esté ya revocado; si ya está revocado, reutilizar la fecha efectiva y el evento de publicación existentes sin crear una nueva publicación, devolver el acuse existente o registrar idempotentemente su generación pendiente si este falta; si no está revocado, asignar y persistir la fecha y hora efectiva única, cambiar el estado local a revocado y registrar los eventos pendientes de publicación en una cola transaccional u outbox para OCSP y, cuando corresponda, CRL, o promover la reserva durable alterna a publicación pendiente cuando el outbox esté indisponible; la transacción solo deberá confirmarse si las tres operaciones y el vínculo con el evento de publicación quedan registrados satisfactoriamente, o si se comprueba que el certificado ya estaba revocado y se reutilizan sus eventos existentes;
+4. dentro de una misma transacción atómica, asignar y persistir la fecha y hora efectiva única, cambiar el estado local a revocado y registrar los eventos pendientes de publicación en una cola transaccional u outbox para OCSP y, cuando corresponda, CRL; la transacción solo deberá confirmarse si las tres operaciones quedan registradas satisfactoriamente;
 5. después de confirmar la transacción, construir e intentar la publicación o puesta a disposición del nuevo estado mediante OCSP utilizando esa misma fecha y hora;
 6. incorporar la revocación en la CRL correspondiente cuando aplique, utilizando esa misma fecha y hora;
 7. registrar el resultado de cada intento de publicación;
 8. impedir reactivación, modificación o reversión ordinaria.
 
-La fecha y hora efectiva será la asignada y persistida en la misma transacción atómica que confirme durablemente la revocación local y registre el evento de publicación pendiente. Una reserva durable alterna previa conservará exclusivamente su propia fecha y hora de reserva y se vinculará después con la fecha efectiva asignada al commit. Si la transacción no puede completar esos tres registros, no deberá confirmarse parcialmente. La publicación OCSP o CRL deberá reproducir ese mismo valor; los reintentos no podrán sustituirlo por una fecha posterior. Una fecha anterior contenida en una orden se conservará separadamente como metadato jurídico y no producirá retroactividad técnica.
+La fecha y hora efectiva será la asignada y persistida en la misma transacción atómica que confirme durablemente la revocación local y registre el evento de publicación pendiente. Si la transacción no puede completar esos tres registros, no deberá confirmarse parcialmente. La publicación OCSP o CRL deberá reproducir ese mismo valor; los reintentos no podrán sustituirlo por una fecha posterior. Una fecha anterior contenida en una orden se conservará separadamente como metadato jurídico y no producirá retroactividad técnica.
 
 ## 13. Verificación posterior
 
 Después de ejecutar deberá comprobarse:
 
+- respuesta OCSP con estado revocado;
 - correspondencia del número de serie;
 - causa y fecha registradas;
+- incorporación en CRL cuando corresponda;
 - integridad de bitácoras;
+- generación del acuse;
 - cierre o escalamiento de incidentes relacionados.
 
-Tras confirmar la publicación correspondiente, deberá comprobarse además:
+Si la publicación OCSP o CRL falla, la revocación local no deberá revertirse. El evento conservará el estado **publicación pendiente** en la cola transaccional u outbox y mantendrá la fecha y hora efectiva ya persistida. Deberá reintentarse automáticamente con identificador idempotente, incremento controlado de espera, límite de intentos antes de escalamiento y trazabilidad de cada resultado.
 
-- respuesta OCSP con estado revocado;
-- incorporación en CRL cuando corresponda;
-- generación del acuse definitivo.
-
-Mientras el estado sea **publicación pendiente**, la comprobación de la respuesta OCSP revocada y la incorporación en la CRL quedarán explícitamente diferidas, y no se emitirá el acuse definitivo.
-
-Si la publicación OCSP o CRL falla, la revocación local no deberá revertirse. El evento conservará el estado **publicación pendiente** en la cola transaccional u outbox o, mientras se reconcilia, en el registro durable alterno autorizado de la sección 11; mantendrá la fecha y hora efectiva ya persistida. Deberá reintentarse automáticamente con identificador idempotente, incremento controlado de espera, límite de intentos antes de escalamiento y trazabilidad de cada resultado. La reconciliación no podrá descartar el evento alterno ni crear una segunda publicación para el mismo identificador.
-
-Ante cualquier falla de publicación, los servicios institucionales deberán rechazar inmediatamente los usos nuevos o posteriores a la fecha y hora efectiva con base en el estado local durable, sin esperar a que OCSP o CRL reflejen la actualización. La validación de firmas o documentos generados antes de esa fecha deberá conservar la ruta histórica de la sección 16, evaluando sello de tiempo, integridad, cadena de confianza y estado histórico. Para toda revocación clasificada como urgente conforme a la sección 10, la primera falla activará además el mecanismo alterno autorizado de continuidad y la actualización externa por el canal alterno disponible, sin esperar a que se agote el límite ordinario de reintentos. Esta regla comprende, entre otros, compromiso o riesgo de la clave privada, suplantación o documentación falsa, uso indebido activo, órdenes de ejecución inmediata, compromiso de cuentas, dispositivos o sistemas y afectaciones potenciales a múltiples certificados, validadores o servicios. Para revocaciones no urgentes, el rechazo institucional será igualmente inmediato para usos nuevos o posteriores, mientras que los mecanismos alternos de propagación externa se activarán al agotarse el límite operativo. En todos los casos, el incidente permanecerá abierto hasta confirmar la publicación.
+Ante cualquier falla de publicación, los servicios institucionales deberán rechazar inmediatamente el certificado revocado con base en el estado local durable, sin esperar a que OCSP o CRL reflejen la actualización. Para toda revocación clasificada como urgente conforme a la sección 10, la primera falla activará además el mecanismo alterno autorizado de continuidad y la actualización externa por el canal alterno disponible, sin esperar a que se agote el límite ordinario de reintentos. Esta regla comprende, entre otros, compromiso o riesgo de la clave privada, suplantación o documentación falsa, uso indebido activo, órdenes de ejecución inmediata, compromiso de cuentas, dispositivos o sistemas y afectaciones potenciales a múltiples certificados, validadores o servicios. Para revocaciones no urgentes, el rechazo institucional será igualmente inmediato, mientras que los mecanismos alternos de propagación externa se activarán al agotarse el límite operativo. En todos los casos, el incidente permanecerá abierto hasta confirmar la publicación.
 
 ## 14. Acuse de revocación
 
-El acuse de revocación se generará cuando la revocación local haya quedado confirmada durablemente y exista fecha y hora efectiva persistida. Si OCSP o CRL aún no reflejan el nuevo estado, el acuse deberá indicar **publicación pendiente**, conservar la fecha y hora efectiva ya asignada e identificar los eventos de outbox relacionados o, mientras se reconcilia la continuidad, el identificador del registro durable alterno y su referencia idempotente; deberá actualizarse o complementarse cuando la publicación quede confirmada.
+El acuse de revocación se generará cuando la revocación local haya quedado confirmada durablemente y exista fecha y hora efectiva persistida. Si OCSP o CRL aún no reflejan el nuevo estado, el acuse deberá indicar **publicación pendiente**, conservar la fecha y hora efectiva ya asignada e identificar los eventos de outbox relacionados; deberá actualizarse o complementarse cuando la publicación quede confirmada.
 
 Deberá incluir, al menos:
 
 - folio;
-- identificación de la persona titular, cuando corresponda; para certificados de infraestructura deberá incluirse el identificador del activo o servicio, propietario institucional, unidad responsable y solicitante autorizado conforme a la sección 4.6;
+- identificación de la persona titular, cuando corresponda; para certificados de infraestructura deberá incluirse el identificador del activo o servicio, propietario institucional, unidad responsable, ambiente, autoridad emisora y solicitante autorizado conforme a la sección 4.6;
 - número de serie;
 - clave y denominación de la causa principal;
 - fecha y hora efectiva;

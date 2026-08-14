@@ -26,7 +26,9 @@ La **Autoridad de Certificación de Gobierno del Estado de Chihuahua**, identifi
 - Referencia de eventos de publicación u outbox, solo cuando la publicación esté pendiente: {{REFERENCIA_OUTBOX}} (No aplica si la publicación ya fue confirmada)
 - Fecha y hora de confirmación de publicación, cuando corresponda: {{FECHA_HORA_PUBLICACION}}
 
-La descripción de los hechos se obtiene de la solicitud directa CERTAC 05 mediante la correspondencia `{{DESCRIPCION_CAUSAL}}` -> `{{DESCRIPCION_HECHOS}}`; la denominación normalizada se obtiene de `{{CLAVE_CAUSAL}}` conforme al catálogo vigente.
+La descripción de los hechos se obtiene de la solicitud directa CERTAC 05 mediante la correspondencia `{{DESCRIPCION_HECHOS}}`; la denominación normalizada se obtiene de `{{DENOMINACION_CAUSAL}}` conforme al catálogo vigente.
+
+- Persona o proceso autorizado que ejecutó: {{EJECUTOR}}
 
 La revocación es definitiva e irreversible. El certificado queda invalidado para efectos de validación y no deberá ser aceptado para crear o verificar firmas posteriores a la fecha y hora efectiva indicada. Cuando el estado de publicación sea **pendiente**, este acuse acredita que la revocación local quedó confirmada durablemente y conserva la referencia de los eventos de publicación; deberá actualizarse o complementarse cuando OCSP y, en su caso, CRL reflejen el estado revocado. Las firmas realizadas previamente deberán evaluarse conforme a su fecha, sello de tiempo, integridad y estado histórico del certificado.
 
