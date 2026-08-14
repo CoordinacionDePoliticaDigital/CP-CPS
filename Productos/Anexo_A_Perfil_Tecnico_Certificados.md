@@ -4,6 +4,8 @@
 **Versión:** 1.0
 **Estado:** Vigente
 **Fecha de entrada en vigor:** 14 de agosto de 2026
+**Autoridad responsable:** Coordinación de Política Digital
+**Órgano de aprobación:** Titular de la Autoridad Certificadora, con revisión jurídica y técnica
 **IANA PEN:** `1.3.6.1.4.1.63888`  
 
 > Este documento distingue entre los perfiles desplegados actualmente y los perfiles objetivo para nuevas emisiones. Los certificados vigentes conservan las extensiones con las que fueron emitidos hasta su expiración o revocación; no deberán utilizarse como plantilla para nuevas emisiones cuando contradigan el perfil objetivo. La Declaración de Prácticas de Certificación deberá documentar la coexistencia, los controles compensatorios y el plan de transición.
@@ -12,8 +14,7 @@
 
 | Versión | Fecha | Descripción del cambio | Responsable |
 |---|---:|---|---|
-| 1.0 | 14 de agosto de 2026 | Regularización del perfil técnico, catálogo de `Certificate Policies`, reglas de clasificación y transición. | Titular de la Autoridad Certificadora |
-| Borradores 1.1–1.3 | No vigentes | Iteraciones técnicas preservadas para trazabilidad; no constituyen versiones normativas aprobadas. | Coordinación de Política Digital |
+| 1.0 | 14 de agosto de 2026 | Emisión inicial del perfil técnico controlado. | Titular de la Autoridad Certificadora |
 
 ## 1. Disposiciones generales
 

@@ -1,5 +1,12 @@
 # Anexo O. Formato de Solicitud de Revocación
 
+**Documento relacionado:** Política de Certificación CP-ACCHIH-001
+**Versión:** 1.0
+**Estado:** Vigente
+**Fecha de entrada en vigor:** 14 de agosto de 2026
+**Autoridad responsable:** Coordinación de Política Digital
+**Órgano de aprobación:** Titular de la Autoridad Certificadora, con revisión jurídica y técnica
+
 **Autoridad de Certificación de Gobierno del Estado de Chihuahua**  
 **Formato para Solicitud de Revocación de Firma Electrónica Avanzada**
 

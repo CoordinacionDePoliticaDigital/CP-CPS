@@ -1,5 +1,12 @@
 # Anexos D al G: Procedimientos Operativos (Alto Nivel)
 
+**Documento relacionado:** Política de Certificación CP-ACCHIH-001
+**Versión:** 1.0
+**Estado:** Vigente
+**Fecha de entrada en vigor:** 14 de agosto de 2026
+**Autoridad responsable:** Coordinación de Política Digital
+**Órgano de aprobación:** Titular de la Autoridad Certificadora, con revisión jurídica y técnica
+
 ## Anexo D. Procedimiento de Enrolamiento Presencial
 1. **Solicitud:** El solicitante agenda una cita o acude a una agencia registradora.
 2. **Presentación:** El solicitante presenta documentación original (INE/Pasaporte, comprobante de domicilio, CURP, RFC).

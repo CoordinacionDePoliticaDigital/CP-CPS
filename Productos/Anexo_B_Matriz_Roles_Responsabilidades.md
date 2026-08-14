@@ -1,5 +1,12 @@
 # Anexo B. Matriz de Roles y Responsabilidades
 
+**Documento relacionado:** Política de Certificación CP-ACCHIH-001
+**Versión:** 1.0
+**Estado:** Vigente
+**Fecha de entrada en vigor:** 14 de agosto de 2026
+**Autoridad responsable:** Coordinación de Política Digital
+**Órgano de aprobación:** Titular de la Autoridad Certificadora, con revisión jurídica y técnica
+
 El presente anexo describe los principales roles involucrados en la infraestructura de la Autoridad de Certificación y sus responsabilidades esenciales.
 
 | Rol | Responsabilidades Principales |

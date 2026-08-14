@@ -1,4 +1,12 @@
 # Anexo P. Términos y Condiciones de Uso
+
+**Documento relacionado:** Política de Certificación CP-ACCHIH-001
+**Versión:** 1.0
+**Estado:** Vigente
+**Fecha de entrada en vigor:** 14 de agosto de 2026
+**Autoridad responsable:** Coordinación de Política Digital
+**Órgano de aprobación:** Titular de la Autoridad Certificadora, con revisión jurídica
+
 *Nota: Este documento consolida las declaraciones y responsabilidades del titular derivadas de la "Firma Electrónica Avanzada del Estado de Chihuahua".*
 
 **Declaraciones preliminares:** Se reconoce el derecho que tienen las personas para interactuar con los órganos del Estado o entre sí, a través del uso de las herramientas tecnológicas y el deber que tienen tanto dichos entes, como la ciudadanía de respetar, proteger y garantizar el ejercicio de este derecho.

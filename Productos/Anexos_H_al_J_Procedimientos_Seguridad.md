@@ -1,5 +1,12 @@
 # Anexos H al J: Procedimientos de Seguridad y Continuidad (Alto Nivel)
 
+**Documento relacionado:** Política de Certificación CP-ACCHIH-001
+**Versión:** 1.0
+**Estado:** Vigente
+**Fecha de entrada en vigor:** 14 de agosto de 2026
+**Autoridad responsable:** Coordinación de Política Digital
+**Órgano de aprobación:** Titular de la Autoridad Certificadora, con revisión jurídica y técnica
+
 ## Anexo H. Procedimiento de Gestión de Incidentes
 1. **Detección y Registro:** Cualquier anomalía técnica, operativa o de seguridad se reporta al Oficial de Seguridad y se registra en el sistema de tickets.
 2. **Clasificación y Contención:** Se evalúa la criticidad (Baja, Media, Alta, Crítica). Si es crítico (ej. compromiso de claves), se aíslan los sistemas afectados de la red.

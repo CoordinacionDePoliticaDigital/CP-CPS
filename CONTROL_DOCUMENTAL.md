@@ -11,7 +11,7 @@ La línea documental controlada de la Autoridad de Certificación de Gobierno de
 | Anexos técnicos y operativos | Directorio `Productos/` |
 | Formatos operativos CERTAC | Directorio `Formatos/CERTAC/` |
 
-La fecha de regularización documental es el **14 de agosto de 2026**. La operación anterior desde octubre de 2024 se conserva únicamente como antecedente operativo declarado; no se usa para afirmar una aprobación documental anterior.
+La fecha de emisión inicial de la línea documental controlada es el **14 de agosto de 2026**. No existen versiones normativas anteriores a la 1.0. Los borradores de trabajo previos quedan preservados exclusivamente en la trazabilidad técnica de Git y no forman parte del historial normativo publicado.
 
 ## Aprobación y trazabilidad
 
